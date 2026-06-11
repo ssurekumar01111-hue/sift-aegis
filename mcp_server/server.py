@@ -18,7 +18,8 @@ from models import (
     RegistryRunKeyList, RegistryRunKey,
     MFTTimeline, MFTEntry,
     DLLList, DLLEntry,
-    MalfindEntry, MalfindResult
+    MalfindEntry, MalfindResult,
+    EVTXEntry, EVTXAnalysisResult
 )
 
 mcp = FastMCP("sift-aegis-forensics")
@@ -297,7 +298,16 @@ def extract_mft_timeline(
         return {"error": f"File not found: {filepath}"}
 
     evidence = get_evidence_metadata(filepath)
+    # Try timeliner first, fall back to mftparser
     raw = run_volatility("timeliner", filepath)
+    
+    # If timeliner returns < 5 lines, try mftparser
+    if len([l for l in raw.splitlines() if l.strip()]) < 5:
+        raw = run_volatility("windows.mftparser", filepath)
+    
+    # If still empty, try dumpfiles listing
+    if len([l for l in raw.splitlines() if l.strip()]) < 5:
+        raw = run_volatility("windows.filescan", filepath)
 
     entries = []
     for line in raw.splitlines():
@@ -318,6 +328,26 @@ def extract_mft_timeline(
             entries.append(entry)
         except (ValueError, IndexError):
             continue
+
+    # Fallback: parse filescan output if entries is empty
+    if not entries:
+        for line in raw.splitlines():
+            parts = line.split()
+            if len(parts) >= 3 and parts[0].startswith("0x"):
+                try:
+                    entry = MFTEntry(
+                        inode=parts[0],
+                        filename=parts[-1] if parts[-1] != "N/A" else "unknown",
+                        file_path=parts[-1],
+                        created=None,
+                        modified=None,
+                        accessed=None,
+                        size=0,
+                        flags="filescan"
+                    )
+                    entries.append(entry)
+                except (ValueError, IndexError):
+                    continue
 
     result = MFTTimeline(
         evidence=evidence,
@@ -455,6 +485,90 @@ def get_malfind(memory_image: str) -> dict:
         entries=entries,
         total_count=len(entries),
         suspicious_pids=list(suspicious_pids)
+    )
+    return result.model_dump()
+
+@mcp.tool()
+def get_evtx_events(memory_image: str) -> dict:
+    """
+    Read-only. Extracts Windows Event Log entries from memory.
+    Flags security-relevant event IDs: 4624 (logon), 4625 (failed logon),
+    4688 (process creation), 4698 (scheduled task), 7045 (service install).
+    """
+    filepath = os.path.join(CASES_DIR, memory_image)
+    if not os.path.exists(filepath):
+        return {"error": f"File not found: {filepath}"}
+
+    evidence = get_evidence_metadata(filepath)
+    raw = run_volatility("windows.evtlogs.EvtLogs", filepath)
+    
+    # Also try alternative plugin name
+    if "Error" in raw or len(raw.strip()) < 10:
+        raw = run_volatility("windows.evtlogs", filepath)
+
+    suspicious_event_ids = [
+        4624, 4625, 4648, 4688, 4698, 4702, 
+        4720, 4726, 7045, 1102, 104
+    ]
+    
+    entries = []
+    suspicious = []
+
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line or line.startswith("Volatility"):
+            continue
+        parts = line.split("|") if "|" in line else line.split()
+        try:
+            # Try to extract event ID
+            event_id = 0
+            for part in parts:
+                part = part.strip()
+                if part.isdigit() and 100 <= int(part) <= 9999:
+                    event_id = int(part)
+                    break
+            
+            if event_id == 0:
+                continue
+                
+            is_suspicious = event_id in suspicious_event_ids
+            descriptions = {
+                4624: "Successful logon",
+                4625: "Failed logon attempt",
+                4648: "Logon with explicit credentials",
+                4688: "Process creation",
+                4698: "Scheduled task created",
+                4702: "Scheduled task updated",
+                4720: "User account created",
+                4726: "User account deleted",
+                7045: "New service installed",
+                1102: "Audit log cleared",
+                104: "System log cleared"
+            }
+            
+            entry = EVTXEntry(
+                event_id=event_id,
+                timestamp=parts[0] if len(parts) > 0 else None,
+                source=parts[1] if len(parts) > 1 else "unknown",
+                level="WARNING" if is_suspicious else "INFO",
+                description=descriptions.get(event_id, f"Event {event_id}"),
+                suspicious=is_suspicious,
+                reason=f"Security-relevant event ID {event_id}" if is_suspicious else None
+            )
+            entries.append(entry)
+            if is_suspicious:
+                suspicious.append(entry)
+        except (ValueError, IndexError):
+            continue
+
+    result = EVTXAnalysisResult(
+        evidence=evidence,
+        entries=entries[:200],
+        total_count=len(entries),
+        suspicious_count=len(suspicious),
+        suspicious_event_ids=list(set(
+            e.event_id for e in suspicious
+        ))
     )
     return result.model_dump()
 

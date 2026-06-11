@@ -15,7 +15,7 @@ from mcp_bridge import MCPBridge
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
 MAX_ITERATIONS = 3
-CONFIDENCE_THRESHOLD = 0.90
+CONFIDENCE_THRESHOLD = 0.95
 
 @dataclass
 class Finding:
@@ -93,8 +93,7 @@ class SIFTAEGISOrchestrator:
         return round(base, 2)
     
     def classify_finding(self, finding: Finding) -> str:
-        """Classify finding status based on confidence and artifacts."""
-        if finding.confidence >= 0.85 and len(finding.supporting_artifacts) >= 2:
+        if finding.confidence >= 0.90 and len(finding.supporting_artifacts) >= 2:
             return "CONFIRMED"
         elif finding.confidence >= 0.65:
             return "INFERRED"
@@ -241,6 +240,40 @@ class SIFTAEGISOrchestrator:
                     "description": finding.description,
                     "confidence": finding.confidence
                 })
+
+        # EVTX Event Log Analysis
+        self.log("ANALYST_REASONING", {
+            "step": "evtx_analysis",
+            "reasoning": "Checking Windows Event Logs — process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.",
+            "tool_chosen": "get_evtx_events",
+            "expected": "Normal system events — scheduled tasks, service starts",
+            "looking_for": "Event 4688 process creation matching suspicious PIDs, event 1102 log clearing"
+        })
+        
+        evtx_result = self.run_tool_logged(
+            "get_evtx_events",
+            memory_image=MEMORY_IMAGE
+        )
+        
+        if evtx_result.get("suspicious_count", 0) > 0:
+            for event in evtx_result.get("entries", []):
+                if event.get("suspicious"):
+                    finding = Finding(
+                        id=f"EVT-{event['event_id']}-{event.get('timestamp','')[:10]}",
+                        category="Suspicious Event Log",
+                        description=f"Security event {event['event_id']}: {event['description']}",
+                        confidence=0.70,
+                        status="UNVERIFIED",
+                        supporting_artifacts=[
+                            f"evtx:event_id:{event['event_id']}",
+                            f"evtx:source:{event.get('source','unknown')}"
+                        ],
+                        contradictions=[],
+                        iteration_found=self.state.iteration,
+                        tool_source="get_evtx_events",
+                        raw_data=event
+                    )
+                    findings.append(finding)
 
         
         self.log("PHASE_END", {
@@ -461,7 +494,7 @@ class SIFTAEGISOrchestrator:
                             finding.supporting_artifacts.append(
                                 "self_correction:process_reconfirmed"
                             )
-                            finding.confidence = min(finding.confidence + 0.15, 1.0)
+                            finding.confidence = min(finding.confidence + 0.20, 1.0)
                         self.state.corrections_made += 1
             
             elif finding.category == "Suspicious Network Connection":
@@ -479,7 +512,7 @@ class SIFTAEGISOrchestrator:
                     finding.supporting_artifacts.append(
                         "self_correction:network_reconfirmed"
                     )
-                    finding.confidence = min(finding.confidence + 0.15, 1.0)
+                    finding.confidence = min(finding.confidence + 0.20, 1.0)
                     self.state.corrections_made += 1
                 else:
                     finding.status = "REJECTED"
@@ -557,7 +590,7 @@ class SIFTAEGISOrchestrator:
             # Check if all findings are resolved
             unresolved = [
                 f for f in all_findings 
-                if f.status == "UNVERIFIED"
+                if f.status in ["UNVERIFIED", "INFERRED"] and f.confidence < CONFIDENCE_THRESHOLD
             ]
             
             self.log("ITERATION_END", {

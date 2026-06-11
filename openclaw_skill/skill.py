@@ -17,7 +17,8 @@ from server import (
     get_registry_run_keys,
     get_dll_list,
     get_malfind,
-    extract_mft_timeline
+    extract_mft_timeline,
+    get_evtx_events
 )
 
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
@@ -30,6 +31,7 @@ TOOL_MAP = {
     "malfind": lambda: get_malfind(MEMORY_IMAGE),
     "dll_list": lambda pid="3908": get_dll_list(MEMORY_IMAGE, int(pid)),
     "mft_timeline": lambda: extract_mft_timeline(DISK_IMAGE),
+    "evtx_events": lambda: get_evtx_events(MEMORY_IMAGE),
 }
 
 def run_forensic_tool(tool_name: str, param: str = "") -> str:
@@ -46,7 +48,8 @@ def run_forensic_tool(tool_name: str, param: str = "") -> str:
             "total_count": result.get("total_count", 0),
             "suspicious_count": result.get("suspicious_count",
                 len(result.get("suspicious_connections", [])) or
-                len(result.get("suspicious_pids", []))),
+                len(result.get("suspicious_pids", [])) or
+                result.get("suspicious_count", 0)),
             "sha256_verified": result.get("evidence", {}).get("verified", False),
             "key_findings": []
         }
@@ -68,6 +71,11 @@ def run_forensic_tool(tool_name: str, param: str = "") -> str:
                 if k.get("suspicious"):
                     summary["key_findings"].append(
                         f"{k['value_name']} -> {k['value_data']}")
+        elif tool_name == "evtx_events":
+            for e in result.get("entries", []):
+                if e.get("suspicious"):
+                    summary["key_findings"].append(
+                        f"Event {e['event_id']}: {e['description']} ({e.get('timestamp','')})")
         return json.dumps(summary, indent=2)
     except Exception as e:
         return json.dumps({"error": str(e), "tool": tool_name})

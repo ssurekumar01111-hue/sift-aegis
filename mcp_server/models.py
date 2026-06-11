@@ -108,3 +108,19 @@ class MalfindResult(BaseModel):
     entries: list[MalfindEntry]
     total_count: int
     suspicious_pids: list[int]
+
+class EVTXEntry(BaseModel):
+    event_id: int
+    timestamp: Optional[str]
+    source: str
+    level: str
+    description: str
+    suspicious: bool
+    reason: Optional[str]
+
+class EVTXAnalysisResult(BaseModel):
+    evidence: EvidenceMetadata
+    entries: list[EVTXEntry]
+    total_count: int
+    suspicious_count: int
+    suspicious_event_ids: list[int]

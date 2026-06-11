@@ -19,7 +19,8 @@ from server import (
     get_registry_run_keys,
     extract_mft_timeline,
     get_dll_list,
-    get_malfind
+    get_malfind,
+    get_evtx_events
 )
 
 class MCPBridge:
@@ -39,6 +40,7 @@ class MCPBridge:
             "extract_mft_timeline": extract_mft_timeline,
             "get_dll_list": get_dll_list,
             "get_malfind": get_malfind,
+            "get_evtx_events": get_evtx_events,
         }
         if tool_name not in tools:
             return {"error": f"Unknown tool: {tool_name}"}
