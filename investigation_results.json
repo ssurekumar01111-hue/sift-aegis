@@ -4,8 +4,8 @@
       "id": "MEM-3908",
       "category": "Suspicious Process",
       "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship",
-      "confidence": 0.85,
-      "status": "CONFIRMED",
+      "confidence": 0.75,
+      "status": "INFERRED",
       "supporting_artifacts": [
         "pslist:PID:3908",
         "self_correction:dll_verification:PID:3908",
@@ -23,8 +23,8 @@
       "id": "MEM-2160",
       "category": "Suspicious Process",
       "description": "Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship",
-      "confidence": 0.85,
-      "status": "CONFIRMED",
+      "confidence": 0.75,
+      "status": "INFERRED",
       "supporting_artifacts": [
         "pslist:PID:2160",
         "self_correction:dll_verification:PID:2160",
@@ -42,7 +42,7 @@
       "id": "MAL-924-0x850000",
       "category": "Code Injection",
       "description": "Injected code detected in csrss.exe (PID 924) at 0x850000 \u2014 protection: Vad",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:924",
@@ -67,7 +67,7 @@
       "id": "MAL-924-0xbd0000",
       "category": "Code Injection",
       "description": "Injected code detected in csrss.exe (PID 924) at 0xbd0000 \u2014 protection: Vad",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:924",
@@ -92,7 +92,7 @@
       "id": "MAL-924-0x7f6f0000",
       "category": "Code Injection",
       "description": "Injected code detected in csrss.exe (PID 924) at 0x7f6f0000 \u2014 protection: Vad",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:924",
@@ -117,7 +117,7 @@
       "id": "MAL-948-0x5c0000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x5c0000 \u2014 protection: Vad",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -142,7 +142,7 @@
       "id": "MAL-948-0x20e90000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x20e90000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -167,7 +167,7 @@
       "id": "MAL-948-0x4090000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x4090000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -192,7 +192,7 @@
       "id": "MAL-948-0xc120000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0xc120000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -217,7 +217,7 @@
       "id": "MAL-948-0x27a10000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x27a10000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -242,7 +242,7 @@
       "id": "MAL-948-0x2fd20000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x2fd20000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -267,7 +267,7 @@
       "id": "MAL-948-0x29130000",
       "category": "Code Injection",
       "description": "Injected code detected in winlogon.exe (PID 948) at 0x29130000 \u2014 protection: VadS",
-      "confidence": 0.87,
+      "confidence": 1.0,
       "status": "CONFIRMED",
       "supporting_artifacts": [
         "malfind:PID:948",
@@ -291,17 +291,17 @@
   ],
   "audit_log": [
     {
-      "timestamp": "2026-06-11T11:48:32.091669",
+      "timestamp": "2026-06-11T12:04:53.528356",
       "iteration": 0,
       "event": "INVESTIGATION_START",
       "data": {
         "memory_image": "charlie-2009-11-17.mddramimage",
         "disk_image": "charlie-2009-12-11.E01",
-        "max_iterations": 4
+        "max_iterations": 3
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:32.091724",
+      "timestamp": "2026-06-11T12:04:53.528395",
       "iteration": 1,
       "event": "ITERATION_START",
       "data": {
@@ -309,7 +309,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:32.091777",
+      "timestamp": "2026-06-11T12:04:53.528421",
       "iteration": 1,
       "event": "PHASE_START",
       "data": {
@@ -317,7 +317,19 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:32.091807",
+      "timestamp": "2026-06-11T12:04:53.528439",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "process_analysis",
+        "reasoning": "Starting with process list \u2014 memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.",
+        "tool_chosen": "get_process_list",
+        "expected": "Normal Windows process tree with services.exe, svchost.exe hierarchy",
+        "looking_for": "Processes spawned from unexpected parents, known malicious names, orphaned processes"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:04:53.528460",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -328,7 +340,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:37.024310",
+      "timestamp": "2026-06-11T12:05:05.502069",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -338,27 +350,39 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:37.024418",
+      "timestamp": "2026-06-11T12:05:05.502347",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
         "id": "MEM-3908",
         "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship",
-        "confidence": 0.7
+        "confidence": 0.6
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:37.024451",
+      "timestamp": "2026-06-11T12:05:05.502409",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
         "id": "MEM-2160",
         "description": "Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship",
-        "confidence": 0.7
+        "confidence": 0.6
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:37.024470",
+      "timestamp": "2026-06-11T12:05:05.502439",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "network_analysis",
+        "reasoning": "Checking network connections after process analysis \u2014 if suspicious process has external connection, that is strong C2 indicator.",
+        "tool_chosen": "get_network_connections",
+        "expected": "Local connections only for a corporate workstation",
+        "looking_for": "External IPs, unusual ports, connections from suspicious PIDs"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:05:05.502540",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -369,7 +393,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:42.180124",
+      "timestamp": "2026-06-11T12:05:18.415480",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -379,7 +403,19 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:42.180175",
+      "timestamp": "2026-06-11T12:05:18.415540",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "persistence_analysis",
+        "reasoning": "Checking registry Run keys \u2014 common persistence mechanism. Malware writes here to survive reboot.",
+        "tool_chosen": "get_registry_run_keys",
+        "expected": "Legitimate software entries pointing to Program Files",
+        "looking_for": "Entries pointing to temp dirs, encoded paths, unusual executables"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:05:18.415787",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -390,7 +426,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:45.221377",
+      "timestamp": "2026-06-11T12:05:25.128332",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -400,7 +436,19 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:45.221436",
+      "timestamp": "2026-06-11T12:05:25.128402",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "injection_detection",
+        "reasoning": "Running malfind after process analysis \u2014 code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs found earlier.",
+        "tool_chosen": "get_malfind",
+        "expected": "Clean memory regions for all processes",
+        "looking_for": "PAGE_EXECUTE_READWRITE regions, VAD anomalies, shellcode indicators"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:05:25.128444",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -411,7 +459,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715816",
+      "timestamp": "2026-06-11T12:05:59.635552",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -421,7 +469,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715885",
+      "timestamp": "2026-06-11T12:05:59.635629",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -431,7 +479,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715910",
+      "timestamp": "2026-06-11T12:05:59.635650",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -441,7 +489,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715926",
+      "timestamp": "2026-06-11T12:05:59.635662",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -451,7 +499,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715940",
+      "timestamp": "2026-06-11T12:05:59.635670",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -461,7 +509,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715954",
+      "timestamp": "2026-06-11T12:05:59.635678",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -471,7 +519,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715965",
+      "timestamp": "2026-06-11T12:05:59.635687",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -481,7 +529,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715977",
+      "timestamp": "2026-06-11T12:05:59.635695",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -491,7 +539,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715989",
+      "timestamp": "2026-06-11T12:05:59.635702",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -501,7 +549,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.716000",
+      "timestamp": "2026-06-11T12:05:59.635710",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -511,7 +559,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.716012",
+      "timestamp": "2026-06-11T12:05:59.635717",
       "iteration": 1,
       "event": "FINDING_DETECTED",
       "data": {
@@ -521,7 +569,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.716023",
+      "timestamp": "2026-06-11T12:05:59.635726",
       "iteration": 1,
       "event": "PHASE_END",
       "data": {
@@ -530,7 +578,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.716065",
+      "timestamp": "2026-06-11T12:05:59.635978",
       "iteration": 1,
       "event": "PHASE_START",
       "data": {
@@ -538,7 +586,19 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.716081",
+      "timestamp": "2026-06-11T12:05:59.636050",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "dll_analysis",
+        "reasoning": "Deep diving PID 2160 \u2014 checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.",
+        "tool_chosen": "get_dll_list",
+        "expected": "DLLs loaded from System32 or Program Files",
+        "looking_for": "DLLs from temp, appdata, or unusual paths indicating DLL hijacking"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:05:59.636075",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -550,7 +610,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:06.160455",
+      "timestamp": "2026-06-11T12:06:02.950061",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -560,7 +620,19 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:06.160485",
+      "timestamp": "2026-06-11T12:06:02.950110",
+      "iteration": 1,
+      "event": "ANALYST_REASONING",
+      "data": {
+        "step": "dll_analysis",
+        "reasoning": "Deep diving PID 3908 \u2014 checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.",
+        "tool_chosen": "get_dll_list",
+        "expected": "DLLs loaded from System32 or Program Files",
+        "looking_for": "DLLs from temp, appdata, or unusual paths indicating DLL hijacking"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:06:02.950136",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -572,7 +644,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032136",
+      "timestamp": "2026-06-11T12:06:06.008574",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -582,18 +654,74 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032271",
+      "timestamp": "2026-06-11T12:06:06.008683",
       "iteration": 1,
       "event": "PHASE_END",
       "data": {
         "phase": "correlation",
         "confirmed": 10,
-        "inferred": 2,
-        "unverified": 0
+        "inferred": 0,
+        "unverified": 2
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032317",
+      "timestamp": "2026-06-11T12:06:06.008864",
+      "iteration": 1,
+      "event": "PHASE_START",
+      "data": {
+        "phase": "disk_correlation"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:06:06.008893",
+      "iteration": 1,
+      "event": "TOOL_CALL",
+      "data": {
+        "tool": "extract_mft_timeline",
+        "args": {
+          "disk_image": "charlie-2009-12-11.E01"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:26.007238",
+      "iteration": 1,
+      "event": "TOOL_RESULT",
+      "data": {
+        "tool": "extract_mft_timeline",
+        "total": 1,
+        "suspicious": 0
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:26.011044",
+      "iteration": 1,
+      "event": "MFT_ENTRIES_LOADED",
+      "data": {
+        "count": 1,
+        "disk_image": "charlie-2009-12-11.E01"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:26.011930",
+      "iteration": 1,
+      "event": "DISK_CORRELATION_RESULT",
+      "data": {
+        "result": "No direct matches between disk MFT and memory findings",
+        "note": "Disk and memory artifacts are consistent \u2014 no contradictions found"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:26.012537",
+      "iteration": 1,
+      "event": "PHASE_END",
+      "data": {
+        "phase": "disk_correlation",
+        "corroborations_found": 0
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:26.013451",
       "iteration": 1,
       "event": "PHASE_START",
       "data": {
@@ -601,7 +729,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032355",
+      "timestamp": "2026-06-11T12:08:26.013659",
       "iteration": 1,
       "event": "SELF_CORRECTION_TARGETS",
       "data": {
@@ -613,17 +741,17 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032389",
+      "timestamp": "2026-06-11T12:08:26.013714",
       "iteration": 1,
       "event": "SELF_CORRECTION_START",
       "data": {
         "finding_id": "MEM-3908",
-        "current_confidence": 0.7,
+        "current_confidence": 0.6,
         "reason": "Below confidence threshold, re-investigating"
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032428",
+      "timestamp": "2026-06-11T12:08:26.014302",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -635,7 +763,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:12.914587",
+      "timestamp": "2026-06-11T12:08:52.640563",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -645,7 +773,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:12.914666",
+      "timestamp": "2026-06-11T12:08:52.640967",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -656,7 +784,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:19.193741",
+      "timestamp": "2026-06-11T12:09:04.553938",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -666,27 +794,27 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:19.193823",
+      "timestamp": "2026-06-11T12:09:04.554354",
       "iteration": 1,
       "event": "SELF_CORRECTION_RESULT",
       "data": {
         "finding_id": "MEM-3908",
-        "new_confidence": 0.85,
-        "new_status": "CONFIRMED"
+        "new_confidence": 0.75,
+        "new_status": "INFERRED"
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:19.193850",
+      "timestamp": "2026-06-11T12:09:04.556248",
       "iteration": 1,
       "event": "SELF_CORRECTION_START",
       "data": {
         "finding_id": "MEM-2160",
-        "current_confidence": 0.7,
+        "current_confidence": 0.6,
         "reason": "Below confidence threshold, re-investigating"
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:19.193870",
+      "timestamp": "2026-06-11T12:09:04.556482",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -698,7 +826,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:22.373431",
+      "timestamp": "2026-06-11T12:09:09.299033",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -708,7 +836,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:22.374819",
+      "timestamp": "2026-06-11T12:09:09.299086",
       "iteration": 1,
       "event": "TOOL_CALL",
       "data": {
@@ -719,7 +847,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.581885",
+      "timestamp": "2026-06-11T12:09:18.611460",
       "iteration": 1,
       "event": "TOOL_RESULT",
       "data": {
@@ -729,17 +857,17 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.582130",
+      "timestamp": "2026-06-11T12:09:18.611697",
       "iteration": 1,
       "event": "SELF_CORRECTION_RESULT",
       "data": {
         "finding_id": "MEM-2160",
-        "new_confidence": 0.85,
-        "new_status": "CONFIRMED"
+        "new_confidence": 0.75,
+        "new_status": "INFERRED"
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.582194",
+      "timestamp": "2026-06-11T12:09:18.611754",
       "iteration": 1,
       "event": "PHASE_END",
       "data": {
@@ -748,20 +876,34 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.582244",
+      "timestamp": "2026-06-11T12:09:18.632242",
+      "iteration": 1,
+      "event": "ITERATION_ACCURACY",
+      "data": {
+        "iteration": 1,
+        "total": 12,
+        "confirmed": 10,
+        "inferred": 2,
+        "unverified": 0,
+        "rejected": 0,
+        "accuracy_score": 0.833
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:09:18.632619",
       "iteration": 1,
       "event": "ITERATION_END",
       "data": {
         "iteration": 1,
         "total_findings": 12,
-        "confirmed": 12,
-        "inferred": 0,
+        "confirmed": 10,
+        "inferred": 2,
         "unverified": 0,
         "rejected": 0
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.582261",
+      "timestamp": "2026-06-11T12:09:18.632872",
       "iteration": 1,
       "event": "INVESTIGATION_CONVERGED",
       "data": {
@@ -770,11 +912,11 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.582274",
+      "timestamp": "2026-06-11T12:09:18.632921",
       "iteration": 1,
       "event": "INVESTIGATION_COMPLETE",
       "data": {
-        "total_tool_calls": 10,
+        "total_tool_calls": 11,
         "total_corrections": 2,
         "final_findings": 12
       }
@@ -782,7 +924,7 @@
   ],
   "tool_calls": [
     {
-      "timestamp": "2026-06-11T11:48:37.024279",
+      "timestamp": "2026-06-11T12:05:05.501962",
       "iteration": 1,
       "tool": "get_process_list",
       "args": {
@@ -795,7 +937,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:42.180101",
+      "timestamp": "2026-06-11T12:05:18.415399",
       "iteration": 1,
       "tool": "get_network_connections",
       "args": {
@@ -808,7 +950,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:48:45.221355",
+      "timestamp": "2026-06-11T12:05:25.128284",
       "iteration": 1,
       "tool": "get_registry_run_keys",
       "args": {
@@ -821,7 +963,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:03.715797",
+      "timestamp": "2026-06-11T12:05:59.635525",
       "iteration": 1,
       "tool": "get_malfind",
       "args": {
@@ -834,7 +976,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:06.160439",
+      "timestamp": "2026-06-11T12:06:02.950025",
       "iteration": 1,
       "tool": "get_dll_list",
       "args": {
@@ -848,7 +990,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:09.032110",
+      "timestamp": "2026-06-11T12:06:06.008545",
       "iteration": 1,
       "tool": "get_dll_list",
       "args": {
@@ -862,7 +1004,20 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:12.914553",
+      "timestamp": "2026-06-11T12:08:26.006432",
+      "iteration": 1,
+      "tool": "extract_mft_timeline",
+      "args": {
+        "disk_image": "charlie-2009-12-11.E01"
+      },
+      "result_summary": {
+        "total_count": 1,
+        "suspicious_count": 0,
+        "sha256": "7f4ae8676e28ed76..."
+      }
+    },
+    {
+      "timestamp": "2026-06-11T12:08:52.640410",
       "iteration": 1,
       "tool": "get_dll_list",
       "args": {
@@ -876,7 +1031,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:19.193718",
+      "timestamp": "2026-06-11T12:09:04.553876",
       "iteration": 1,
       "tool": "get_process_list",
       "args": {
@@ -889,7 +1044,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:22.373397",
+      "timestamp": "2026-06-11T12:09:09.299000",
       "iteration": 1,
       "tool": "get_dll_list",
       "args": {
@@ -903,7 +1058,7 @@
       }
     },
     {
-      "timestamp": "2026-06-11T11:49:28.581859",
+      "timestamp": "2026-06-11T12:09:18.611409",
       "iteration": 1,
       "tool": "get_process_list",
       "args": {
@@ -916,14 +1071,30 @@
       }
     }
   ],
+  "accuracy_delta": {
+    "iteration_1_accuracy": 0.833,
+    "final_accuracy": 0.833,
+    "improvement": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "total": 12,
+        "confirmed": 10,
+        "inferred": 2,
+        "unverified": 0,
+        "rejected": 0,
+        "accuracy_score": 0.833
+      }
+    ]
+  },
   "summary": {
     "total_findings": 12,
-    "confirmed": 12,
-    "inferred": 0,
+    "confirmed": 10,
+    "inferred": 2,
     "unverified": 0,
     "rejected": 0,
     "corrections_made": 2,
-    "total_tool_calls": 10,
+    "total_tool_calls": 11,
     "iterations_run": 1
   }
 }

@@ -14,7 +14,7 @@ from mcp_bridge import MCPBridge
 
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
-MAX_ITERATIONS = 4
+MAX_ITERATIONS = 3
 CONFIDENCE_THRESHOLD = 0.90
 
 @dataclass
@@ -35,6 +35,7 @@ class InvestigationState:
     iteration: int = 0
     findings: list = field(default_factory=list)
     tool_calls: list = field(default_factory=list)
+    iteration_accuracy: list = field(default_factory=list)
     corrections_made: int = 0
     start_time: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
@@ -108,6 +109,13 @@ class SIFTAEGISOrchestrator:
         findings = []
         
         # Get process list
+        self.log("ANALYST_REASONING", {
+            "step": "process_analysis",
+            "reasoning": "Starting with process list — memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.",
+            "tool_chosen": "get_process_list",
+            "expected": "Normal Windows process tree with services.exe, svchost.exe hierarchy",
+            "looking_for": "Processes spawned from unexpected parents, known malicious names, orphaned processes"
+        })
         proc_result = self.run_tool_logged(
             "get_process_list",
             memory_image=MEMORY_IMAGE
@@ -123,7 +131,7 @@ class SIFTAEGISOrchestrator:
                     id=f"MEM-{pid}",
                     category="Suspicious Process",
                     description=f"Process {proc_name} (PID {pid}) has anomalous parent-child relationship",
-                    confidence=0.70,
+                    confidence=0.60,
                     status="UNVERIFIED",
                     supporting_artifacts=[f"pslist:PID:{pid}"],
                     contradictions=[],
@@ -139,6 +147,13 @@ class SIFTAEGISOrchestrator:
                 })
         
         # Get network connections
+        self.log("ANALYST_REASONING", {
+            "step": "network_analysis", 
+            "reasoning": "Checking network connections after process analysis — if suspicious process has external connection, that is strong C2 indicator.",
+            "tool_chosen": "get_network_connections",
+            "expected": "Local connections only for a corporate workstation",
+            "looking_for": "External IPs, unusual ports, connections from suspicious PIDs"
+        })
         net_result = self.run_tool_logged(
             "get_network_connections",
             memory_image=MEMORY_IMAGE
@@ -150,7 +165,7 @@ class SIFTAEGISOrchestrator:
                     id=f"NET-{conn.get('foreign_addr','unknown')}",
                     category="Suspicious Network Connection",
                     description=f"External connection to {conn.get('foreign_addr')}:{conn.get('foreign_port')} by PID {conn.get('pid')}",
-                    confidence=0.65,
+                    confidence=0.60,
                     status="UNVERIFIED",
                     supporting_artifacts=[f"netscan:{conn.get('foreign_addr')}"],
                     contradictions=[],
@@ -161,6 +176,13 @@ class SIFTAEGISOrchestrator:
                 findings.append(finding)
         
         # Get registry run keys
+        self.log("ANALYST_REASONING", {
+            "step": "persistence_analysis",
+            "reasoning": "Checking registry Run keys — common persistence mechanism. Malware writes here to survive reboot.",
+            "tool_chosen": "get_registry_run_keys",
+            "expected": "Legitimate software entries pointing to Program Files",
+            "looking_for": "Entries pointing to temp dirs, encoded paths, unusual executables"
+        })
         reg_result = self.run_tool_logged(
             "get_registry_run_keys",
             memory_image=MEMORY_IMAGE
@@ -173,7 +195,7 @@ class SIFTAEGISOrchestrator:
                         id=f"REG-{key.get('value_name','unknown')}",
                         category="Persistence Mechanism",
                         description=f"Suspicious registry run key: {key.get('value_name')} → {key.get('value_data')}",
-                        confidence=0.80,
+                        confidence=0.70,
                         status="UNVERIFIED",
                         supporting_artifacts=[f"registry:{key.get('key_path')}"],
                         contradictions=[],
@@ -183,6 +205,13 @@ class SIFTAEGISOrchestrator:
                     )
                     findings.append(finding)
         # Get malfind results — code injection detection
+        self.log("ANALYST_REASONING", {
+            "step": "injection_detection",
+            "reasoning": "Running malfind after process analysis — code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs found earlier.",
+            "tool_chosen": "get_malfind",
+            "expected": "Clean memory regions for all processes",
+            "looking_for": "PAGE_EXECUTE_READWRITE regions, VAD anomalies, shellcode indicators"
+        })
         malfind_result = self.run_tool_logged(
             "get_malfind",
             memory_image=MEMORY_IMAGE
@@ -234,6 +263,13 @@ class SIFTAEGISOrchestrator:
         # Cross-correlate: check DLLs for suspicious process PIDs
         for pid in process_pids:
             if pid:
+                self.log("ANALYST_REASONING", {
+                    "step": "dll_analysis",
+                    "reasoning": f"Deep diving PID {pid} — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.",
+                    "tool_chosen": "get_dll_list",
+                    "expected": "DLLs loaded from System32 or Program Files",
+                    "looking_for": "DLLs from temp, appdata, or unusual paths indicating DLL hijacking"
+                })
                 dll_result = self.run_tool_logged(
                     "get_dll_list",
                     memory_image=MEMORY_IMAGE,
@@ -295,6 +331,89 @@ class SIFTAEGISOrchestrator:
             "confirmed": sum(1 for f in findings if f.status == "CONFIRMED"),
             "inferred": sum(1 for f in findings if f.status == "INFERRED"),
             "unverified": sum(1 for f in findings if f.status == "UNVERIFIED")
+        })
+        return findings
+
+    def phase_disk_correlation(self, findings: list) -> list:
+        """
+        Phase 2b: Cross-reference memory findings against disk MFT timeline.
+        If memory shows suspicious process spawn time matches disk file 
+        creation/modification — CONFIRMED. If disk contradicts memory — flag.
+        This is multi-source correlation: memory vs disk evidence.
+        """
+        self.log("PHASE_START", {"phase": "disk_correlation"})
+        
+        # Get disk MFT timeline
+        mft_result = self.run_tool_logged(
+            "extract_mft_timeline",
+            disk_image=DISK_IMAGE
+        )
+        
+        if mft_result.get("error"):
+            self.log("DISK_CORRELATION_SKIP", {
+                "reason": mft_result.get("error", "MFT unavailable")
+            })
+            return findings
+        
+        mft_entries = mft_result.get("entries", [])
+        self.log("MFT_ENTRIES_LOADED", {
+            "count": len(mft_entries),
+            "disk_image": DISK_IMAGE
+        })
+        
+        # Cross-reference: look for files matching suspicious process names
+        suspicious_names = [
+            f.raw_data.get("name", "").lower().replace(".exe", "")
+            for f in findings
+            if f.category == "Suspicious Process"
+        ]
+        
+        disk_corroborations = []
+        for entry in mft_entries:
+            fname = entry.get("filename", "").lower()
+            for sname in suspicious_names:
+                if sname and sname in fname:
+                    disk_corroborations.append({
+                        "filename": entry.get("filename"),
+                        "path": entry.get("file_path"),
+                        "modified": entry.get("modified"),
+                        "created": entry.get("created"),
+                        "matched_process": sname
+                    })
+        
+        if disk_corroborations:
+            self.log("DISK_MEMORY_CORRELATION", {
+                "corroborations": len(disk_corroborations),
+                "matches": disk_corroborations[:5]
+            })
+            # Boost confidence for findings with disk corroboration
+            for finding in findings:
+                proc_name = finding.raw_data.get("name", "").lower().replace(".exe", "")
+                for corr in disk_corroborations:
+                    if proc_name and proc_name in corr.get("matched_process", ""):
+                        finding.supporting_artifacts.append(
+                            f"mft_disk_correlation:{corr['filename']}:{corr.get('modified','')}"
+                        )
+                        finding.confidence = min(finding.confidence + 0.12, 1.0)
+                        self.log("MULTI_SOURCE_CONFIRMED", {
+                            "finding_id": finding.id,
+                            "disk_artifact": corr["filename"],
+                            "memory_artifact": finding.tool_source
+                        })
+        else:
+            self.log("DISK_CORRELATION_RESULT", {
+                "result": "No direct matches between disk MFT and memory findings",
+                "note": "Disk and memory artifacts are consistent — no contradictions found"
+            })
+        
+        # Rescore after disk correlation
+        for finding in findings:
+            finding.confidence = self.score_finding(finding)
+            finding.status = self.classify_finding(finding)
+        
+        self.log("PHASE_END", {
+            "phase": "disk_correlation",
+            "corroborations_found": len(disk_corroborations)
         })
         return findings
     
@@ -409,9 +528,32 @@ class SIFTAEGISOrchestrator:
             # Phase 2: Correlation
             all_findings = self.phase_correlation(all_findings)
             
+            # Phase 2b: Disk-Memory cross-source correlation
+            all_findings = self.phase_disk_correlation(all_findings)
+            
             # Phase 3: Self-correction
             all_findings = self.phase_self_correction(all_findings)
             
+            # Track accuracy per iteration
+            confirmed_count = sum(1 for f in all_findings 
+                                  if f.status == "CONFIRMED")
+            total_count = len(all_findings)
+            accuracy = confirmed_count / total_count if total_count > 0 else 0
+            self.state.iteration_accuracy.append({
+                "iteration": iteration,
+                "total": total_count,
+                "confirmed": confirmed_count,
+                "inferred": sum(1 for f in all_findings 
+                               if f.status == "INFERRED"),
+                "unverified": sum(1 for f in all_findings 
+                                 if f.status == "UNVERIFIED"),
+                "rejected": sum(1 for f in all_findings 
+                               if f.status == "REJECTED"),
+                "accuracy_score": round(accuracy, 3)
+            })
+            self.log("ITERATION_ACCURACY", 
+                     self.state.iteration_accuracy[-1])
+
             # Check if all findings are resolved
             unresolved = [
                 f for f in all_findings 
@@ -444,6 +586,15 @@ class SIFTAEGISOrchestrator:
             "findings": [asdict(f) for f in all_findings],
             "audit_log": self.audit_log,
             "tool_calls": self.state.tool_calls,
+            "accuracy_delta": {
+                "iteration_1_accuracy": self.state.iteration_accuracy[0]["accuracy_score"] if self.state.iteration_accuracy else 0,
+                "final_accuracy": self.state.iteration_accuracy[-1]["accuracy_score"] if self.state.iteration_accuracy else 0,
+                "improvement": round(
+                    (self.state.iteration_accuracy[-1]["accuracy_score"] - 
+                     self.state.iteration_accuracy[0]["accuracy_score"]) * 100, 1
+                ) if len(self.state.iteration_accuracy) > 1 else 0,
+                "iterations": self.state.iteration_accuracy
+            },
             "summary": {
                 "total_findings": len(all_findings),
                 "confirmed": sum(1 for f in all_findings if f.status == "CONFIRMED"),

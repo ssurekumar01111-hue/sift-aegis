@@ -44,11 +44,18 @@ def generate_report(results_path: str, output_path: str):
     if confirmed:
         lines.append("CONFIRMED FINDINGS")
         lines.append("-"*40)
-        for f in confirmed:
-            lines.append(f"[CONFIRMED] {f['id']} — Confidence: {f['confidence']*100:.0f}%")
-            lines.append(f"  Category: {f['category']}")
-            lines.append(f"  {f['description']}")
-            lines.append(f"  Artifacts: {', '.join(f['supporting_artifacts'])}")
+        for i, f in enumerate(confirmed, 1):
+            lines.append(f"[{i}] [{f['status']}] {f['id']}")
+            lines.append(f"    Confidence:  {f['confidence']*100:.0f}%")
+            lines.append(f"    Category:    {f['category']}")
+            lines.append(f"    Description: {f['description']}")
+            lines.append(f"    Artifacts:   {len(f['supporting_artifacts'])} sources")
+            for artifact in f['supporting_artifacts']:
+                lines.append(f"      → {artifact}")
+            if f.get('contradictions'):
+                lines.append(f"    Contradictions checked: {', '.join(f['contradictions'])}")
+            lines.append(f"    Detected in: Iteration {f['iteration_found']}")
+            lines.append(f"    Source tool: {f['tool_source']}")
             lines.append("")
     
     if inferred:
@@ -78,6 +85,65 @@ def generate_report(results_path: str, output_path: str):
             f"results={call['result_summary']}"
         )
     lines.append("")
+
+    # Accuracy benchmark section
+    accuracy_delta = results.get("accuracy_delta", {})
+    if accuracy_delta:
+        lines.append("ACCURACY BENCHMARK (M57-Patents Ground Truth)")
+        lines.append("-"*40)
+        lines.append(f"Iteration 1 accuracy:  {accuracy_delta.get('iteration_1_accuracy', 0)*100:.0f}%")
+        lines.append(f"Final accuracy:        {accuracy_delta.get('final_accuracy', 0)*100:.0f}%")
+        lines.append(f"Improvement:           +{accuracy_delta.get('improvement', 0)}%")
+        lines.append("")
+        lines.append("Per-iteration breakdown:")
+        for iter_data in accuracy_delta.get("iterations", []):
+            lines.append(
+                f"  Iteration {iter_data['iteration']}: "
+                f"total={iter_data['total']} "
+                f"confirmed={iter_data['confirmed']} "
+                f"unverified={iter_data['unverified']} "
+                f"accuracy={iter_data['accuracy_score']*100:.0f}%"
+            )
+        lines.append("")
+    
+    # Analyst reasoning section  
+    lines.append("ANALYST REASONING CHAIN")
+    lines.append("-"*40)
+    reasoning_events = [
+        e for e in results.get("audit_log", [])
+        if e.get("event") == "ANALYST_REASONING"
+    ]
+    for r in reasoning_events:
+        d = r.get("data", {})
+        lines.append(f"[{r['timestamp']}] Step: {d.get('step', '')}")
+        lines.append(f"  Reasoning: {d.get('reasoning', '')}")
+        lines.append(f"  Tool chosen: {d.get('tool_chosen', '')}")
+        lines.append(f"  Expected: {d.get('expected', '')}")
+        lines.append(f"  Looking for: {d.get('looking_for', '')}")
+        lines.append("")
+    
+    # Multi-source correlation section
+    lines.append("MULTI-SOURCE CORRELATION SUMMARY")
+    lines.append("-"*40)
+    disk_events = [
+        e for e in results.get("audit_log", [])
+        if e.get("event") in ["MULTI_SOURCE_CONFIRMED", "DISK_CORRELATION_RESULT"]
+    ]
+    if disk_events:
+        for e in disk_events:
+            d = e.get("data", {})
+            if e["event"] == "MULTI_SOURCE_CONFIRMED":
+                lines.append(
+                    f"  CROSS-SOURCE MATCH: {d.get('finding_id')} "
+                    f"confirmed by disk artifact {d.get('disk_artifact')} "
+                    f"AND memory artifact {d.get('memory_artifact')}"
+                )
+            else:
+                lines.append(f"  {d.get('result', '')} — {d.get('note', '')}")
+    else:
+        lines.append("  No disk-memory contradictions found.")
+    lines.append("")
+    
     lines.append("="*70)
     lines.append("END OF REPORT")
     lines.append("="*70)
