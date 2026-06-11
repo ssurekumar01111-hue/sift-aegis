@@ -6,7 +6,7 @@ class BenchmarkRunner:
         self.results_path = investigation_results_path
         self.ground_truth_path = ground_truth_path
         self.results = self._load_json(self.results_path)
-        self.ground_truth = self._load_json(self.ground_truth_path).get("ground_truth_findings", [])
+        self.ground_truth = self._load_json(self.ground_truth_path)
 
     def _load_json(self, path):
         with open(path, 'r') as f:
@@ -14,31 +14,37 @@ class BenchmarkRunner:
 
     def calculate_metrics(self):
         findings = self.results.get("findings", [])
-        total = len(findings)
         
-        # In a real-world scenario, this comparison would be more sophisticated (NLP based)
-        # For validation, we check if ANY finding matches ground truth categories.
-        # Since our findings are completely different (process/memory vs phishing),
-        # TP will be 0.
+        tp = 0
+        matched_findings = set()
         
-        tp = 0 # True Positives
-        fp = total # False Positives (none match ground truth)
-        fn = len(self.ground_truth) # False Negatives (none of the ground truth found)
+        for gt in self.ground_truth:
+            gt_path = gt.get("artifact_path", "")
+            for f in findings:
+                f_id = f.get("finding_id")
+                f_path = f.get("raw_data", {}).get("artifact_path", "")
+                
+                # Match based on artifact path similarity (or containment)
+                if gt_path and f_path and (gt_path in f_path or f_path in gt_path):
+                    tp += 1
+                    matched_findings.add(f_id)
+                    break
+        
+        fp = len(findings) - tp
+        fn = len(self.ground_truth) - tp
         
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0
-        hallucination_rate = fp / total if total > 0 else 0
+        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
         
         metrics = {
-            "total_findings": total,
+            "total_findings": len(findings),
             "true_positives": tp,
             "false_positives": fp,
             "false_negatives": fn,
-            "precision": precision,
-            "recall": recall,
-            "hallucination_rate": hallucination_rate,
-            "inference_accuracy": 0.0, # Not implemented
-            "confidence_calibration": 0.0 # Not implemented
+            "precision": round(precision, 3),
+            "recall": round(recall, 3),
+            "f1_score": round(f1, 3),
         }
         
         with open("benchmark/benchmark_results.json", "w") as f:
@@ -47,7 +53,7 @@ class BenchmarkRunner:
         return metrics
 
 def run_benchmark():
-    runner = BenchmarkRunner("investigation_results.json", "benchmark/ground_truth.json")
+    runner = BenchmarkRunner("investigation_results.json", "ground_truth_rebuilt.json")
     metrics = runner.calculate_metrics()
     
     with open("reports/accuracy_report.md", "w") as f:

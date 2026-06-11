@@ -20,7 +20,10 @@ from server import (
     extract_mft_timeline,
     get_dll_list,
     get_malfind,
-    get_evtx_events
+    get_evtx_events,
+    analyze_browser_artifacts,
+    extract_outlook_emails,
+    extract_document_metadata
 )
 
 class MCPBridge:
@@ -41,6 +44,9 @@ class MCPBridge:
             "get_dll_list": get_dll_list,
             "get_malfind": get_malfind,
             "get_evtx_events": get_evtx_events,
+            "analyze_browser_artifacts": analyze_browser_artifacts,
+            "extract_outlook_emails": extract_outlook_emails,
+            "extract_document_metadata": extract_document_metadata,
         }
         if tool_name not in tools:
             return {"error": f"Unknown tool: {tool_name}"}
