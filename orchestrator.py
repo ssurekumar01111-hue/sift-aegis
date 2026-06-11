@@ -304,7 +304,7 @@ class SIFTAEGISOrchestrator:
         
         low_confidence = [
             f for f in findings 
-            if f.status in ["UNVERIFIED"] and f.confidence < CONFIDENCE_THRESHOLD
+            if f.status in ["UNVERIFIED", "INFERRED"] and f.confidence < CONFIDENCE_THRESHOLD
         ]
         
         self.log("SELF_CORRECTION_TARGETS", {
