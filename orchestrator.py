@@ -1060,7 +1060,7 @@ class SIFTAEGISOrchestrator:
 
         # GT-002: M57biz.lnk shortcut file access — patent document link
         findings.append(Finding(
-            finding_id="DISK-DOC-004",
+            id="DISK-DOC-004",
             title="M57biz.lnk shortcut access",
             category="Document Access",
             description="LNK shortcut M57biz.lnk accessed — points to patent business document. Consistent with IP exfiltration scenario.",
@@ -1085,7 +1085,7 @@ class SIFTAEGISOrchestrator:
 
         # GT-010: Downloaded tools found on disk
         findings.append(Finding(
-            finding_id="DISK-DOC-005",
+            id="DISK-DOC-005",
             title="Downloaded tools found on disk",
             category="Tool Download",
             description="Memory acquisition tool (mdd_1.3.exe) and supporting utilities found on disk. Indicates deliberate download of forensic/exfiltration tools.",
@@ -1110,7 +1110,7 @@ class SIFTAEGISOrchestrator:
 
         # GT-008: External email contact rubinfritz31 @mail.com
         findings.append(Finding(
-            finding_id="DISK-EMAIL-003",
+            id="DISK-EMAIL-003",
             title="External email contact rubinfritz31 @mail.com",
             category="External Communication",
             description="Email contact rubinfritz31 @mail.com identified — external party outside corporate domain. Potential exfiltration channel for patent data.",
