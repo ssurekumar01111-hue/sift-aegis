@@ -400,27 +400,55 @@ def get_malfind(memory_image: str) -> dict:
         if not line:
             continue
         parts = line.split()
-        if len(parts) >= 4 and parts[0].isdigit():
-            try:
-                pid = int(parts[0])
-                proc_name = parts[1] if len(parts) > 1 else "unknown"
-                address = parts[2] if len(parts) > 2 else ""
-                vad_tag = parts[3] if len(parts) > 3 else ""
-                protection = parts[4] if len(parts) > 4 else ""
-                entry = MalfindEntry(
-                    pid=pid,
-                    process_name=proc_name,
-                    address=address,
-                    vad_tag=vad_tag,
-                    protection=protection,
-                    hexdump="",
-                    suspicious=True,
-                    reason="Executable memory region with no mapped file (injection indicator)"
-                )
-                entries.append(entry)
-                suspicious_pids.add(pid)
-            except (ValueError, IndexError):
+        # Valid malfind line: PID ProcessName Address VadTag Protection
+        # Must have real PID (>0, <65536), real address (starts with 0x), 
+        # real process name (ends with .exe or is a known process)
+        if len(parts) < 5:
+            continue
+        if not parts[0].isdigit():
+            continue
+        try:
+            pid = int(parts[0])
+            # Filter invalid PIDs
+            if pid == 0 or pid > 65535:
                 continue
+            proc_name = parts[1]
+            # Filter invalid process names
+            if proc_name in ["00", "0x", ""] or len(proc_name) < 3:
+                continue
+            address = parts[2]
+            # Filter invalid addresses
+            if not address.startswith("0x") or len(address) < 4:
+                continue
+            vad_tag = parts[3] if len(parts) > 3 else ""
+            protection = parts[4] if len(parts) > 4 else ""
+            # Filter header/garbage rows
+            if protection in ["00", "Protection", ""]:
+                continue
+            entry = MalfindEntry(
+                pid=pid,
+                process_name=proc_name,
+                address=address,
+                vad_tag=vad_tag,
+                protection=protection,
+                hexdump="",
+                suspicious=True,
+                reason="Executable memory region with no mapped file (injection indicator)"
+            )
+            entries.append(entry)
+            suspicious_pids.add(pid)
+        except (ValueError, IndexError):
+            continue
+
+    # Deduplicate entries by PID+address
+    seen = set()
+    unique_entries = []
+    for e in entries:
+        key = f"{e.pid}-{e.address}"
+        if key not in seen:
+            seen.add(key)
+            unique_entries.append(e)
+    entries = unique_entries
 
     result = MalfindResult(
         evidence=evidence,

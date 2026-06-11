@@ -14,8 +14,8 @@ from mcp_bridge import MCPBridge
 
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
-MAX_ITERATIONS = 3
-CONFIDENCE_THRESHOLD = 0.75
+MAX_ITERATIONS = 4
+CONFIDENCE_THRESHOLD = 0.90
 
 @dataclass
 class Finding:
@@ -194,7 +194,7 @@ class SIFTAEGISOrchestrator:
                     id=f"MAL-{entry['pid']}-{entry['address']}",
                     category="Code Injection",
                     description=f"Injected code detected in {entry['process_name']} (PID {entry['pid']}) at {entry['address']} — protection: {entry['protection']}",
-                    confidence=0.85,
+                    confidence=0.72,
                     status="UNVERIFIED",
                     supporting_artifacts=[
                         f"malfind:PID:{entry['pid']}",
