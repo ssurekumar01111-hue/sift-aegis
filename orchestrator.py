@@ -182,6 +182,37 @@ class SIFTAEGISOrchestrator:
                         raw_data=key
                     )
                     findings.append(finding)
+        # Get malfind results — code injection detection
+        malfind_result = self.run_tool_logged(
+            "get_malfind",
+            memory_image=MEMORY_IMAGE
+        )
+        
+        if malfind_result.get("total_count", 0) > 0:
+            for entry in malfind_result.get("entries", [])[:10]:
+                finding = Finding(
+                    id=f"MAL-{entry['pid']}-{entry['address']}",
+                    category="Code Injection",
+                    description=f"Injected code detected in {entry['process_name']} (PID {entry['pid']}) at {entry['address']} — protection: {entry['protection']}",
+                    confidence=0.85,
+                    status="UNVERIFIED",
+                    supporting_artifacts=[
+                        f"malfind:PID:{entry['pid']}",
+                        f"malfind:address:{entry['address']}",
+                        f"malfind:protection:{entry['protection']}"
+                    ],
+                    contradictions=[],
+                    iteration_found=self.state.iteration,
+                    tool_source="get_malfind",
+                    raw_data=entry
+                )
+                findings.append(finding)
+                self.log("FINDING_DETECTED", {
+                    "id": finding.id,
+                    "description": finding.description,
+                    "confidence": finding.confidence
+                })
+
         
         self.log("PHASE_END", {
             "phase": "memory_analysis",
@@ -235,6 +266,24 @@ class SIFTAEGISOrchestrator:
                         "process_finding": proc_f.id,
                         "pid": net_pid
                     })
+        # Cross-correlate: malfind PIDs vs suspicious processes
+        malfind_pids = {
+            f.raw_data.get("pid")
+            for f in findings
+            if f.category == "Code Injection"
+        }
+        for finding in findings:
+            if finding.raw_data.get("pid") in malfind_pids:
+                if finding.category == "Suspicious Process":
+                    finding.supporting_artifacts.append(
+                        "malfind_correlation:code_injection_confirmed"
+                    )
+                    finding.confidence = min(finding.confidence + 0.20, 1.0)
+                    self.log("CORRELATION_MATCH", {
+                        "finding_id": finding.id,
+                        "corroborating": "malfind code injection in same PID"
+                    })
+
         
         # Rescore all findings after correlation
         for finding in findings:

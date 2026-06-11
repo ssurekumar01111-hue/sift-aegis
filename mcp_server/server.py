@@ -17,7 +17,8 @@ from models import (
     NetworkConnectionList, NetworkConnection,
     RegistryRunKeyList, RegistryRunKey,
     MFTTimeline, MFTEntry,
-    DLLList, DLLEntry
+    DLLList, DLLEntry,
+    MalfindEntry, MalfindResult
 )
 
 mcp = FastMCP("sift-aegis-forensics")
@@ -374,11 +375,66 @@ def get_dll_list(memory_image: str, pid: int) -> dict:
     )
     return result.model_dump()
 
+# ── Tool 6: Malfind ───────────────────────────────────────────────────────────
+
+@mcp.tool()
+def get_malfind(memory_image: str) -> dict:
+    """
+    Read-only. Detects injected code and suspicious memory regions.
+    Uses Volatility3 windows.malfind plugin.
+    High confidence indicator of code injection or shellcode.
+    """
+    filepath = os.path.join(CASES_DIR, memory_image)
+    if not os.path.exists(filepath):
+        return {"error": f"File not found: {filepath}"}
+
+    evidence = get_evidence_metadata(filepath)
+    raw = run_volatility("windows.malfind", filepath)
+
+    entries = []
+    suspicious_pids = set()
+    current_entry = {}
+
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split()
+        if len(parts) >= 4 and parts[0].isdigit():
+            try:
+                pid = int(parts[0])
+                proc_name = parts[1] if len(parts) > 1 else "unknown"
+                address = parts[2] if len(parts) > 2 else ""
+                vad_tag = parts[3] if len(parts) > 3 else ""
+                protection = parts[4] if len(parts) > 4 else ""
+                entry = MalfindEntry(
+                    pid=pid,
+                    process_name=proc_name,
+                    address=address,
+                    vad_tag=vad_tag,
+                    protection=protection,
+                    hexdump="",
+                    suspicious=True,
+                    reason="Executable memory region with no mapped file (injection indicator)"
+                )
+                entries.append(entry)
+                suspicious_pids.add(pid)
+            except (ValueError, IndexError):
+                continue
+
+    result = MalfindResult(
+        evidence=evidence,
+        entries=entries,
+        total_count=len(entries),
+        suspicious_pids=list(suspicious_pids)
+    )
+    return result.model_dump()
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     print("SIFT-AEGIS MCP Server starting...")
     print("Available tools: get_process_list, get_network_connections,")
-    print("                 get_registry_run_keys, extract_mft_timeline, get_dll_list")
+    print("                 get_registry_run_keys, extract_mft_timeline, get_dll_list, get_malfind")
     print("No shell execution tools exist.")
     mcp.run()

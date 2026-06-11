@@ -92,3 +92,19 @@ class DLLList(BaseModel):
     dlls: list[DLLEntry]
     total_count: int
     suspicious_count: int
+
+class MalfindEntry(BaseModel):
+    pid: int
+    process_name: str
+    address: str
+    vad_tag: str
+    protection: str
+    hexdump: str
+    suspicious: bool
+    reason: str
+
+class MalfindResult(BaseModel):
+    evidence: EvidenceMetadata
+    entries: list[MalfindEntry]
+    total_count: int
+    suspicious_pids: list[int]
