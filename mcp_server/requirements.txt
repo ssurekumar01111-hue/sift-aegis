@@ -1,0 +1,7 @@
+fastmcp>=0.1.0
+pydantic>=2.0
+google-cloud-bigquery
+google-cloud-storage
+google-adk
+volatility3
+python-dotenv

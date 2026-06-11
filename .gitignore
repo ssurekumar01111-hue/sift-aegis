@@ -1,0 +1,9 @@
+cases/
+__pycache__/
+*.pyc
+.env
+*.E01
+*.raw
+*.lime
+*.mem
+service-account.json
