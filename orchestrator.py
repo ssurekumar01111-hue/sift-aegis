@@ -12,7 +12,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Optional
 from mcp_bridge import MCPBridge
 
-MEMORY_IMAGE = "charlie-2009-12-11.mddramimage"
+MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
 MAX_ITERATIONS = 3
 CONFIDENCE_THRESHOLD = 0.75

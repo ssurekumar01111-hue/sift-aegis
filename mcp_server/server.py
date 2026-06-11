@@ -56,17 +56,60 @@ def run_volatility(plugin: str, image_path: str, extra_args: list = []) -> str:
     return result.stdout + result.stderr
 
 def is_suspicious_process(name: str, ppid: int, pid_to_name: dict) -> bool:
-    """Basic heuristic: flag processes with anomalous parent relationships."""
-    suspicious_parents = {
-        "svchost.exe": [992, 1004],  # should spawn from services.exe
-        "lsass.exe": [948],
-        "csrss.exe": [876],
-    }
-    parent_name = pid_to_name.get(ppid, "")
-    if name.lower() == "svchost.exe" and parent_name.lower() not in ["services.exe", ""]:
+    """
+    Enhanced heuristics for suspicious process detection.
+    Covers parent-child anomalies, known bad names, and unusual spawning.
+    """
+    name_lower = name.lower()
+    parent_name = pid_to_name.get(ppid, "").lower()
+    
+    # Known malicious tool names
+    known_bad = [
+        "mimikatz.exe", "procdump.exe", "pwdump.exe", "wce.exe",
+        "fgdump.exe", "gsecdump.exe", "lsadump.exe", "pwdumpx.exe",
+        "htran.exe", "tini.exe", "nc.exe", "ncat.exe", "netcat.exe",
+        "psexec.exe", "at.exe", "schtasks.exe", "reg.exe",
+        "mshta.exe", "wscript.exe", "cscript.exe", "rundll32.exe",
+        "regsvr32.exe", "certutil.exe", "bitsadmin.exe"
+    ]
+    if name_lower in known_bad:
         return True
-    if name.lower() in ["mimikatz.exe", "procdump.exe", "pwdump.exe"]:
+    
+    # Anomalous parent-child relationships
+    # svchost.exe should only spawn from services.exe
+    if name_lower == "svchost.exe" and parent_name not in [
+        "services.exe", ""
+    ]:
         return True
+    
+    # lsass.exe should only spawn from winlogon.exe or wininit.exe
+    if name_lower == "lsass.exe" and parent_name not in [
+        "winlogon.exe", "wininit.exe", ""
+    ]:
+        return True
+    
+    # cmd.exe or powershell.exe spawned from unusual parents
+    if name_lower in ["cmd.exe", "powershell.exe"] and parent_name in [
+        "winword.exe", "excel.exe", "outlook.exe", "acrord32.exe",
+        "iexplore.exe", "firefox.exe", "chrome.exe", "java.exe"
+    ]:
+        return True
+    
+    # explorer.exe spawning network tools
+    if parent_name == "explorer.exe" and name_lower in [
+        "cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe",
+        "mshta.exe", "rundll32.exe"
+    ]:
+        return True
+    
+    # Double extension or suspicious name patterns
+    if name_lower.count(".") > 1:
+        return True
+    
+    # Processes with no parent (orphaned — except System and smss)
+    if ppid == 0 and name_lower not in ["system", "idle"]:
+        return True
+    
     return False
 
 # ── Tool 1: Process List ──────────────────────────────────────────────────────
@@ -87,7 +130,7 @@ def get_process_list(memory_image: str) -> dict:
 
     processes = []
     pid_to_name = {}
-    
+
     for line in raw.splitlines():
         parts = line.split()
         if len(parts) < 10 or not parts[0].isdigit():
@@ -193,10 +236,16 @@ def get_registry_run_keys(memory_image: str) -> dict:
         return {"error": f"File not found: {filepath}"}
 
     evidence = get_evidence_metadata(filepath)
-    
+
     run_keys = []
-    suspicious_paths = ["temp", "tmp", "appdata\\local\\temp", "%temp%", "downloads"]
-    
+    suspicious_paths = [
+        "temp", "tmp", "appdata\\local\\temp", "%temp%", 
+        "downloads", "desktop", "recycle", "public",
+        "programdata", "appdata\\roaming", ".exe.exe",
+        "rundll32", "regsvr32", "mshta", "wscript", "cscript",
+        "powershell", "cmd.exe", "certutil", "bitsadmin"
+    ]
+
     for hive in ["HKCU", "HKLM"]:
         key = f"Software\\Microsoft\\Windows\\CurrentVersion\\Run"
         raw = run_volatility(

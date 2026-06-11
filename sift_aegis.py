@@ -26,6 +26,9 @@ def main():
     results = orchestrator.investigate()
     
     # Generate report
+    import json
+    with open('/home/sansforensics/sift-aegis/investigation_results.json', 'w') as f:
+        json.dump(results, f, indent=2, default=str)
     from reports.report_generator import generate_report
     generate_report(
         "/home/sansforensics/sift-aegis/investigation_results.json",
