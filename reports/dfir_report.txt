@@ -1,38 +1,95 @@
 ======================================================================
 SIFT-AEGIS AUTONOMOUS DFIR INVESTIGATION REPORT
 ======================================================================
-Generated: 2026-06-11T09:14:00.229995 UTC
+Generated: 2026-06-11T11:49:28.612472 UTC
 Evidence: charlie-2009-12-11 (M57-Patents Scenario)
 Framework: SIFT-AEGIS + OpenClaw + Gemini 3.1 Flash-Lite
 
 EXECUTIVE SUMMARY
 ----------------------------------------
-Total Findings:     2
-Confirmed:          0
-Inferred:           2
+Total Findings:     12
+Confirmed:          12
+Inferred:           0
 Unverified:         0
 Rejected:           0
-Self-Corrections:   0
-Tool Calls:         5
+Self-Corrections:   2
+Tool Calls:         10
 Iterations Run:     1
 
-INFERRED FINDINGS
+CONFIRMED FINDINGS
 ----------------------------------------
-[INFERRED] MEM-3908 — Confidence: 70%
+[CONFIRMED] MEM-3908 — Confidence: 85%
   Category: Suspicious Process
   Process cmd.exe (PID 3908) has anomalous parent-child relationship
+  Artifacts: pslist:PID:3908, self_correction:dll_verification:PID:3908, self_correction:process_reconfirmed
 
-[INFERRED] MEM-2160 — Confidence: 70%
+[CONFIRMED] MEM-2160 — Confidence: 85%
   Category: Suspicious Process
   Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship
+  Artifacts: pslist:PID:2160, self_correction:dll_verification:PID:2160, self_correction:process_reconfirmed
+
+[CONFIRMED] MAL-924-0x850000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in csrss.exe (PID 924) at 0x850000 — protection: Vad
+  Artifacts: malfind:PID:924, malfind:address:0x850000, malfind:protection:Vad
+
+[CONFIRMED] MAL-924-0xbd0000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in csrss.exe (PID 924) at 0xbd0000 — protection: Vad
+  Artifacts: malfind:PID:924, malfind:address:0xbd0000, malfind:protection:Vad
+
+[CONFIRMED] MAL-924-0x7f6f0000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in csrss.exe (PID 924) at 0x7f6f0000 — protection: Vad
+  Artifacts: malfind:PID:924, malfind:address:0x7f6f0000, malfind:protection:Vad
+
+[CONFIRMED] MAL-948-0x5c0000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x5c0000 — protection: Vad
+  Artifacts: malfind:PID:948, malfind:address:0x5c0000, malfind:protection:Vad
+
+[CONFIRMED] MAL-948-0x20e90000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x20e90000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0x20e90000, malfind:protection:VadS
+
+[CONFIRMED] MAL-948-0x4090000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x4090000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0x4090000, malfind:protection:VadS
+
+[CONFIRMED] MAL-948-0xc120000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0xc120000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0xc120000, malfind:protection:VadS
+
+[CONFIRMED] MAL-948-0x27a10000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x27a10000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0x27a10000, malfind:protection:VadS
+
+[CONFIRMED] MAL-948-0x2fd20000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x2fd20000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0x2fd20000, malfind:protection:VadS
+
+[CONFIRMED] MAL-948-0x29130000 — Confidence: 87%
+  Category: Code Injection
+  Injected code detected in winlogon.exe (PID 948) at 0x29130000 — protection: VadS
+  Artifacts: malfind:PID:948, malfind:address:0x29130000, malfind:protection:VadS
 
 AUDIT TRAIL (Tool Execution Chain)
 ----------------------------------------
-[2026-06-11T09:13:43.085004] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T09:13:50.256586] iter=1 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T09:13:53.923040] iter=1 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T09:13:56.905049] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T09:14:00.224120] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:48:37.024279] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:48:42.180101] iter=1 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:48:45.221355] iter=1 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:03.715797] iter=1 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:06.160439] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:09.032110] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:12.914553] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:19.193718] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:22.373397] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-11T11:49:28.581859] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
 
 ======================================================================
 END OF REPORT

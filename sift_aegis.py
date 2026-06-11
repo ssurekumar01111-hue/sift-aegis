@@ -29,6 +29,12 @@ def main():
     import json
     with open('/home/sansforensics/sift-aegis/investigation_results.json', 'w') as f:
         json.dump(results, f, indent=2, default=str)
+    
+    # Write audit trail in JSONL format
+    with open('/home/sansforensics/sift-aegis/audit/audit_trail.jsonl', 'w') as f:
+        for entry in results.get("audit_log", []):
+            f.write(json.dumps(entry) + '\n')
+
     from reports.report_generator import generate_report
     generate_report(
         "/home/sansforensics/sift-aegis/investigation_results.json",
