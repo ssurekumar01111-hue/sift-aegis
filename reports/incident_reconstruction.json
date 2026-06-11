@@ -1,0 +1,10 @@
+{
+  "incident_summary": "Phishing email led to spreadsheet theft and subsequent exfiltration via webmail.",
+  "timeline": [
+    "Spear-phishing email received",
+    "m57biz.xls opened",
+    "Gmail login detected",
+    "File uploaded to Gmail"
+  ],
+  "confidence": 0.85
+}

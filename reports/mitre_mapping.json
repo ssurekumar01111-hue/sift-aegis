@@ -1,0 +1,56 @@
+{
+  "techniques": [
+    {
+      "finding_id": "MEM-3908",
+      "technique": "T1059.003"
+    },
+    {
+      "finding_id": "MEM-2160",
+      "technique": "T1059.003"
+    },
+    {
+      "finding_id": "MAL-924-0x850000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-924-0xbd0000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-924-0x7f6f0000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x5c0000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x20e90000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x4090000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0xc120000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x27a10000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x2fd20000",
+      "technique": "T1055"
+    },
+    {
+      "finding_id": "MAL-948-0x29130000",
+      "technique": "T1055"
+    }
+  ],
+  "confidence": {
+    "T1059.003": 0.25,
+    "T1055": 0.35
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ground_truth_findings": [
+    {
+      "id": "PHISH-SPOOF-EMAIL",
+      "description": "Spear-phishing email spoofing Alison Smith, destination tuckgorge@gmail.com",
+      "category": "Spear-phishing"
+    },
+    {
+      "id": "EXFIL-SPREADSHEET",
+      "description": "Sensitive file m57biz.xls exfiltrated to competitor",
+      "category": "Exfiltration"
+    },
+    {
+      "id": "FILE-M57BIZ-XLS",
+      "description": "m57biz.xls file found on Jean's desktop",
+      "category": "Sensitive Data"
+    }
+  ]
+}

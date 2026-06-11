@@ -1,0 +1,24 @@
+{
+  "timeline": [
+    {
+      "time": "08:41:00",
+      "event": "Email received",
+      "artifact": "Urgent: Patent Review"
+    },
+    {
+      "time": "08:43:00",
+      "event": "Attachment opened",
+      "artifact": "m57biz.xls"
+    },
+    {
+      "time": "08:51:00",
+      "event": "Gmail login",
+      "artifact": "https://mail.google.com"
+    },
+    {
+      "time": "08:53:00",
+      "event": "File upload",
+      "artifact": "m57biz.xls"
+    }
+  ]
+}

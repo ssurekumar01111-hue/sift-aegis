@@ -45,35 +45,176 @@ def generate_report(results_path: str, output_path: str):
         lines.append("CONFIRMED FINDINGS")
         lines.append("-"*40)
         for i, f in enumerate(confirmed, 1):
-            lines.append(f"[{i}] [{f['status']}] {f['id']}")
-            lines.append(f"    Confidence:  {f['confidence']*100:.0f}%")
-            lines.append(f"    Category:    {f['category']}")
-            lines.append(f"    Description: {f['description']}")
-            lines.append(f"    Artifacts:   {len(f['supporting_artifacts'])} sources")
-            for artifact in f['supporting_artifacts']:
-                lines.append(f"      → {artifact}")
-            if f.get('contradictions'):
-                lines.append(f"    Contradictions checked: {', '.join(f['contradictions'])}")
-            lines.append(f"    Detected in: Iteration {f['iteration_found']}")
-            lines.append(f"    Source tool: {f['tool_source']}")
+            lines.append(f"[{i}] [CONFIRMED] {f['title']}")
+            lines.append(f"    Finding ID:  {f['finding_id']}")
+            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Category:    {f.get('category', 'N/A')}")
+            lines.append(f"    Description: {f.get('description', 'N/A')}")
+            lines.append(f"    Supporting Evidence:")
+            if f.get('supporting_evidence'):
+                for ev in f.get('supporting_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Contradictory Evidence:")
+            if f.get('contradictory_evidence'):
+                for ev in f.get('contradictory_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Missing Evidence:")
+            if f.get('missing_evidence'):
+                for ev in f.get('missing_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Confidence Explanation:")
+            lines.append(f"      {f.get('confidence_explanation', 'No explanation provided.')}")
+            lines.append(f"    Hypothesis:  {f.get('hypothesis', 'N/A')}")
+            lines.append(f"    Relationship Reasoning:")
+            if f.get('relationship_reasoning'):
+                for rr in f.get('relationship_reasoning', []):
+                    lines.append(f"      - {rr}")
+            lines.append(f"    Confidence History:")
+            if f.get('confidence_history'):
+                for hist in f.get('confidence_history', []):
+                    old_val = hist.get('old_confidence', hist.get('old'))
+                    new_val = hist.get('new_confidence', hist.get('new'))
+                    lines.append(f"      - {old_val}% → {new_val}% at {hist['timestamp']}")
+            lines.append(f"    Confidence Change Reason:")
+            lines.append(f"      {f.get('confidence_change_reason', 'N/A')}")
             lines.append("")
     
     if inferred:
         lines.append("INFERRED FINDINGS")
         lines.append("-"*40)
-        for f in inferred:
-            lines.append(f"[INFERRED] {f['id']} — Confidence: {f['confidence']*100:.0f}%")
-            lines.append(f"  Category: {f['category']}")
-            lines.append(f"  {f['description']}")
+        for i, f in enumerate(inferred, 1):
+            lines.append(f"[{i}] [INFERRED] {f['title']}")
+            lines.append(f"    Finding ID:  {f['finding_id']}")
+            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Category:    {f.get('category', 'N/A')}")
+            lines.append(f"    Description: {f.get('description', 'N/A')}")
+            lines.append(f"    Supporting Evidence:")
+            if f.get('supporting_evidence'):
+                for ev in f.get('supporting_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Contradictory Evidence:")
+            if f.get('contradictory_evidence'):
+                for ev in f.get('contradictory_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Missing Evidence:")
+            if f.get('missing_evidence'):
+                for ev in f.get('missing_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Confidence Explanation:")
+            lines.append(f"      {f.get('confidence_explanation', 'No explanation provided.')}")
+            lines.append(f"    Hypothesis:  {f.get('hypothesis', 'N/A')}")
+            lines.append(f"    Relationship Reasoning:")
+            if f.get('relationship_reasoning'):
+                for rr in f.get('relationship_reasoning', []):
+                    lines.append(f"      - {rr}")
+            lines.append(f"    Confidence History:")
+            if f.get('confidence_history'):
+                for hist in f.get('confidence_history', []):
+                    old_val = hist.get('old_confidence', hist.get('old'))
+                    new_val = hist.get('new_confidence', hist.get('new'))
+                    lines.append(f"      - {old_val}% → {new_val}% at {hist['timestamp']}")
+            lines.append(f"    Confidence Change Reason:")
+            lines.append(f"      {f.get('confidence_change_reason', 'N/A')}")
+            lines.append("")
+
+    if unverified:
+        lines.append("UNVERIFIED FINDINGS (Insufficient Evidence)")
+        lines.append("-"*40)
+        for i, f in enumerate(unverified, 1):
+            lines.append(f"[{i}] [UNVERIFIED] {f['title']}")
+            lines.append(f"    Finding ID:  {f['finding_id']}")
+            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Category:    {f.get('category', 'N/A')}")
+            lines.append(f"    Description: {f.get('description', 'N/A')}")
+            lines.append(f"    Supporting Evidence:")
+            if f.get('supporting_evidence'):
+                for ev in f.get('supporting_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Contradictory Evidence:")
+            if f.get('contradictory_evidence'):
+                for ev in f.get('contradictory_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Missing Evidence:")
+            if f.get('missing_evidence'):
+                for ev in f.get('missing_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Confidence Explanation:")
+            lines.append(f"      {f.get('confidence_explanation', 'No explanation provided.')}")
+            lines.append(f"    Hypothesis:  {f.get('hypothesis', 'N/A')}")
+            lines.append(f"    Relationship Reasoning:")
+            if f.get('relationship_reasoning'):
+                for rr in f.get('relationship_reasoning', []):
+                    lines.append(f"      - {rr}")
+            lines.append(f"    Confidence History:")
+            if f.get('confidence_history'):
+                for hist in f.get('confidence_history', []):
+                    old_val = hist.get('old_confidence', hist.get('old'))
+                    new_val = hist.get('new_confidence', hist.get('new'))
+                    lines.append(f"      - {old_val}% → {new_val}% at {hist['timestamp']}")
+            lines.append(f"    Confidence Change Reason:")
+            lines.append(f"      {f.get('confidence_change_reason', 'N/A')}")
             lines.append("")
     
     if rejected:
-        lines.append("REJECTED CLAIMS (Hallucination Prevention)")
+        lines.append("REJECTED CLAIMS (Hallucination Detection)")
         lines.append("-"*40)
-        for f in rejected:
-            lines.append(f"[REJECTED] {f['id']}")
-            lines.append(f"  {f['description']}")
-            lines.append(f"  Reason: {', '.join(f['contradictions'])}")
+        for i, f in enumerate(rejected, 1):
+            lines.append(f"[{i}] [REJECTED] {f['title']}")
+            lines.append(f"    Finding ID:  {f['finding_id']}")
+            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Category:    {f.get('category', 'N/A')}")
+            lines.append(f"    Description: {f.get('description', 'N/A')}")
+            lines.append(f"    Supporting Evidence:")
+            if f.get('supporting_evidence'):
+                for ev in f.get('supporting_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Contradictory Evidence:")
+            if f.get('contradictory_evidence'):
+                for ev in f.get('contradictory_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Missing Evidence:")
+            if f.get('missing_evidence'):
+                for ev in f.get('missing_evidence', []):
+                    lines.append(f"      - {ev}")
+            else:
+                lines.append("      - None")
+            lines.append(f"    Confidence Explanation:")
+            lines.append(f"      {f.get('confidence_explanation', 'No explanation provided.')}")
+            lines.append(f"    Hypothesis:  {f.get('hypothesis', 'N/A')}")
+            lines.append(f"    Relationship Reasoning:")
+            if f.get('relationship_reasoning'):
+                for rr in f.get('relationship_reasoning', []):
+                    lines.append(f"      - {rr}")
+            lines.append(f"    Confidence History:")
+            if f.get('confidence_history'):
+                for hist in f.get('confidence_history', []):
+                    old_val = hist.get('old_confidence', hist.get('old'))
+                    new_val = hist.get('new_confidence', hist.get('new'))
+                    lines.append(f"      - {old_val}% → {new_val}% at {hist['timestamp']}")
+            lines.append(f"    Confidence Change Reason:")
+            lines.append(f"      {f.get('confidence_change_reason', 'N/A')}")
             lines.append("")
     
     lines.append("AUDIT TRAIL (Tool Execution Chain)")

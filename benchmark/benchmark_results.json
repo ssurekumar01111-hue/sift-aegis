@@ -1,0 +1,11 @@
+{
+  "total_findings": 12,
+  "true_positives": 0,
+  "false_positives": 12,
+  "false_negatives": 3,
+  "precision": 0.0,
+  "recall": 0.0,
+  "hallucination_rate": 1.0,
+  "inference_accuracy": 0.0,
+  "confidence_calibration": 0.0
+}

@@ -1,0 +1,92 @@
+{
+  "finding_id": "MEM-3908",
+  "confidence_history": [
+    {
+      "old": 20,
+      "new": 0,
+      "timestamp": "2026-06-11T15:51:01.234475"
+    },
+    {
+      "old": 15,
+      "new": 5,
+      "timestamp": "2026-06-11T15:55:05.279361"
+    },
+    {
+      "old": 20,
+      "new": 15,
+      "timestamp": "2026-06-11T16:00:18.561887"
+    },
+    {
+      "old": 30,
+      "new": 25,
+      "timestamp": "2026-06-11T16:04:20.842168"
+    }
+  ],
+  "reasoning_updates": [
+    "Process anomalies suggest unauthorized execution or masquerading.",
+    "DLL or Network anomalies in this process would significantly strengthen the injection hypothesis."
+  ],
+  "final_classification": "UNVERIFIED",
+  "audit_logs": [
+    {
+      "timestamp": "2026-06-11T14:37:23.023336",
+      "iteration": 1,
+      "event": "SELF_CORRECTION_START",
+      "data": {
+        "finding_id": "MEM-3908",
+        "current_confidence": 20,
+        "reason": "Below confidence threshold, re-investigating"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T14:37:47.613484",
+      "iteration": 1,
+      "event": "SELF_CORRECTION_RESULT",
+      "data": {
+        "finding_id": "MEM-3908",
+        "new_confidence": 20,
+        "new_status": "UNVERIFIED"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T14:41:05.065473",
+      "iteration": 2,
+      "event": "SELF_CORRECTION_START",
+      "data": {
+        "finding_id": "MEM-3908",
+        "current_confidence": 20,
+        "reason": "Below confidence threshold, re-investigating"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T14:41:24.005829",
+      "iteration": 2,
+      "event": "SELF_CORRECTION_RESULT",
+      "data": {
+        "finding_id": "MEM-3908",
+        "new_confidence": 20,
+        "new_status": "UNVERIFIED"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T14:45:26.111160",
+      "iteration": 3,
+      "event": "SELF_CORRECTION_START",
+      "data": {
+        "finding_id": "MEM-3908",
+        "current_confidence": 20,
+        "reason": "Below confidence threshold, re-investigating"
+      }
+    },
+    {
+      "timestamp": "2026-06-11T14:46:21.490140",
+      "iteration": 3,
+      "event": "SELF_CORRECTION_RESULT",
+      "data": {
+        "finding_id": "MEM-3908",
+        "new_confidence": 20,
+        "new_status": "UNVERIFIED"
+      }
+    }
+  ]
+}

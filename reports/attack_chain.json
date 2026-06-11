@@ -1,0 +1,160 @@
+{
+  "attack_chain": [
+    {
+      "step": "pslist:PID:3908",
+      "evidence": "pslist:PID:3908",
+      "confidence": 1.0
+    },
+    {
+      "step": "self_correction:dll_verification:PID:3908",
+      "evidence": "self_correction:dll_verification:PID:3908",
+      "confidence": 1.0
+    },
+    {
+      "step": "self_correction:process_reconfirmed",
+      "evidence": "self_correction:process_reconfirmed",
+      "confidence": 1.0
+    },
+    {
+      "step": "pslist:PID:2160",
+      "evidence": "pslist:PID:2160",
+      "confidence": 1.0
+    },
+    {
+      "step": "self_correction:dll_verification:PID:2160",
+      "evidence": "self_correction:dll_verification:PID:2160",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:PID:924",
+      "evidence": "malfind:PID:924",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x850000",
+      "evidence": "malfind:address:0x850000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:protection:Vad",
+      "evidence": "malfind:protection:Vad",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0xbd0000",
+      "evidence": "malfind:address:0xbd0000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x7f6f0000",
+      "evidence": "malfind:address:0x7f6f0000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:PID:948",
+      "evidence": "malfind:PID:948",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x5c0000",
+      "evidence": "malfind:address:0x5c0000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x20e90000",
+      "evidence": "malfind:address:0x20e90000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:protection:VadS",
+      "evidence": "malfind:protection:VadS",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x4090000",
+      "evidence": "malfind:address:0x4090000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0xc120000",
+      "evidence": "malfind:address:0xc120000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x27a10000",
+      "evidence": "malfind:address:0x27a10000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x2fd20000",
+      "evidence": "malfind:address:0x2fd20000",
+      "confidence": 1.0
+    },
+    {
+      "step": "malfind:address:0x29130000",
+      "evidence": "malfind:address:0x29130000",
+      "confidence": 1.0
+    },
+    {
+      "step": "Code Injection: csrss.exe (PID 924)",
+      "evidence": "MAL-924-0x850000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: csrss.exe (PID 924)",
+      "evidence": "MAL-924-0xbd0000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: csrss.exe (PID 924)",
+      "evidence": "MAL-924-0x7f6f0000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x5c0000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x20e90000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x4090000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0xc120000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x27a10000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x2fd20000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Code Injection: winlogon.exe (PID 948)",
+      "evidence": "MAL-948-0x29130000",
+      "confidence": 0.35
+    },
+    {
+      "step": "Suspicious Process: cmd.exe",
+      "evidence": "MEM-3908",
+      "confidence": 0.25
+    },
+    {
+      "step": "Suspicious Process: mdd_1.3.exe",
+      "evidence": "MEM-2160",
+      "confidence": 0.25
+    }
+  ],
+  "confidence": 0.7419354838709677
+}

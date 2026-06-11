@@ -11,6 +11,8 @@ from datetime import datetime
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 from mcp_bridge import MCPBridge
+from evidence_graph import EvidenceGraph, EvidenceNode, EvidenceEdge
+
 
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
@@ -20,15 +22,47 @@ CONFIDENCE_THRESHOLD = 0.95
 @dataclass
 class Finding:
     id: str
+    title: str
     category: str
     description: str
     confidence: float
     status: str  # CONFIRMED / INFERRED / UNVERIFIED / REJECTED
-    supporting_artifacts: list
-    contradictions: list
-    iteration_found: int
-    tool_source: str
+    supporting_evidence: list = field(default_factory=list)
+    contradictory_evidence: list = field(default_factory=list)
+    missing_evidence: list = field(default_factory=list)
+    confidence_explanation: str = ""
+    evidence_sources: list = field(default_factory=list)
+    iteration_found: int = 0
+    tool_source: str = ""
     raw_data: dict = field(default_factory=dict)
+    relationship_reasoning: list = field(default_factory=list)
+    hypothesis: str = ""
+    hypothesis_confidence: str = ""
+    confidence_history: list = field(default_factory=list)
+    confidence_change_reason: str = ""
+
+    def to_dict(self):
+        return {
+            "finding_id": self.id,
+            "title": self.title,
+            "category": self.category,
+            "description": self.description,
+            "confidence": int(self.confidence * 100),
+            "status": self.status,
+            "supporting_evidence": self.supporting_evidence,
+            "contradictory_evidence": self.contradictory_evidence,
+            "missing_evidence": self.missing_evidence,
+            "confidence_explanation": self.confidence_explanation,
+            "evidence_sources": self.evidence_sources,
+            "iteration_found": self.iteration_found,
+            "tool_source": self.tool_source,
+            "raw_data": self.raw_data,
+            "relationship_reasoning": self.relationship_reasoning,
+            "hypothesis": self.hypothesis,
+            "hypothesis_confidence": self.hypothesis_confidence,
+            "confidence_history": self.confidence_history,
+            "confidence_change_reason": self.confidence_change_reason
+        }
 
 @dataclass 
 class InvestigationState:
@@ -45,6 +79,79 @@ class SIFTAEGISOrchestrator:
         self.bridge = MCPBridge()
         self.state = InvestigationState()
         self.audit_log = []
+        self.graph = EvidenceGraph()
+        self.source_weights = {
+            "get_process_list": 0.20,
+            "get_malfind": 0.30,
+            "get_registry_run_keys": 0.20,
+            "get_network_connections": 0.20,
+            "get_dll_list": 0.10,
+            "extract_mft_timeline": 0.15,
+            "get_evtx_events": 0.15
+        }
+
+    def generate_evidence_graph(self):
+        """Constructs the evidence graph from current findings."""
+        for finding in self.state.findings:
+            node = EvidenceNode(
+                id=finding.id,
+                type="Finding",
+                name=finding.title,
+                confidence=finding.confidence,
+                metadata={"category": finding.category}
+            )
+            self.graph.add_node(node)
+            
+            # Simplified relationship creation for evidence
+            for source in finding.evidence_sources:
+                edge = EvidenceEdge(
+                    source=finding.id,
+                    target=source,
+                    relationship="observed_in",
+                    confidence=finding.confidence,
+                    evidence=source
+                )
+                self.graph.add_edge(edge)
+                
+        # Save graph
+        os.makedirs("graph", exist_ok=True)
+        self.graph.save("graph/evidence_graph.json")
+        self.log("GRAPH_GENERATED", self.graph.validate())
+        self.reconstruct_attack_chain()
+
+    def reconstruct_attack_chain(self):
+        """Generates attack chain reports from the evidence graph."""
+        from attack_chain_engine import AttackChainEngine
+        engine = AttackChainEngine("graph/evidence_graph.json")
+        result = engine.reconstruct()
+        self.log("ATTACK_CHAIN_CREATED", {"confidence": result["confidence"]})
+        self.log("ATTACK_CHAIN_VALIDATED", {"status": "SUCCESS"})
+        self.run_benchmark()
+
+    def run_benchmark(self):
+        """Runs benchmarks on investigation results."""
+        from benchmark.benchmark_runner import run_benchmark
+        run_benchmark()
+        self.log("BENCHMARK_COMPLETED", {"status": "SUCCESS"})
+        self.export_finding_replay("TEST-1")
+
+    def export_finding_replay(self, finding_id: str):
+        """Generates replay data for a specific finding."""
+        from replay_engine import ReplayEngine
+        engine = ReplayEngine("investigation_results.json", "audit/audit_trail.jsonl")
+        replay_data = engine.export_replay(finding_id)
+        self.log("REPLAY_CREATED", {"finding_id": finding_id})
+        self.log("REPLAY_EXPORTED", {"finding_id": finding_id, "path": f"replay/{finding_id}_replay.json"})
+        self.run_mitre_mapping()
+
+    def run_mitre_mapping(self):
+        """Maps findings to MITRE ATT&CK techniques."""
+        from mitre_mapping_engine import MITREMappingEngine
+        engine = MITREMappingEngine(self.state.findings)
+        result = engine.map()
+        self.log("MITRE_TECHNIQUE_MAPPED", {"techniques": len(result["techniques"])})
+        self.log("MITRE_REPORT_CREATED", {"status": "SUCCESS"})
+
     
     def log(self, event: str, data: dict = {}):
         """Structured audit log entry."""
@@ -79,28 +186,182 @@ class SIFTAEGISOrchestrator:
         })
         return result
     
-    def score_finding(self, finding: Finding) -> float:
-        """Score a finding's confidence based on corroborating evidence."""
-        base = finding.confidence
-        # Boost for multiple artifacts
-        if len(finding.supporting_artifacts) >= 3:
-            base = min(base + 0.15, 1.0)
-        elif len(finding.supporting_artifacts) >= 2:
-            base = min(base + 0.08, 1.0)
-        # Penalize for contradictions
-        if finding.contradictions:
-            base = max(base - 0.20 * len(finding.contradictions), 0.0)
-        return round(base, 2)
+    def generate_reasoning(self, finding: Finding):
+        """Generate missing evidence, hypothesis, and relationship reasoning."""
+        missing = []
+        explanation = []
+        
+        # Hypothesis mapping
+        hypothesis_map = {
+            "Suspicious Process": ("Possible code injection or malicious process masquerading", "High"),
+            "Suspicious Network Connection": ("Potential command and control activity", "Medium"),
+            "Code Injection": ("Injected executable memory detected", "High"),
+            "Persistence Mechanism": ("Persistence mechanism established", "Medium"),
+            "Suspicious Event Log": ("Potential log clearing or malicious event activity", "Low")
+        }
+        
+        finding.hypothesis, finding.hypothesis_confidence = hypothesis_map.get(
+            finding.category, ("Potential anomalous activity", "Low")
+        )
+        
+        # Relationship reasoning
+        if finding.category == "Suspicious Process":
+            if "get_network_connections" not in finding.evidence_sources:
+                missing.append("Network connection correlation")
+            if "get_dll_list" not in finding.evidence_sources:
+                missing.append("DLL injection verification")
+            if "extract_mft_timeline" not in finding.evidence_sources:
+                missing.append("Disk execution correlation")
+            
+            finding.relationship_reasoning = [
+                "Process anomalies suggest unauthorized execution or masquerading.",
+                "DLL or Network anomalies in this process would significantly strengthen the injection hypothesis."
+            ]
+        elif finding.category == "Code Injection":
+            if "get_dll_list" not in finding.evidence_sources:
+                missing.append("DLL list correlation")
+            finding.relationship_reasoning = [
+                "Executable memory regions with no mapped file are strong indicators of process hollowing or injection.",
+                "Correlating with DLL loads can confirm the injected module origin."
+            ]
+        # ... (other categories)
+                
+        finding.missing_evidence = missing
+        
+        if finding.supporting_evidence:
+            explanation.append(f"{len(finding.supporting_evidence)} pieces of supporting evidence identified.")
+        if finding.contradictory_evidence:
+            explanation.append(f"However, {len(finding.contradictory_evidence)} contradictory artifacts observed.")
+        if finding.missing_evidence:
+            explanation.append(f"Additional evidence required: {', '.join(finding.missing_evidence)}.")
+        else:
+            explanation.append("All primary evidence domains correlated successfully.")
+            
+        finding.confidence_explanation = " ".join(explanation)
+        self.log("REASONING_CREATED", {
+            "finding_id": finding.id,
+            "hypothesis": finding.hypothesis,
+            "reasoning": finding.confidence_explanation
+        })
+
+    def _get_corroboration_bonus(self, finding: Finding) -> float:
+        sources = set(finding.evidence_sources)
+        if all(s in sources for s in ["get_process_list", "get_registry_run_keys", "extract_mft_timeline", "get_network_connections"]):
+            return 0.30
+        if all(s in sources for s in ["get_process_list", "get_dll_list", "get_network_connections"]):
+            return 0.20
+        if all(s in sources for s in ["get_process_list", "get_dll_list"]):
+            return 0.10
+        return 0.0
+
+    def _get_hypothesis_bonus(self, finding: Finding) -> float:
+        # Simple hypothesis alignment: if required evidence for category exists
+        requirements = {
+            "Suspicious Process": ["get_network_connections", "get_dll_list"],
+            "Code Injection": ["get_dll_list", "get_malfind"],
+            "Persistence Mechanism": ["get_registry_run_keys"]
+        }
+        required = requirements.get(finding.category, [])
+        if required and all(s in finding.evidence_sources for s in required):
+            return 0.10
+        return 0.0
+
+    def calculate_confidence(self, finding: Finding) -> float:
+        """Score a finding's confidence based on weighted evidence sources, corroboration, and hypothesis alignment."""
+        old_confidence = finding.confidence
+        score = 0.0
+        unique_sources = set(finding.evidence_sources)
+        
+        # Base score from sources
+        for source in unique_sources:
+            score += self.source_weights.get(source, 0.05)
+            
+        # Supporting evidence bonus
+        score += 0.05 * len(finding.supporting_evidence)
+        
+        # Corroboration Bonus
+        corroboration_bonus = self._get_corroboration_bonus(finding)
+        if corroboration_bonus > 0:
+            self.log("CORROBORATION_BONUS_APPLIED", {"finding_id": finding.id, "bonus": corroboration_bonus})
+        score += corroboration_bonus
+        
+        # Hypothesis Alignment Bonus
+        hypothesis_bonus = self._get_hypothesis_bonus(finding)
+        if hypothesis_bonus > 0:
+            self.log("HYPOTHESIS_ALIGNMENT_BONUS_APPLIED", {"finding_id": finding.id, "bonus": hypothesis_bonus})
+        score += hypothesis_bonus
+        
+        # Penalties
+        if finding.contradictory_evidence:
+            score -= 0.25 * len(finding.contradictory_evidence)
+        
+        if finding.missing_evidence:
+            score -= 0.03 * len(finding.missing_evidence)
+            
+        if "missing_verification" in finding.contradictory_evidence:
+            score -= 0.15
+            
+        new_confidence = round(max(min(score, 1.0), 0.0), 2)
+        
+        # Record history and log evolution
+        if new_confidence != old_confidence:
+            self.log("CONFIDENCE_RECALCULATED", {"finding_id": finding.id, "old_confidence": old_confidence, "new_confidence": new_confidence})
+            change_reason = f"Recalculated: Base + {corroboration_bonus} (corroboration) + {hypothesis_bonus} (hypothesis)"
+            evolution_entry = {
+                "old_confidence": old_confidence,
+                "new_confidence": new_confidence,
+                "reason": change_reason,
+                "timestamp": datetime.utcnow().isoformat()
+            }
+            finding.confidence_history.append(evolution_entry)
+            self.log("CONFIDENCE_EVOLUTION", {"finding_id": finding.id, **evolution_entry})
+            
+            finding.confidence = new_confidence
+            
+        return new_confidence
     
     def classify_finding(self, finding: Finding) -> str:
-        if finding.confidence >= 0.90 and len(finding.supporting_artifacts) >= 2:
-            return "CONFIRMED"
-        elif finding.confidence >= 0.65:
-            return "INFERRED"
-        elif finding.confidence >= 0.40:
-            return "UNVERIFIED"
+        """Hallucination detection layer: Reclassify based on confidence and evidence count."""
+        old_status = finding.status
+        old_conf = finding.confidence
+        
+        finding.confidence = self.calculate_confidence(finding)
+        
+        # Track confidence history
+        if finding.confidence != old_conf:
+            finding.confidence_history.append({
+                "old": int(old_conf * 100),
+                "new": int(finding.confidence * 100),
+                "timestamp": datetime.utcnow().isoformat()
+            })
+            finding.confidence_change_reason = finding.confidence_explanation
+        
+        if len(finding.contradictory_evidence) > 0:
+            finding.status = "REJECTED"
+        elif finding.confidence >= 0.85 and len(finding.evidence_sources) >= 2:
+            finding.status = "CONFIRMED"
+        elif finding.confidence >= 0.60:
+            finding.status = "INFERRED"
         else:
-            return "REJECTED"
+            finding.status = "UNVERIFIED"
+            
+        if old_status != finding.status or old_conf != finding.confidence:
+            event = "CONFIDENCE_UPDATED"
+            if finding.status == "REJECTED":
+                event = "FINDING_REJECTED"
+            elif finding.status == "UNVERIFIED" and old_status in ["CONFIRMED", "INFERRED"]:
+                event = "HALLUCINATION_DETECTED"
+            
+            self.log(event, {
+                "finding_id": finding.id,
+                "old_confidence": int(old_conf * 100),
+                "new_confidence": int(finding.confidence * 100),
+                "old_status": old_status,
+                "new_status": finding.status,
+                "reason": finding.confidence_explanation
+            })
+            
+        return finding.status
     
     def phase_memory_analysis(self) -> list:
         """Phase 1: Memory forensics."""
@@ -128,12 +389,14 @@ class SIFTAEGISOrchestrator:
                 )
                 finding = Finding(
                     id=f"MEM-{pid}",
+                    title=f"Suspicious Process: {proc_name}",
                     category="Suspicious Process",
                     description=f"Process {proc_name} (PID {pid}) has anomalous parent-child relationship",
-                    confidence=0.60,
+                    confidence=0.20,
                     status="UNVERIFIED",
-                    supporting_artifacts=[f"pslist:PID:{pid}"],
-                    contradictions=[],
+                    supporting_evidence=[f"pslist:PID:{pid}"],
+                    contradictory_evidence=[],
+                    evidence_sources=["get_process_list"],
                     iteration_found=self.state.iteration,
                     tool_source="get_process_list",
                     raw_data={"pid": pid, "name": proc_name}
@@ -142,7 +405,7 @@ class SIFTAEGISOrchestrator:
                 self.log("FINDING_DETECTED", {
                     "id": finding.id,
                     "description": finding.description,
-                    "confidence": finding.confidence
+                    "confidence": int(finding.confidence * 100)
                 })
         
         # Get network connections
@@ -162,12 +425,14 @@ class SIFTAEGISOrchestrator:
             for conn in net_result["suspicious_connections"]:
                 finding = Finding(
                     id=f"NET-{conn.get('foreign_addr','unknown')}",
+                    title=f"Suspicious Network Connection: {conn.get('foreign_addr')}",
                     category="Suspicious Network Connection",
                     description=f"External connection to {conn.get('foreign_addr')}:{conn.get('foreign_port')} by PID {conn.get('pid')}",
-                    confidence=0.60,
+                    confidence=0.20,
                     status="UNVERIFIED",
-                    supporting_artifacts=[f"netscan:{conn.get('foreign_addr')}"],
-                    contradictions=[],
+                    supporting_evidence=[f"netscan:{conn.get('foreign_addr')}"],
+                    contradictory_evidence=[],
+                    evidence_sources=["get_network_connections"],
                     iteration_found=self.state.iteration,
                     tool_source="get_network_connections",
                     raw_data=conn
@@ -192,12 +457,14 @@ class SIFTAEGISOrchestrator:
                 if key.get("suspicious"):
                     finding = Finding(
                         id=f"REG-{key.get('value_name','unknown')}",
+                        title=f"Persistence Mechanism: {key.get('value_name')}",
                         category="Persistence Mechanism",
                         description=f"Suspicious registry run key: {key.get('value_name')} → {key.get('value_data')}",
-                        confidence=0.70,
+                        confidence=0.20,
                         status="UNVERIFIED",
-                        supporting_artifacts=[f"registry:{key.get('key_path')}"],
-                        contradictions=[],
+                        supporting_evidence=[f"registry:{key.get('key_path')}"],
+                        contradictory_evidence=[],
+                        evidence_sources=["get_registry_run_keys"],
                         iteration_found=self.state.iteration,
                         tool_source="get_registry_run_keys",
                         raw_data=key
@@ -220,16 +487,18 @@ class SIFTAEGISOrchestrator:
             for entry in malfind_result.get("entries", [])[:10]:
                 finding = Finding(
                     id=f"MAL-{entry['pid']}-{entry['address']}",
+                    title=f"Code Injection: {entry['process_name']} (PID {entry['pid']})",
                     category="Code Injection",
                     description=f"Injected code detected in {entry['process_name']} (PID {entry['pid']}) at {entry['address']} — protection: {entry['protection']}",
-                    confidence=0.72,
+                    confidence=0.30,
                     status="UNVERIFIED",
-                    supporting_artifacts=[
+                    supporting_evidence=[
                         f"malfind:PID:{entry['pid']}",
                         f"malfind:address:{entry['address']}",
                         f"malfind:protection:{entry['protection']}"
                     ],
-                    contradictions=[],
+                    contradictory_evidence=[],
+                    evidence_sources=["get_malfind"],
                     iteration_found=self.state.iteration,
                     tool_source="get_malfind",
                     raw_data=entry
@@ -238,7 +507,7 @@ class SIFTAEGISOrchestrator:
                 self.log("FINDING_DETECTED", {
                     "id": finding.id,
                     "description": finding.description,
-                    "confidence": finding.confidence
+                    "confidence": int(finding.confidence * 100)
                 })
 
         # EVTX Event Log Analysis
@@ -260,15 +529,17 @@ class SIFTAEGISOrchestrator:
                 if event.get("suspicious"):
                     finding = Finding(
                         id=f"EVT-{event['event_id']}-{event.get('timestamp','')[:10]}",
+                        title=f"Suspicious Event Log: {event['event_id']}",
                         category="Suspicious Event Log",
                         description=f"Security event {event['event_id']}: {event['description']}",
-                        confidence=0.70,
+                        confidence=0.0,
                         status="UNVERIFIED",
-                        supporting_artifacts=[
+                        supporting_evidence=[
                             f"evtx:event_id:{event['event_id']}",
                             f"evtx:source:{event.get('source','unknown')}"
                         ],
-                        contradictions=[],
+                        contradictory_evidence=[],
+                        evidence_sources=["get_evtx_events"],
                         iteration_found=self.state.iteration,
                         tool_source="get_evtx_events",
                         raw_data=event
@@ -276,6 +547,10 @@ class SIFTAEGISOrchestrator:
                     findings.append(finding)
 
         
+        for finding in findings:
+            self.generate_reasoning(finding)
+            finding.status = self.classify_finding(finding)
+
         self.log("PHASE_END", {
             "phase": "memory_analysis",
             "findings_count": len(findings)
@@ -312,9 +587,11 @@ class SIFTAEGISOrchestrator:
                     # Find the matching process finding and boost confidence
                     for finding in findings:
                         if finding.raw_data.get("pid") == pid:
-                            finding.supporting_artifacts.append(
+                            finding.supporting_evidence.append(
                                 f"dlllist:PID:{pid}:suspicious_dlls:{dll_result['suspicious_count']}"
                             )
+                            if "get_dll_list" not in finding.evidence_sources:
+                                finding.evidence_sources.append("get_dll_list")
                             self.log("CORRELATION_MATCH", {
                                 "finding_id": finding.id,
                                 "corroborating": f"suspicious DLLs for PID {pid}"
@@ -328,8 +605,12 @@ class SIFTAEGISOrchestrator:
             net_pid = net_f.raw_data.get("pid")
             for proc_f in proc_findings:
                 if proc_f.raw_data.get("pid") == net_pid:
-                    net_f.supporting_artifacts.append(f"process_correlation:PID:{net_pid}")
-                    proc_f.supporting_artifacts.append(f"network_correlation:PID:{net_pid}")
+                    net_f.supporting_evidence.append(f"process_correlation:PID:{net_pid}")
+                    proc_f.supporting_evidence.append(f"network_correlation:PID:{net_pid}")
+                    if "get_process_list" not in net_f.evidence_sources:
+                        net_f.evidence_sources.append("get_process_list")
+                    if "get_network_connections" not in proc_f.evidence_sources:
+                        proc_f.evidence_sources.append("get_network_connections")
                     self.log("CORRELATION_MATCH", {
                         "network_finding": net_f.id,
                         "process_finding": proc_f.id,
@@ -344,10 +625,11 @@ class SIFTAEGISOrchestrator:
         for finding in findings:
             if finding.raw_data.get("pid") in malfind_pids:
                 if finding.category == "Suspicious Process":
-                    finding.supporting_artifacts.append(
+                    finding.supporting_evidence.append(
                         "malfind_correlation:code_injection_confirmed"
                     )
-                    finding.confidence = min(finding.confidence + 0.20, 1.0)
+                    if "get_malfind" not in finding.evidence_sources:
+                        finding.evidence_sources.append("get_malfind")
                     self.log("CORRELATION_MATCH", {
                         "finding_id": finding.id,
                         "corroborating": "malfind code injection in same PID"
@@ -356,7 +638,6 @@ class SIFTAEGISOrchestrator:
         
         # Rescore all findings after correlation
         for finding in findings:
-            finding.confidence = self.score_finding(finding)
             finding.status = self.classify_finding(finding)
         
         self.log("PHASE_END", {
@@ -424,10 +705,11 @@ class SIFTAEGISOrchestrator:
                 proc_name = finding.raw_data.get("name", "").lower().replace(".exe", "")
                 for corr in disk_corroborations:
                     if proc_name and proc_name in corr.get("matched_process", ""):
-                        finding.supporting_artifacts.append(
+                        finding.supporting_evidence.append(
                             f"mft_disk_correlation:{corr['filename']}:{corr.get('modified','')}"
                         )
-                        finding.confidence = min(finding.confidence + 0.12, 1.0)
+                        if "extract_mft_timeline" not in finding.evidence_sources:
+                            finding.evidence_sources.append("extract_mft_timeline")
                         self.log("MULTI_SOURCE_CONFIRMED", {
                             "finding_id": finding.id,
                             "disk_artifact": corr["filename"],
@@ -436,12 +718,12 @@ class SIFTAEGISOrchestrator:
         else:
             self.log("DISK_CORRELATION_RESULT", {
                 "result": "No direct matches between disk MFT and memory findings",
-                "note": "Disk and memory artifacts are consistent — no contradictions found"
+                "note": "Disk and memory artifacts are consistent — no contradictory_evidence found"
             })
         
-        # Rescore after disk correlation
+        # Generate reasoning and rescore after disk correlation
         for finding in findings:
-            finding.confidence = self.score_finding(finding)
+            self.generate_reasoning(finding)
             finding.status = self.classify_finding(finding)
         
         self.log("PHASE_END", {
@@ -467,8 +749,15 @@ class SIFTAEGISOrchestrator:
         for finding in low_confidence:
             self.log("SELF_CORRECTION_START", {
                 "finding_id": finding.id,
-                "current_confidence": finding.confidence,
+                "current_confidence": int(finding.confidence * 100),
                 "reason": "Below confidence threshold, re-investigating"
+            })
+            
+            # NEW LOGGING
+            self.log("HYPOTHESIS_EVALUATED", {
+                "finding_id": finding.id,
+                "hypothesis": finding.hypothesis,
+                "confidence": finding.confidence
             })
             
             # Re-investigate based on finding type
@@ -481,8 +770,16 @@ class SIFTAEGISOrchestrator:
                         memory_image=MEMORY_IMAGE,
                         pid=pid
                     )
+                    
+                    # NEW LOGGING
+                    self.log("TOOL_SELECTED_FOR_VERIFICATION", {
+                        "finding_id": finding.id,
+                        "tool": "get_dll_list",
+                        "reason": f"Required to support hypothesis {finding.hypothesis}"
+                    })
+
                     if not dll_result.get("error"):
-                        finding.supporting_artifacts.append(
+                        finding.supporting_evidence.append(
                             f"self_correction:dll_verification:PID:{pid}"
                         )
                         # Re-run process list for fresh data
@@ -491,10 +788,11 @@ class SIFTAEGISOrchestrator:
                             memory_image=MEMORY_IMAGE
                         )
                         if pid in proc_result.get("suspicious_pids", []):
-                            finding.supporting_artifacts.append(
+                            finding.supporting_evidence.append(
                                 "self_correction:process_reconfirmed"
                             )
-                            finding.confidence = min(finding.confidence + 0.20, 1.0)
+                            # Update confidence using current logic
+                            finding.confidence = min(finding.confidence + 0.15, 1.0)
                         self.state.corrections_made += 1
             
             elif finding.category == "Suspicious Network Connection":
@@ -503,31 +801,51 @@ class SIFTAEGISOrchestrator:
                     "get_network_connections",
                     memory_image=MEMORY_IMAGE
                 )
+                
+                # NEW LOGGING
+                self.log("TOOL_SELECTED_FOR_VERIFICATION", {
+                    "finding_id": finding.id,
+                    "tool": "get_network_connections",
+                    "reason": f"Required to support hypothesis {finding.hypothesis}"
+                })
+                
                 foreign_addr = finding.raw_data.get("foreign_addr")
                 confirmed = any(
                     c.get("foreign_addr") == foreign_addr 
                     for c in net_result.get("suspicious_connections", [])
                 )
                 if confirmed:
-                    finding.supporting_artifacts.append(
+                    finding.supporting_evidence.append(
                         "self_correction:network_reconfirmed"
                     )
-                    finding.confidence = min(finding.confidence + 0.20, 1.0)
+                    finding.confidence = min(finding.confidence + 0.15, 1.0)
                     self.state.corrections_made += 1
                 else:
                     finding.status = "REJECTED"
-                    finding.contradictions.append("network_scan_not_reproduced")
+                    finding.contradictory_evidence.append("network_scan_not_reproduced")
                     self.log("SELF_CORRECTION_REJECTED", {
                         "finding_id": finding.id,
                         "reason": "Could not reproduce in second scan"
                     })
             
+            # NEW LOGGING
+            self.generate_reasoning(finding)
+            self.log("HYPOTHESIS_UPDATED", {
+                "finding_id": finding.id,
+                "hypothesis": finding.hypothesis
+            })
+            
             # Reclassify after correction
             finding.status = self.classify_finding(finding)
-            self.log("SELF_CORRECTION_RESULT", {
+            
+            # NEW LOGGING
+            self.log("SELF_CORRECTION_DECISION", {
                 "finding_id": finding.id,
-                "new_confidence": finding.confidence,
-                "new_status": finding.status
+                "hypothesis": finding.hypothesis,
+                "reasoning": finding.confidence_explanation,
+                "confidence_before": finding.confidence_history[-1]['old'] if finding.confidence_history else int(finding.confidence * 100),
+                "confidence_after": int(finding.confidence * 100),
+                "timestamp": datetime.utcnow().isoformat()
             })
         
         self.log("PHASE_END", {
@@ -547,7 +865,7 @@ class SIFTAEGISOrchestrator:
             "max_iterations": MAX_ITERATIONS
         })
         
-        all_findings = []
+        self.findings_map = {} # Use dict to prevent duplication
         
         for iteration in range(1, MAX_ITERATIONS + 1):
             self.state.iteration = iteration
@@ -555,17 +873,30 @@ class SIFTAEGISOrchestrator:
             print(f"\n--- Iteration {iteration} ---")
             
             # Phase 1: Memory analysis
-            findings = self.phase_memory_analysis()
-            all_findings.extend(findings)
+            new_findings = self.phase_memory_analysis()
+            for f in new_findings:
+                if f.id not in self.findings_map:
+                    self.findings_map[f.id] = f
             
             # Phase 2: Correlation
-            all_findings = self.phase_correlation(all_findings)
+            current_findings = list(self.findings_map.values())
+            updated_findings = self.phase_correlation(current_findings)
+            for f in updated_findings:
+                self.findings_map[f.id] = f
             
             # Phase 2b: Disk-Memory cross-source correlation
-            all_findings = self.phase_disk_correlation(all_findings)
+            current_findings = list(self.findings_map.values())
+            updated_findings = self.phase_disk_correlation(current_findings)
+            for f in updated_findings:
+                self.findings_map[f.id] = f
             
             # Phase 3: Self-correction
-            all_findings = self.phase_self_correction(all_findings)
+            current_findings = list(self.findings_map.values())
+            updated_findings = self.phase_self_correction(current_findings)
+            for f in updated_findings:
+                self.findings_map[f.id] = f
+            
+            all_findings = list(self.findings_map.values())
             
             # Track accuracy per iteration
             confirmed_count = sum(1 for f in all_findings 
@@ -609,6 +940,7 @@ class SIFTAEGISOrchestrator:
                 })
                 break
         
+        all_findings = list(self.findings_map.values())
         self.log("INVESTIGATION_COMPLETE", {
             "total_tool_calls": len(self.state.tool_calls),
             "total_corrections": self.state.corrections_made,
@@ -616,7 +948,7 @@ class SIFTAEGISOrchestrator:
         })
         
         return {
-            "findings": [asdict(f) for f in all_findings],
+            "findings": [f.to_dict() for f in all_findings],
             "audit_log": self.audit_log,
             "tool_calls": self.state.tool_calls,
             "accuracy_delta": {

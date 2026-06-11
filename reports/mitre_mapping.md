@@ -1,0 +1,14 @@
+# MITRE ATT&CK Mapping
+
+- Finding MEM-3908 -> T1059.003
+- Finding MEM-2160 -> T1059.003
+- Finding MAL-924-0x850000 -> T1055
+- Finding MAL-924-0xbd0000 -> T1055
+- Finding MAL-924-0x7f6f0000 -> T1055
+- Finding MAL-948-0x5c0000 -> T1055
+- Finding MAL-948-0x20e90000 -> T1055
+- Finding MAL-948-0x4090000 -> T1055
+- Finding MAL-948-0xc120000 -> T1055
+- Finding MAL-948-0x27a10000 -> T1055
+- Finding MAL-948-0x2fd20000 -> T1055
+- Finding MAL-948-0x29130000 -> T1055

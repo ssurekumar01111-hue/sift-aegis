@@ -1,0 +1,567 @@
+{
+  "nodes": [
+    {
+      "id": "MEM-3908",
+      "type": "Finding",
+      "name": "Suspicious Process: cmd.exe",
+      "confidence": 0.25,
+      "metadata": {
+        "category": "Suspicious Process",
+        "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship"
+      }
+    },
+    {
+      "id": "pslist:PID:3908",
+      "type": "EvidenceSource",
+      "name": "pslist:PID:3908",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "self_correction:dll_verification:PID:3908",
+      "type": "EvidenceSource",
+      "name": "self_correction:dll_verification:PID:3908",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "self_correction:process_reconfirmed",
+      "type": "EvidenceSource",
+      "name": "self_correction:process_reconfirmed",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MEM-2160",
+      "type": "Finding",
+      "name": "Suspicious Process: mdd_1.3.exe",
+      "confidence": 0.25,
+      "metadata": {
+        "category": "Suspicious Process",
+        "description": "Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship"
+      }
+    },
+    {
+      "id": "pslist:PID:2160",
+      "type": "EvidenceSource",
+      "name": "pslist:PID:2160",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "self_correction:dll_verification:PID:2160",
+      "type": "EvidenceSource",
+      "name": "self_correction:dll_verification:PID:2160",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-924-0x850000",
+      "type": "Finding",
+      "name": "Code Injection: csrss.exe (PID 924)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in csrss.exe (PID 924) at 0x850000 \u2014 protection: Vad"
+      }
+    },
+    {
+      "id": "malfind:PID:924",
+      "type": "EvidenceSource",
+      "name": "malfind:PID:924",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "malfind:address:0x850000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x850000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "malfind:protection:Vad",
+      "type": "EvidenceSource",
+      "name": "malfind:protection:Vad",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-924-0xbd0000",
+      "type": "Finding",
+      "name": "Code Injection: csrss.exe (PID 924)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in csrss.exe (PID 924) at 0xbd0000 \u2014 protection: Vad"
+      }
+    },
+    {
+      "id": "malfind:address:0xbd0000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0xbd0000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-924-0x7f6f0000",
+      "type": "Finding",
+      "name": "Code Injection: csrss.exe (PID 924)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in csrss.exe (PID 924) at 0x7f6f0000 \u2014 protection: Vad"
+      }
+    },
+    {
+      "id": "malfind:address:0x7f6f0000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x7f6f0000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x5c0000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x5c0000 \u2014 protection: Vad"
+      }
+    },
+    {
+      "id": "malfind:PID:948",
+      "type": "EvidenceSource",
+      "name": "malfind:PID:948",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "malfind:address:0x5c0000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x5c0000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x20e90000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x20e90000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0x20e90000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x20e90000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "malfind:protection:VadS",
+      "type": "EvidenceSource",
+      "name": "malfind:protection:VadS",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x4090000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x4090000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0x4090000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x4090000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0xc120000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0xc120000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0xc120000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0xc120000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x27a10000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x27a10000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0x27a10000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x27a10000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x2fd20000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x2fd20000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0x2fd20000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x2fd20000",
+      "confidence": 1.0,
+      "metadata": {}
+    },
+    {
+      "id": "MAL-948-0x29130000",
+      "type": "Finding",
+      "name": "Code Injection: winlogon.exe (PID 948)",
+      "confidence": 0.35,
+      "metadata": {
+        "category": "Code Injection",
+        "description": "Injected code detected in winlogon.exe (PID 948) at 0x29130000 \u2014 protection: VadS"
+      }
+    },
+    {
+      "id": "malfind:address:0x29130000",
+      "type": "EvidenceSource",
+      "name": "malfind:address:0x29130000",
+      "confidence": 1.0,
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "pslist:PID:3908",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "pslist:PID:3908"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:3908",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:3908"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:3908",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:3908"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:3908",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:3908"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-3908",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "pslist:PID:2160",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "pslist:PID:2160"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:2160",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:2160"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:2160",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:2160"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "self_correction:dll_verification:PID:2160",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:dll_verification:PID:2160"
+    },
+    {
+      "source": "self_correction:process_reconfirmed",
+      "target": "MEM-2160",
+      "relationship": "supports",
+      "confidence": 0.25,
+      "evidence": "self_correction:process_reconfirmed"
+    },
+    {
+      "source": "malfind:PID:924",
+      "target": "MAL-924-0x850000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:924"
+    },
+    {
+      "source": "malfind:address:0x850000",
+      "target": "MAL-924-0x850000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x850000"
+    },
+    {
+      "source": "malfind:protection:Vad",
+      "target": "MAL-924-0x850000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:Vad"
+    },
+    {
+      "source": "malfind:PID:924",
+      "target": "MAL-924-0xbd0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:924"
+    },
+    {
+      "source": "malfind:address:0xbd0000",
+      "target": "MAL-924-0xbd0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0xbd0000"
+    },
+    {
+      "source": "malfind:protection:Vad",
+      "target": "MAL-924-0xbd0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:Vad"
+    },
+    {
+      "source": "malfind:PID:924",
+      "target": "MAL-924-0x7f6f0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:924"
+    },
+    {
+      "source": "malfind:address:0x7f6f0000",
+      "target": "MAL-924-0x7f6f0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x7f6f0000"
+    },
+    {
+      "source": "malfind:protection:Vad",
+      "target": "MAL-924-0x7f6f0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:Vad"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x5c0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x5c0000",
+      "target": "MAL-948-0x5c0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x5c0000"
+    },
+    {
+      "source": "malfind:protection:Vad",
+      "target": "MAL-948-0x5c0000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:Vad"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x20e90000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x20e90000",
+      "target": "MAL-948-0x20e90000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x20e90000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0x20e90000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x4090000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x4090000",
+      "target": "MAL-948-0x4090000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x4090000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0x4090000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0xc120000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0xc120000",
+      "target": "MAL-948-0xc120000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0xc120000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0xc120000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x27a10000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x27a10000",
+      "target": "MAL-948-0x27a10000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x27a10000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0x27a10000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x2fd20000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x2fd20000",
+      "target": "MAL-948-0x2fd20000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x2fd20000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0x2fd20000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    },
+    {
+      "source": "malfind:PID:948",
+      "target": "MAL-948-0x29130000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:PID:948"
+    },
+    {
+      "source": "malfind:address:0x29130000",
+      "target": "MAL-948-0x29130000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:address:0x29130000"
+    },
+    {
+      "source": "malfind:protection:VadS",
+      "target": "MAL-948-0x29130000",
+      "relationship": "supports",
+      "confidence": 0.35,
+      "evidence": "malfind:protection:VadS"
+    }
+  ]
+}

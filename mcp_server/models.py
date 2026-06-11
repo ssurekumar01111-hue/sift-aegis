@@ -118,9 +118,23 @@ class EVTXEntry(BaseModel):
     suspicious: bool
     reason: Optional[str]
 
-class EVTXAnalysisResult(BaseModel):
-    evidence: EvidenceMetadata
-    entries: list[EVTXEntry]
-    total_count: int
-    suspicious_count: int
-    suspicious_event_ids: list[int]
+
+class EmailArtifact(BaseModel):
+    sender: str
+    recipient: str
+    subject: str
+    reply_to: str
+    attachments: list[str]
+    timestamp: str
+
+class BrowserArtifact(BaseModel):
+    url: str
+    timestamp: str
+    artifact_type: str
+
+class DocumentArtifact(BaseModel):
+    file_name: str
+    author: str
+    created: str
+    modified: str
+    accessed: str
