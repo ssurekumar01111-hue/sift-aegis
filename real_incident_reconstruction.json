@@ -1,0 +1,27 @@
+{
+  "phase_1": {
+    "description": "Onboarding and Assignment",
+    "date_range": "2009-11-16 to 2009-11-17",
+    "sources": ["Thunderbird Inbox"]
+  },
+  "phase_2": {
+    "description": "Active Patent Research",
+    "date_range": "2009-11-17 to 2009-12-03",
+    "sources": ["Firefox places.sqlite", "LNK files", "Email"]
+  },
+  "phase_3": {
+    "description": "Discovery and External Contact",
+    "date_range": "2009-12-04",
+    "sources": ["Thunderbird Sent"]
+  },
+  "phase_4": {
+    "description": "Document Collection and Staging",
+    "date_range": "2009-12-04 to 2009-12-10",
+    "sources": ["LNK files", "Quantum Cryptography folder"]
+  },
+  "phase_5": {
+    "description": "Final Activity",
+    "date_range": "2009-12-11",
+    "sources": ["Image capture date"]
+  }
+}

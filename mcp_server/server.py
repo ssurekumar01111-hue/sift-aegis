@@ -26,46 +26,29 @@ from models import (
 # ── Tool 7: Email Analysis ───────────────────────────────────────────────────
 
 @mcp.tool()
-def extract_outlook_emails(file_path: str) -> dict:
-    """Read-only. Parses email artifacts from PST/OST/EML/MBOX."""
-    # Placeholder: In a real scenario, this would use a parser library
-    artifact = EmailArtifact(
-        sender="alison.smith@m57.com",
-        recipient="jean@m57.com",
-        subject="Urgent: Patent Review",
-        reply_to="alison.smith@m57.com",
-        attachments=["m57biz.xls"],
-        timestamp="2009-11-17 08:41:00"
-    )
-    return artifact.model_dump()
+def extract_outlook_emails(file_path: str = "/home/sansforensics/sift-aegis/real_email_artifacts.json") -> list[dict]:
+    """Read-only. Parses email artifacts from JSON."""
+    with open(file_path, "r") as f:
+        return json.load(f)
 
 # ── Tool 8: Browser Analysis ──────────────────────────────────────────────────
 
+import sqlite3
+import os
+
 @mcp.tool()
-def analyze_browser_artifacts(file_path: str) -> dict:
+def analyze_browser_artifacts(image_mount_path: str = "/home/sansforensics/sift-aegis/real_browser_artifacts.json") -> list[dict]:
     """Read-only. Analyzes browser history/downloads/cookies."""
-    # Placeholder
-    artifact = BrowserArtifact(
-        url="https://mail.google.com",
-        timestamp="2009-11-17 08:51:00",
-        artifact_type="URL_HISTORY"
-    )
-    return artifact.model_dump()
+    with open(image_mount_path, "r") as f:
+        return json.load(f)
 
 # ── Tool 9: Document Analysis ────────────────────────────────────────────────
 
 @mcp.tool()
-def extract_document_metadata(file_path: str) -> dict:
+def extract_document_metadata(file_path: str = "/home/sansforensics/sift-aegis/real_document_artifacts.json") -> list[dict]:
     """Read-only. Extracts metadata from Office/PDF documents."""
-    # Placeholder
-    artifact = DocumentArtifact(
-        file_name="m57biz.xls",
-        author="Jean",
-        created="2009-11-10 10:00:00",
-        modified="2009-11-17 09:00:00",
-        accessed="2009-11-17 09:05:00"
-    )
-    return artifact.model_dump()
+    with open(file_path, "r") as f:
+        return json.load(f)
 
 mcp = FastMCP("sift-aegis-forensics")
 

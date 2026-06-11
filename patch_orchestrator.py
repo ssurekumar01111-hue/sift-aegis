@@ -252,16 +252,6 @@ old_self_corr = """    def phase_self_correction(self, findings: list) -> list:
                         pid=pid
                     )
                     
-                    # SYNTHETIC TEST: Force contradiction to test REJECTED logic
-                    if pid == 3908:
-                        finding.contradictory_evidence.append("synthetic_hallucination_test")
-                        self.log("HALLUCINATION_DETECTED", {"finding_id": finding.id, "reason": "Test contradiction"})
-                    
-                    # SYNTHETIC TEST: Force corroboration to test CONFIDENCE logic
-                    if pid == 2160:
-                        if "get_dll_list" not in finding.evidence_sources:
-                            finding.evidence_sources.append("get_dll_list")
-                        finding.supporting_evidence.append("synthetic_dll_hit")
                     
                     if not dll_result.get("error") and dll_result.get("suspicious_count", 0) > 0:
                         finding.supporting_evidence.append(

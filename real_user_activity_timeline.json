@@ -1,0 +1,1836 @@
+[
+  {
+    "timestamp": 1260386516296000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260386939468000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260387318390000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260387418921000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260387650812000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260387717828000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260388215156000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260388508593000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260388669718000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260389159296000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260396372296000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260396524906000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260396939703000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260397020062000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260397334578000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260397614875000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260397909078000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260398352156000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260398709468000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260398816375000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260399178671000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260399257781000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260399385125000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260399666000000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260399808406000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260400136625000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260400484546000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260400767000000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260401156703000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260401643453000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260401972437000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260402197156000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260402318046000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260402757812000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260402886687000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260403164734000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260403347093000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260463997375000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.supercars.net/index.html",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260464013687000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://news.google.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260465618484000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.investorwords.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260465683250000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.tvguide.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260465979015000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.google.com/patents",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260466259718000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.espacenet.com/index.en.htm",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260466259718000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.espacenet.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260466661703000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.friendlyplanet.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260466930312000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.ft.com/home/us",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260466930312000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.ft.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260467714468000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wikipedia.org/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260467717703000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wikipedia.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260467805015000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.gulfstream.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260467974406000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.ferrari.com/English/Pages/Home.aspx",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260468177031000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.supercars.net/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260468542046000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260469007218000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260469194562000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260469605671000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260469824468000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260470023421000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260470235234000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260470673453000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260471160156000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260471291984000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260471353187000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260471656296000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260471831515000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472311843000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472659921000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472808093000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472861796000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472970718000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260472998234000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260473139125000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260473383515000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260473572500000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260473910281000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260474124468000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260474135375000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260474144718000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260474397734000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260474846421000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260475027890000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260475293828000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-b",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260479180906000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://finance.yahoo.com/",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483530687000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/search-adv.jsp",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483569265000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?LANG=ENG&DBSELECT=PCT&SERVER_TYPE=19-00&SORT=11274962-KEY&TYP",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483574562000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2008005670&DBSELECT=PCT&ABIMAGE=03122009%2FKR2008",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483645593000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/images4/PATENTSCOPE/95/8f/43/058f43.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483649187000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/wadList.jsp?IA=KR2008005670&LANGUAGE=EN&ID=id00000009369107&VOL=95&DOC=",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483670796000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=GB2009000189&DBSELECT=PCT&ABIMAGE=30072009%2FGB2009",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483670796000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?LANG=ENG&DBSELECT=PCT&SERVER_TYPE=19-00&SORT=11274962-KEY&TYP",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483678250000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/data.jsp?IA=GB2009000189&WEEK=372009&DATE=11092009",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483689281000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/images4/PATENTSCOPE/93/af/e2/05afe2.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483692765000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/wadList.jsp?IA=GB2009000189&LANGUAGE=EN&ID=id00000008503723&VOL=93&DOC=",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483760781000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&ABIMAGE=18012007%2FKR2006",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483760781000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?LANG=ENG&DBSELECT=PCT&SERVER_TYPE=19-00&SORT=11274962-KEY&TYP",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483766296000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/data.jsp?IA=KR2006002671&WEEK=032007&DATE=18012007",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483774046000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/images4/PATENTSCOPE/66/57/12/015712.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483779390000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/wadList.jsp?IA=KR2006002671&LANGUAGE=EN&ID=id00000004717799&VOL=66&DOC=",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483787375000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": 1260483787375000,
+    "event_type": "BROWSER_VISIT",
+    "description": "Visited: http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "1980-01-01 08:00:00",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: TERRYS WORK (F).lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/TERRYS WORK (F).lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-11 01:58:21.765625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Sample Pictures.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/My Pictures/Sample Pictures.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-11 01:58:21.812500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Sample Music.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/My Music/Sample Music.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-11 01:58:41.390625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: desktop.ini",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/desktop.ini",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-11 01:58:41.468750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Desktop.ini",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/My Pictures/Desktop.ini",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-11 01:58:41.515625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Desktop.ini",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/My Music/Desktop.ini",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-13 01:52:08.968750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Thunderbird Setup 2.0.0.23.exe",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/Thunderbird Setup 2.0.0.23.exe",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-13 01:55:59.531250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: python-2.6.4.msi",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/python-2.6.4.msi",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 08:00:00",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: M57biz.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 08:00:00",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: M57biz.lnk",
+    "artifact_source": "/home/sansforensics/sift-aegis/M57biz.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 08:00:00",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: M57biz.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 21:50:02.796875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: FoxitReader31_enu_Setup_1030.exe",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/FoxitReader31_enu_Setup_1030.exe",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 21:54:02.671875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 22EE12E5d01.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/22EE12E5d01.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-17 21:54:26.265625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: AC7640A9d01.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/AC7640A9d01.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-18 00:44:42.234375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: MNspreadsheetTagged.csv",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/MNspreadsheetTagged.csv",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-18 21:01:14.625000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: lightning-0.9-tb-win.xpi",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/lightning-0.9-tb-win.xpi",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 16:47:39.015625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: PNEUMATIC_BOXING_GLOVE.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/PNEUMATIC_BOXING_GLOVE.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 16:49:15.484375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Method_of_real_time_machine_path_plannin.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Method_of_real_time_machine_path_plannin.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 16:49:15.484375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Method_of_real_time_machine_path_plannin.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Patents/Method_of_real_time_machine_path_plannin.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 16:50:47.437500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Time_machine_time_puzzle.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Patents/Time_machine_time_puzzle.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 21:17:15.343750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: alternatiff-1_9_1.exe",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/alternatiff-1_9_1.exe",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-19 21:26:42.312500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Nitroba work.odt",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Nitroba/Nitroba work.odt",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:06:47.687500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 98521.WANs.Greg+Hillier.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/98521.WANs.Greg+Hillier.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:06:48.625000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 97315.ScatterGatherIO.Julio+Molock.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/97315.ScatterGatherIO.Julio+Molock.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:06:49.265625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 95253.SCSI.Mathew+Malizia.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/95253.SCSI.Mathew+Malizia.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:06:49.703125",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 99202.ComplexityTheory.Louisa+Fleet.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/99202.ComplexityTheory.Louisa+Fleet.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:09:46.343750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: patentauto.py.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/patentauto.py.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:45:18.921875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 060402_rpts_torn.csv",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/060402_rpts_torn.csv",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-20 21:46:45.203125",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: patentauto.py (2).lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/patentauto.py (2).lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:19:39.656250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 7z465.exe",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/7z465.exe",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:21:16.718750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 01.zip.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/01.zip.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:21:16.718750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 01.zip",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/01.zip",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:27:51.351376",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: microscope.jpg",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/microscope.jpg",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:33:33.242931",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: astronaut.jpg",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/astronaut.jpg",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:40:49.281250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Nitroba work.odt (2).lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Nitroba work.odt (2).lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:40:49.281250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Nitroba work.odt.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Nitroba work.odt.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:43:42.562500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: astronaut1.jpg",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/astronaut1.jpg",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 21:58:39.984375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: cygnusfe.zip",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/cygnusfe.zip",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 22:04:40.046875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: astronaut.jpg.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/astronaut.jpg.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 22:08:33.703125",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Copy of microscope.jpg.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Copy of microscope.jpg.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 22:09:20.500000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: microscope.jpg.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/microscope.jpg.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 22:19:21.218750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: microscope1.jpg",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/microscope1.jpg",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-24 22:19:22.765625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: CharlieWork (F).lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/CharlieWork (F).lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-30 16:48:02.234375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Nitroba work.odt (3).lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Nitroba work.odt (3).lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-11-30 16:48:19.781250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Nitroba.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Nitroba.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-03 20:16:38.968750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: astronaut1.jpg.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/astronaut1.jpg.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-04 21:53:18.562500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 20090196419-001.tif",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/20090196419-001.tif",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:44:13.375000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: microscope1.jpg.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/microscope1.jpg.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:49:08.796875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: web.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/web.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:51:59.468750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: AC7640A9d01.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/AC7640A9d01.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:52:06.968750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Patents.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Patents.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:52:26.750000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 20090196419-001.tif.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/20090196419-001.tif.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-07 19:52:27.765000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Thumbs.db",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/Thumbs.db",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:02.625000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 95253.SCSI.Mathew+Malizia.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/95253.SCSI.Mathew+Malizia.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:03.750000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 98521.WANs.Greg+Hillier.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/98521.WANs.Greg+Hillier.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:30.265625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 99202.ComplexityTheory.Louisa+Fleet.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/99202.ComplexityTheory.Louisa+Fleet.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:38.640625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: PNEUMATIC_BOXING_GLOVE.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/PNEUMATIC_BOXING_GLOVE.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:44.125000",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: MNspreadsheetTagged.csv.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/MNspreadsheetTagged.csv.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:48.093750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Downloads.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Downloads.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-09 16:39:48.109375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 060402_rpts_torn.csv.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/060402_rpts_torn.csv.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:19:49.781250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: KR2008005670-IASR.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/KR2008005670-IASR.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:20:05.343750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: KR2008005670-IASR.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/KR2008005670-IASR.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:20:38.687500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: 09145392.zip",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/09145392.zip",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:20:53.562500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: B877AD1Dd01.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/B877AD1Dd01.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:21:20.984375",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: GB2009000189_11092009.xml.gz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/GB2009000189_11092009.xml.gz",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:21:43.187500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: BD37BD7Dd01.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/BD37BD7Dd01.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:22:48.687500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: KR2006002671_18012007.xml.gz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/KR2006002671_18012007.xml.gz",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:22:55.531250",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: B823B229d01.pdf",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/B823B229d01.pdf",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:23:34.765625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: OCR.txt.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/OCR.txt.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:23:48.515625",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: OCR.txt",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/OCR.txt",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:24:42.671875",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: B823B229d01.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/B823B229d01.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:24:45.812500",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: B877AD1Dd01.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/B877AD1Dd01.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:24:48.218750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: Quantum Cryptography.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/Quantum Cryptography.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:24:48.218750",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: BD37BD7Dd01.pdf.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/BD37BD7Dd01.pdf.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2009-12-10 22:29:37.828125",
+    "event_type": "FILE_ACCESS",
+    "description": "File accessed: other.lnk",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Recent/other.lnk",
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "Fri, 04 Dec 2009 08:48:53 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Fw: GGworld For You | From: Charlie <charlie@m57.biz> | To: Terry Johnson <terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 04 Dec 2009 09:41:47 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: I Found Something | From: Charlie <charlie@m57.biz> | To: andy@swexpert.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 04 Dec 2009 13:06:23 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Instructions | From: Charlie <charlie@m57.biz> | To: jamie@project2400.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 11 Dec 2009 08:55:53 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Important Meeting | From: \"Pat McGoo\" <pat@m57.biz> | To: <terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 08:48:48 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Searches | From: \"Pat McGoo\" <pat@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 09:57:49 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Docs | From: \"Jo Smith\" <jo@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 10:55:16 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Invention | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 11:08:29 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Friday | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 13:03:40 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Still going tonight? | From: Charlie <charlie@m57.biz> | To: rubinfritz31@mail.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 13:06:27 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Docs | From: Charlie <charlie@m57.biz> | To: Jo Smith <jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 15:20:50 -0500",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Still going tonight? | From: rubinfritz31@mail.com | To: charlie@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 20 Nov 2009 15:26:46 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: First week | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Fri, 4 Dec 2009 09:22:27 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Anti-virus | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Pat McGoo\" <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 07 Dec 2009 11:42:15 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: QC Project | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 07 Dec 2009 11:44:18 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Picture | From: Charlie <charlie@m57.biz> | To: andy@swexpert.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 07 Dec 2009 12:55:40 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Great Lunch | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>, Terry Johnson <terry@m57.biz>, \r\n Jo Smith <jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 11:02:37 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: WELCOME TO THE COMPANY! | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 11:22:44 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Lunch | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 11:51:13 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: WELCOME TO THE COMPANY! | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 13:26:16 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: New email address | From: Charlie <charlie@m57.biz> | To: alix.pery@yahoo.com, rubinfritz31@mail.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 13:38:51 -0800 (PST)",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: New email address | From: Alix Pery <alix.pery@yahoo.com> | To: Charlie <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 14:33:17 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Lunch | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 15:53:40 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Great Job Folks! | From: \"Pat McGoo\" <pat@m57.biz> | To: <terry@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 16 Nov 2009 15:59:49 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Lunch | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 23 Nov 2009 09:07:37 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: This week | From: \"Pat McGoo\" <pat@m57.biz> | To: <terry@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 30 Nov 2009 08:46:08 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: New business | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 30 Nov 2009 08:54:27 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: teleporter | From: \"Jo Smith\" <jo@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 30 Nov 2009 09:07:18 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: This week | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 30 Nov 2009 09:49:21 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Printer Installed | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Pat McGoo\" <pat@m57.biz>,\r\n\t\"Jo Smith\" <jo@m57.biz>,\r\n\t\"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 30 Nov 2009 11:08:11 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Stuffed | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 7 Dec 2009 09:22:57 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: QC Project | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Mon, 7 Dec 2009 13:54:29 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Great Lunch | From: \"Pat McGoo\" <pat@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 03 Dec 2009 08:52:00 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: New Project | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 03 Dec 2009 12:16:52 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT:  | From: Charlie <charlie@m57.biz> | To: jamie@project2400.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 03 Dec 2009 13:02:33 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Pack your bags | From: Charlie <charlie@m57.biz> | To: Alix Pery <alix.pery@yahoo.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 03 Dec 2009 13:16:14 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: What do you think? | From: Charlie <charlie@m57.biz> | To: Alix Pery <alix.pery@yahoo.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 10 Dec 2009 12:37:52 -0500",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: When's it coming? | From: rubinfritz31@mail.com | To: charlie@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 10 Dec 2009 14:18:21 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: When's it coming? | From: Charlie <charlie@m57.biz> | To: rubinfritz31@mail.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 09:32:47 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Searches | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 09:42:11 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: ADDITIONAL GUIDANCE ON PATENT SEARCHING | From: \"Pat McGoo\" <pat@m57.biz> | To: <terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 09:57:08 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Lunch | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 10:37:59 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Searches | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 10:38:58 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Lunch | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 19 Nov 2009 11:57:13 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Searches | From: \"Jo Smith\" <jo@m57.biz> | To: \"Charlie\" <charlie@m57.biz>,\r\n\t\"Pat McGoo\" <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 3 Dec 2009 08:51:14 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: New Project | From: \"Jo Smith\" <jo@m57.biz> | To: <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 3 Dec 2009 09:51:33 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Interested? | From: jamie@project2400.com | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Thu, 3 Dec 2009 13:58:24 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Fw: GGworld For You | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Jo Smith\" <jo@m57.biz>,\r\n\t\"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 01 Dec 2009 12:58:56 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Lunch/coffee | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 01 Dec 2009 13:02:34 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Pack your bags | From: Charlie <charlie@m57.biz> | To: Alix Pery <alix.pery@yahoo.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 08 Dec 2009 12:59:53 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Vacation time | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 08 Dec 2009 14:18:17 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Hey | From: Charlie <charlie@m57.biz> | To: Rubin Fritz <rubinfritz31@mail.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 1 Dec 2009 10:46:46 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Lunch/coffee | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 1 Dec 2009 11:52:41 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Lunch/coffee | From: \"Jo Smith\" <jo@m57.biz> | To: \"Pat McGoo\" <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 1 Dec 2009 13:43:35 -0800 (PST)",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Pack your bags | From: Alix Pery <alix.pery@yahoo.com> | To: Charlie <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 10:30:59 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Fw: M57.BIZ PRIOR ART INVESTIGATION SERVICES | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 10:33:39 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: ASSIGNMENT OF NITROBA ACCOUNT | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 10:39:12 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Inventions / Patents | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 10:40:20 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Lunch | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 10:54:17 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: What's wrong with Pat | From: Charlie <charlie@m57.biz> | To: jo@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 17 Nov 2009 11:45:46 -0500",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: New email address | From: rubinfritz31@mail.com | To: charlie@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 08:48:22 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Thanksgiving | From: Charlie <charlie@m57.biz> | To: Alix Pery <alix.pery@yahoo.com>, Rubin Fritz <rubinfritz31@mail.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 08:52:50 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Nice bag | From: Charlie <charlie@m57.biz> | To: terry@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 10:40:20 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Holiday | From: \"Pat McGoo\" <pat@m57.biz> | To: <terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 10:41:08 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Nice bag | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 10:45:16 -0800 (PST)",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Thanksgiving | From: Alix Pery <alix.pery@yahoo.com> | To: Charlie <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 10:49:00 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Holiday | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 12:58:25 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Nice bag | From: Charlie <charlie@m57.biz> | To: Terry Johnson <terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 13:14:36 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Nice bag | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 24 Nov 2009 16:07:36 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: New business | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Tue, 8 Dec 2009 08:23:25 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Great Lunch | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed,  2 Dec 2009 13:05:07 -0800 (PST)",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Undelivered Mail Returned to Sender | From: MAILER-DAEMON (Mail Delivery System) | To: charlie@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 02 Dec 2009 13:04:29 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Interested? | From: Charlie <charlie@m57.biz> | To: jaime@project2400.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 02 Dec 2009 13:25:45 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Interested? | From: Charlie <charlie@m57.biz> | To: jamie@project2400.com",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 02 Dec 2009 19:31:53 -0500",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Whats up tonight? | From: rubinfritz31@mail.com | To: charlie@m57.biz",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 09:03:16 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: COFFEE | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<terry@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 09:27:32 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: pneumatic boxing glove | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 09:29:57 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Google patent | From: \"Pat McGoo\" <pat@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 09:39:25 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: COFFEE | From: \"Terry Johnson\" <terry@m57.biz> | To: <jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 09:40:25 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: COFFEE | From: \"Terry Johnson\" <terry@m57.biz> | To: \"Pat McGoo\" <pat@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 10:01:50 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: What's wrong with Pat | From: \"Jo Smith\" <jo@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 10:04:09 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Inventions / Patents | From: \"Jo Smith\" <jo@m57.biz> | To: <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 10:04:50 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: COFFEE | From: \"Jo Smith\" <jo@m57.biz> | To: \"Terry Johnson\" <terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 11:58:15 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: COFFEE | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 12:53:59 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Re: Google patent | From: Charlie <charlie@m57.biz> | To: Pat McGoo <pat@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 18 Nov 2009 12:59:55 -0800",
+    "event_type": "EMAIL_SENT",
+    "description": "EMAIL_SENT: Movie tonight??? | From: Charlie <charlie@m57.biz> | To: Alix Pery <alix.pery@yahoo.com>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 2 Dec 2009 13:52:39 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: New Project | From: \"Pat McGoo\" <pat@m57.biz> | To: <charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "Wed, 9 Dec 2009 09:08:03 -0800",
+    "event_type": "EMAIL_RECEIVED",
+    "description": "EMAIL_RECEIVED: Re: Vacation time | From: \"Pat McGoo\" <pat@m57.biz> | To: \"Charlie\" <charlie@m57.biz>",
+    "artifact_source": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "confidence": 0.95
+  }
+]

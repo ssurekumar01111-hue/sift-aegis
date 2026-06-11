@@ -1,0 +1,102 @@
+[
+  {
+    "id": "GT-001",
+    "description": "Pat McGoo assigned Nitroba account to Charlie",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "artifact_type": "EMAIL",
+    "expected_finding": "Charlie joined m57.biz, assigned Nitroba prior art investigation account",
+    "mitre_technique": "T1078",
+    "date": "2009-11-17",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-002",
+    "description": "Charlie accessed M57biz file",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+    "artifact_type": "DOCUMENT",
+    "expected_finding": "Charlie accessed M57biz file",
+    "mitre_technique": "T1005",
+    "date": "2009-11-17",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-003",
+    "description": "Charlie researched quantum cryptography patents on WIPO",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "artifact_type": "BROWSER",
+    "expected_finding": "Charlie researched quantum cryptography patents on WIPO",
+    "mitre_technique": "T1213",
+    "date": "2009-11-17",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-004",
+    "description": "Charlie created patentauto.py automation script",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Recent/patentauto.py.lnk",
+    "artifact_type": "DOCUMENT",
+    "expected_finding": "Charlie created patentauto.py automation script",
+    "mitre_technique": "T1059.006",
+    "date": "2009-11-20",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-005",
+    "description": "Charlie built Quantum Cryptography document collection",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/",
+    "artifact_type": "DOCUMENT",
+    "expected_finding": "Charlie built Quantum Cryptography document collection",
+    "mitre_technique": "T1074",
+    "date": "2009-12-04",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-006",
+    "description": "Charlie exfiltrated findings to external contact andy@swexpert.com",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "artifact_type": "EMAIL",
+    "expected_finding": "Charlie exfiltrated findings to external contact andy@swexpert.com",
+    "mitre_technique": "T1048",
+    "date": "2009-12-04",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-007",
+    "description": "Charlie coordinated with external party jamie@project2400.com",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "artifact_type": "EMAIL",
+    "expected_finding": "Charlie coordinated with external party jamie@project2400.com",
+    "mitre_technique": "T1071",
+    "date": "2009-12-04",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-008",
+    "description": "External party rubinfritz31@mail.com asked 'When's it coming?'",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "artifact_type": "EMAIL",
+    "expected_finding": "External party rubinfritz31@mail.com asked 'When's it coming?'",
+    "mitre_technique": "T1071",
+    "date": "2009-12-10",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-009",
+    "description": "Charlie worked on Nitroba work.odt document",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Nitroba/Nitroba work.odt",
+    "artifact_type": "DOCUMENT",
+    "expected_finding": "Charlie worked on Nitroba work.odt document",
+    "mitre_technique": "T1005",
+    "date": "2009-11-19",
+    "confirmed_real": true
+  },
+  {
+    "id": "GT-010",
+    "description": "Charlie downloaded patent research tools (patentauto.py, alternatiff)",
+    "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/",
+    "artifact_type": "DOCUMENT",
+    "expected_finding": "Charlie downloaded patent research tools",
+    "mitre_technique": "T1105",
+    "date": "2009-11-17",
+    "confirmed_real": true
+  }
+]
