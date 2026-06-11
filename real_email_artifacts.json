@@ -1,0 +1,785 @@
+[
+  {
+    "subject": "WELCOME TO THE COMPANY!",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<terry@m57.biz>",
+    "date": "Mon, 16 Nov 2009 11:02:37 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Lunch",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<terry@m57.biz>",
+    "date": "Mon, 16 Nov 2009 11:22:44 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: New email address",
+    "from": "Alix Pery <alix.pery@yahoo.com>",
+    "to": "Charlie <charlie@m57.biz>",
+    "date": "Mon, 16 Nov 2009 13:38:51 -0800 (PST)",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Lunch",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>",
+    "date": "Mon, 16 Nov 2009 14:33:17 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Great Job Folks!",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<terry@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Mon, 16 Nov 2009 15:53:40 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: New email address",
+    "from": "rubinfritz31@mail.com",
+    "to": "charlie@m57.biz",
+    "date": "Tue, 17 Nov 2009 11:45:46 -0500",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Fw: M57.BIZ PRIOR ART INVESTIGATION SERVICES",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Tue, 17 Nov 2009 10:30:59 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "ASSIGNMENT OF NITROBA ACCOUNT",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Tue, 17 Nov 2009 10:33:39 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Inventions / Patents",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Tue, 17 Nov 2009 10:39:12 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Lunch",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Tue, 17 Nov 2009 10:40:20 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "COFFEE",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<terry@m57.biz>",
+    "date": "Wed, 18 Nov 2009 09:03:16 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "pneumatic boxing glove",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 09:27:32 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Google patent",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 09:29:57 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: COFFEE",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 09:39:25 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: COFFEE",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Pat McGoo\" <pat@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 09:40:25 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: What's wrong with Pat",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 10:01:50 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "yeah, he's weird.  not sure what's wrong with him.\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: <jo@m57.biz>\r\nSent: Tuesday, November 17, 2009 10:54 AM\r\nSubject: What's wrong with Pat\r\n\r\n\r\n> Hey Jo,\r\n> \r\n> Don't you think Pat is a weird boss?  I think there is something f"
+  },
+  {
+    "subject": "Re: Inventions / Patents",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 10:04:09 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: COFFEE",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Terry Johnson\" <terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Wed, 18 Nov 2009 10:04:50 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Searches",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Thu, 19 Nov 2009 09:32:47 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "ADDITIONAL GUIDANCE ON PATENT SEARCHING",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Thu, 19 Nov 2009 09:42:11 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Lunch",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Thu, 19 Nov 2009 09:57:08 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Searches",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>,\r\n\t\"Pat McGoo\" <pat@m57.biz>",
+    "date": "Thu, 19 Nov 2009 11:57:13 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "That's works for me. - Jo\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Pat McGoo\" <pat@m57.biz>\r\nCc: <jo@m57.biz>\r\nSent: Thursday, November 19, 2009 10:37 AM\r\nSubject: Re: Searches\r\n\r\n\r\n> Pat McGoo wrote:\r\n>> Jo, Charlie,\r\n>>  \r\n>>   how are your projects coming? Let's try"
+  },
+  {
+    "subject": "Re: Searches",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Fri, 20 Nov 2009 08:48:48 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "That will work for me.\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Pat McGoo\" <pat@m57.biz>\r\nCc: <jo@m57.biz>\r\nSent: Thursday, November 19, 2009 10:37 AM\r\nSubject: Re: Searches\r\n\r\n\r\n> Pat McGoo wrote:\r\n>> Jo, Charlie,\r\n>>  \r\n>>   how are your projects coming? Let's try to"
+  },
+  {
+    "subject": "Docs",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Fri, 20 Nov 2009 09:57:49 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Invention",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Fri, 20 Nov 2009 10:55:16 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Friday",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Fri, 20 Nov 2009 11:08:29 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Still going tonight?",
+    "from": "rubinfritz31@mail.com",
+    "to": "charlie@m57.biz",
+    "date": "Fri, 20 Nov 2009 15:20:50 -0500",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "First week",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<terry@m57.biz>",
+    "date": "Fri, 20 Nov 2009 15:26:46 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "This week",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<terry@m57.biz>,\r\n\t<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Mon, 23 Nov 2009 09:07:37 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Holiday",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Tue, 24 Nov 2009 10:40:20 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Nice bag",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Tue, 24 Nov 2009 10:41:08 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "Grandma?  I take offense to that...come on.  It was incredibly expensive, \r\nbut I won big this weekend in a poker tournament.\r\n\r\nTerry\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: <terry@m57.biz>\r\nSent: Tuesday, November 24, 2009 8:52 AM\r\nSubject: Nice bag\r\n\r\n\r\n> Terry,\r\n"
+  },
+  {
+    "subject": "Re: Thanksgiving",
+    "from": "Alix Pery <alix.pery@yahoo.com>",
+    "to": "Charlie <charlie@m57.biz>",
+    "date": "Tue, 24 Nov 2009 10:45:16 -0800 (PST)",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Nice bag",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Tue, 24 Nov 2009 13:14:36 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "I won approximately 2 grand, but my bag pretty much wound that number to \r\nzero.  (Aka no lunch)\r\n\r\n- Terry\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Terry Johnson\" <terry@m57.biz>\r\nSent: Tuesday, November 24, 2009 12:58 PM\r\nSubject: Re: Nice bag\r\n\r\n\r\n> Terry Johnson "
+  },
+  {
+    "subject": "New business",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Tue, 24 Nov 2009 16:07:36 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "teleporter",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Mon, 30 Nov 2009 08:54:27 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "This week",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<terry@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Mon, 30 Nov 2009 09:07:18 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Printer Installed",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Pat McGoo\" <pat@m57.biz>,\r\n\t\"Jo Smith\" <jo@m57.biz>,\r\n\t\"Charlie\" <charlie@m57.biz>",
+    "date": "Mon, 30 Nov 2009 09:49:21 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Stuffed",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Mon, 30 Nov 2009 11:08:11 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Lunch/coffee",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Tue, 1 Dec 2009 10:46:46 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Lunch/coffee",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "\"Pat McGoo\" <pat@m57.biz>",
+    "date": "Tue, 1 Dec 2009 11:52:41 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Pack your bags",
+    "from": "Alix Pery <alix.pery@yahoo.com>",
+    "to": "Charlie <charlie@m57.biz>",
+    "date": "Tue, 1 Dec 2009 13:43:35 -0800 (PST)",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Undelivered Mail Returned to Sender",
+    "from": "MAILER-DAEMON (Mail Delivery System)",
+    "to": "charlie@m57.biz",
+    "date": "Wed,  2 Dec 2009 13:05:07 -0800 (PST)",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "New Project",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>,\r\n\t<jo@m57.biz>",
+    "date": "Wed, 2 Dec 2009 13:52:39 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Whats up tonight?",
+    "from": "rubinfritz31@mail.com",
+    "to": "charlie@m57.biz",
+    "date": "Wed, 02 Dec 2009 19:31:53 -0500",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: New Project",
+    "from": "\"Jo Smith\" <jo@m57.biz>",
+    "to": "<charlie@m57.biz>",
+    "date": "Thu, 3 Dec 2009 08:51:14 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Interested?",
+    "from": "jamie@project2400.com",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Thu, 3 Dec 2009 09:51:33 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "C,\r\n\r\nWe'll give you 50 large if it's good. I'll put in 10 up front, you'll get\r\nthe rest when we see the goods.\r\n\r\nJ\r\n\r\n> J,\r\n>\r\n> I have something that you'll definitely be interested in.  It concerns\r\n> your competitor.  I'm doing a prior art search for them.  Want to know\r\n> what I've found?  Yo"
+  },
+  {
+    "subject": "Fw: GGworld For You",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Jo Smith\" <jo@m57.biz>,\r\n\t\"Charlie\" <charlie@m57.biz>",
+    "date": "Thu, 3 Dec 2009 13:58:24 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Anti-virus",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Pat McGoo\" <pat@m57.biz>",
+    "date": "Fri, 4 Dec 2009 09:22:27 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "QC Project",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<charlie@m57.biz>",
+    "date": "Mon, 7 Dec 2009 09:22:57 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Great Lunch",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Mon, 7 Dec 2009 13:54:29 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "Great to hear - although if it's the place I'm thinking of, they get their \r\n'catfish' out of the local pond - carp really; probably why they have to \r\nserve it 'spicy.'  But glad you liked it !\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Pat McGoo\" <pat@m57.biz>; \"Terr"
+  },
+  {
+    "subject": "Re: Great Lunch",
+    "from": "\"Terry Johnson\" <terry@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Tue, 8 Dec 2009 08:23:25 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "charlie,\r\n\r\nI'll have to check it out...it sounds great.  Now only if I had more \r\nmoney....\r\n\r\nTerry\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Pat McGoo\" <pat@m57.biz>; \"Terry Johnson\" <terry@m57.biz>; \"Jo Smith\" \r\n<jo@m57.biz>\r\nSent: Monday, December 07, 2009 12:55 "
+  },
+  {
+    "subject": "Re: Vacation time",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "\"Charlie\" <charlie@m57.biz>",
+    "date": "Wed, 9 Dec 2009 09:08:03 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": "How many vacation days have you accrued so far?  One?\r\n\r\n----- Original Message ----- \r\nFrom: \"Charlie\" <charlie@m57.biz>\r\nTo: \"Pat McGoo\" <pat@m57.biz>\r\nSent: Tuesday, December 08, 2009 12:59 PM\r\nSubject: Vacation time\r\n\r\n\r\n> Hey boss,\r\n> \r\n> I'm planning a little vacation with a friend, so I was w"
+  },
+  {
+    "subject": "When's it coming?",
+    "from": "rubinfritz31@mail.com",
+    "to": "charlie@m57.biz",
+    "date": "Thu, 10 Dec 2009 12:37:52 -0500",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Important Meeting",
+    "from": "\"Pat McGoo\" <pat@m57.biz>",
+    "to": "<terry@m57.biz>,\r\n\t<jo@m57.biz>,\r\n\t<charlie@m57.biz>",
+    "date": "Fri, 11 Dec 2009 08:55:53 -0800",
+    "mailbox": "Inbox",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: WELCOME TO THE COMPANY!",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Mon, 16 Nov 2009 11:51:13 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Can't wait to get started.\r\n\r\nCharlie\r\n\r\nPat McGoo wrote:\r\n> Dear Team,\r\n>  \r\n> I am extremely excited to take this opportunity to welcome you all to \r\n> the M57.biz family.  It has been a dream of mine to open a business \r\n> that provides an innovative service to companies, inventors, as well \r\n> a"
+  },
+  {
+    "subject": "New email address",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "alix.pery@yahoo.com, rubinfritz31@mail.com",
+    "date": "Mon, 16 Nov 2009 13:26:16 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Hey everybody.  I started working at the new company today.  It's pretty \r\nslow going so far, we're just getting set up and figuring out where \r\neverything is.  I got my new email set up, so you can send to me at this \r\naddress.\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Re: Lunch",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Mon, 16 Nov 2009 15:59:49 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Boss,\r\n\r\nThanks for letting me know about that place.  I'll have to try it.\r\n\r\nCharlie\r\n\r\nPat McGoo wrote:\r\n> Charlie,\r\n>  \r\n>    just curious if you have had a chance to try the food at the place \r\n> across the street.  I went there today; first time I have ever had \r\n> abalone.  I think I should l"
+  },
+  {
+    "subject": "What's wrong with Pat",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "jo@m57.biz",
+    "date": "Tue, 17 Nov 2009 10:54:17 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Hey Jo,\r\n\r\nDon't you think Pat is a weird boss?  I think there is something funny \r\nabout him.  What do you think?\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Re: COFFEE",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Wed, 18 Nov 2009 11:58:15 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Charlie, Terry,\r\n>  \r\n>     just checking up on your preferences for coffee - jo is going \r\n> shopping tomorrow, let us know what you want.\r\n>  \r\n> Jo, I like my coffee cinnamon apple flavor with just a whisper of \r\n> cream - be sure to get the heavy whipping cream, NOT the half "
+  },
+  {
+    "subject": "Re: Google patent",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Wed, 18 Nov 2009 12:53:59 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Jo, Charlie,\r\n>  \r\n>    I'm sure you already are using it, but check out google patent beta \r\n> for searches...   good stuff.\r\n>  \r\n> Pat\r\nThanks!  This looks like a great resource.\r\n \r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Movie tonight???",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Alix Pery <alix.pery@yahoo.com>",
+    "date": "Wed, 18 Nov 2009 12:59:55 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Wanna go see a flick tonight?  I'll probably leave work at around \r\n4:00pm.  Pick you up at 5 for dinner first?\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Re: Searches",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Thu, 19 Nov 2009 10:37:59 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Jo, Charlie,\r\n>  \r\n>   how are your projects coming? Let's try to schedule a meeting for \r\n> this afternoon or tomorrow morning to go over your status.\r\n>  \r\n> Thanks\r\n> Pat\r\nI've been searching through a lot of patents.  How about tomorrow at \r\n10am for the meeting?\r\n\r\nCharlie\r\n"
+  },
+  {
+    "subject": "Re: Lunch",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Thu, 19 Nov 2009 10:38:58 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Anyone for lunch today?\r\n>  \r\n> I'll be heading out at about noon.  Going to try this new Basque place \r\n> I found - cool !\r\n>  \r\n> Pat\r\nSounds good.  I'll join you.\r\n\r\n"
+  },
+  {
+    "subject": "Re: Still going tonight?",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "rubinfritz31@mail.com",
+    "date": "Fri, 20 Nov 2009 13:03:40 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "rubinfritz31@mail.com wrote:\r\n> Charlie,\r\n>\r\n> You still going to the party tonight? \r\nYeah!  I'll see you there.  8pm right?\r\n\r\n"
+  },
+  {
+    "subject": "Re: Docs",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Jo Smith <jo@m57.biz>",
+    "date": "Fri, 20 Nov 2009 13:06:27 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Jo Smith wrote:\r\n> Charlie,\r\n>\r\n>\r\n> Here are some of those papers I was talking about the other day.  They \r\n> might help us in our searches.  Let me know what you think.\r\n>\r\n> -Jo \r\nJo,\r\n\r\nThis is good stuff.  Thanks for sending....Just keep passing on stuff \r\nlike this.\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Thanksgiving",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Alix Pery <alix.pery@yahoo.com>, Rubin Fritz <rubinfritz31@mail.com>",
+    "date": "Tue, 24 Nov 2009 08:48:22 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "I'm done with work for the week after today! We should go somewhere over \r\nthe Thanksgiving Holiday.  Any takers?\r\n\r\n"
+  },
+  {
+    "subject": "Nice bag",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "terry@m57.biz",
+    "date": "Tue, 24 Nov 2009 08:52:50 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Terry,\r\n\r\nThat's a fancy carry-all.  Looks like something my grandma would carry.  \r\nI bet it was pretty expensive, huh?   What are you toting around in it?  \r\nIt's big enough to use for an overnighter.\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Re: Holiday",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Tue, 24 Nov 2009 10:49:00 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Dear Team,\r\n>    things are progressing well this week.  I do want to meet with Jo \r\n> and Charlie at some point (just pop in when convenient) today, but \r\n> otherwise let's take the rest of the week off for the Holiday. \r\n>  \r\n>    Thanks for all your hard work; enjoy.\r\n> Pat\r\nY"
+  },
+  {
+    "subject": "Re: Nice bag",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Terry Johnson <terry@m57.biz>",
+    "date": "Tue, 24 Nov 2009 12:58:25 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Terry Johnson wrote:\r\n> Grandma?  I take offense to that...come on.  It was incredibly \r\n> expensive, but I won big this weekend in a poker tournament.\r\n>\r\n> Terry\r\n>\r\n> ----- Original Message ----- From: \"Charlie\" <charlie@m57.biz>\r\n> To: <terry@m57.biz>\r\n> Sent: Tuesday, November 24, 2009 8:52 AM\r"
+  },
+  {
+    "subject": "Re: New business",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Mon, 30 Nov 2009 08:46:08 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Charlie, Jo,\r\n>  \r\n>    great news - we got another contract.  I need to have one (or both) \r\n> of you start looking into quantum cryptography - anything and \r\n> everything patented on the subject.  If you get bored over the short \r\n> vacation start having a look at it.  This is "
+  },
+  {
+    "subject": "Re: Lunch/coffee",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Tue, 01 Dec 2009 12:58:56 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Anyone for lunch today?\r\n>  \r\n> Jo, we're almost out of coffee!  Need to do another trip soon...\r\n>  \r\n> Pat\r\nSorry I missed lunch.  I was too busy with some patent research.  Where \r\ndid you all go?\r\n\r\n\r\n"
+  },
+  {
+    "subject": "Pack your bags",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Alix Pery <alix.pery@yahoo.com>",
+    "date": "Tue, 01 Dec 2009 13:02:34 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Alix,\r\n\r\nPretty soon I'm going to be able to afford to take you on a nice \r\nvacation.  Where would you want to go if you could name your \r\ndestination?  I'm getting a hot car too.\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Interested?",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "jaime@project2400.com",
+    "date": "Wed, 02 Dec 2009 13:04:29 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "J,\r\n\r\nI have something that you'll definitely be interested in.  It concerns \r\nyour competitor.  I'm doing a prior art search for them.  Want to know \r\nwhat I've found?  You know my price.  I'll send you the goods after I \r\nsee half in my account.  Make sure you delete this email.\r\n\r\nC\r\n\r\n"
+  },
+  {
+    "subject": "Interested?",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "jamie@project2400.com",
+    "date": "Wed, 02 Dec 2009 13:25:45 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "J,\r\n\r\nI have something that you'll definitely be interested in.  It concerns \r\nyour competitor.  I'm doing a prior art search for them.  Want to know \r\nwhat I've found?  You know my price.  I'll send you the goods after I \r\nsee half in my account.  Make sure you delete this email.\r\n\r\nC\r\n\r\n\r\n"
+  },
+  {
+    "subject": "Re: New Project",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Thu, 03 Dec 2009 08:52:00 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Pat McGoo wrote:\r\n> Jo, Charlie,\r\n>  \r\n>     have you had a chance to start looking at that quantum \r\n> cryptography project?  I've found a few things so far - may be a \r\n> harder nut to crack than I had originally thought. \r\n>  \r\n>     I want to wrap this one up before the end of the calendar year."
+  },
+  {
+    "subject": "",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "jamie@project2400.com",
+    "date": "Thu, 03 Dec 2009 12:16:52 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": ""
+  },
+  {
+    "subject": "Re: Pack your bags",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Alix Pery <alix.pery@yahoo.com>",
+    "date": "Thu, 03 Dec 2009 13:02:33 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Alix Pery wrote:\r\n> Ooh!  When will this happen?!  I've always wanted to go on a \r\n> Mediterranean cruise.    Should I put a date on my calendar?\r\n>\r\n> ------------------------------------------------------------------------\r\n> *From:* Charlie <charlie@m57.biz>\r\n> *To:* Alix Pery <alix.pery@yahoo.co"
+  },
+  {
+    "subject": "What do you think?",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Alix Pery <alix.pery@yahoo.com>",
+    "date": "Thu, 03 Dec 2009 13:16:14 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Alix - How do you like this car? Pretty sweet, huh!\r\n\r\nhttp://autos.yahoo.com/2010_ford_shelby_gt500/\r\n\r\n\r\n"
+  },
+  {
+    "subject": "Re: Fw: GGworld For You",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Terry Johnson <terry@m57.biz>",
+    "date": "Fri, 04 Dec 2009 08:48:53 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Ha ha!  I always thought Pat was a little lacking upstairs.\r\n\r\n\r\nTerry Johnson wrote:\r\n> Did you guys see this?  It is so funny!\r\n>  \r\n> ----- Original Message -----\r\n> *From:* Pat McGoo <mailto:pat@m57.biz>\r\n> *To:* terry@m57.biz <mailto:terry@m57.biz>\r\n> *Sent:* Thursday, December 03, 2009 9:46 AM"
+  },
+  {
+    "subject": "I Found Something",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "andy@swexpert.com",
+    "date": "Fri, 04 Dec 2009 09:41:47 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": ""
+  },
+  {
+    "subject": "Instructions",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "jamie@project2400.com",
+    "date": "Fri, 04 Dec 2009 13:06:23 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "J,\r\n\r\nGot the deposit.  The password to get the info is nitro. Use the steg \r\nprogram we talked about.  And don't forget to delete these emails.\r\n\r\nC\r\n\r\n"
+  },
+  {
+    "subject": "Re: QC Project",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Mon, 07 Dec 2009 11:42:15 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "I've found some interesting stuff.  I'll bring it by your office to \r\ndiscuss it with you.\r\n\r\nPat McGoo wrote:\r\n> Good morning Charlie,\r\n>  \r\n>    Have you been able to come up with anything on the cryptology project?\r\n>  \r\n> Thanks\r\n> Pat\r\n\r\n\r\n"
+  },
+  {
+    "subject": "Picture",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "andy@swexpert.com",
+    "date": "Mon, 07 Dec 2009 11:44:18 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": ""
+  },
+  {
+    "subject": "Great Lunch",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>, Terry Johnson <terry@m57.biz>, \r\n Jo Smith <jo@m57.biz>",
+    "date": "Mon, 07 Dec 2009 12:55:40 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "I just had a great lunch at this little place down the street.  The \r\nspicy catfish was just perfect.  Highly recommended.\r\n\r\n"
+  },
+  {
+    "subject": "Vacation time",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Pat McGoo <pat@m57.biz>",
+    "date": "Tue, 08 Dec 2009 12:59:53 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Hey boss,\r\n\r\nI'm planning a little vacation with a friend, so I was wondering about \r\nwhen would be a good time to take 2 weeks off?  I was thinking of just \r\nextending my Christmas holiday a little bit.  Are you OK with that?\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Hey",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "Rubin Fritz <rubinfritz31@mail.com>",
+    "date": "Tue, 08 Dec 2009 14:18:17 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "Rub,\r\n\r\nYou want to come test drive some cars with me later?  I'm going to the \r\nferrari dealer first, but I think I'm going with the Shelby.\r\n\r\nCharlie\r\n\r\n"
+  },
+  {
+    "subject": "Re: When's it coming?",
+    "from": "Charlie <charlie@m57.biz>",
+    "to": "rubinfritz31@mail.com",
+    "date": "Thu, 10 Dec 2009 14:18:21 -0800",
+    "mailbox": "Sent",
+    "source_file": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "body_preview": "They said it should take about two weeks.  Can't wait to take it for a \r\nride. \r\n\r\nrubinfritz31@mail.com wrote:\r\n> Charlie\r\n> So when does the new car arrive?  That sucks that the dealer didn't \r\n> have the one you wanted in stock.  I hope it isn't too long of a wait.\r\n>\r\n> Rub\r\n\r\n\r\n"
+  }
+]

@@ -1,0 +1,129 @@
+/home/sansforensics/sift-aegis/orchestrator.py:74: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  start_time: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:331: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat()
+/home/sansforensics/sift-aegis/orchestrator.py:352: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat()
+[MCP Bridge] Initialized. Cases dir: /home/sansforensics/cases/m57
+
+============================================================
+SIFT-AEGIS Autonomous DFIR Investigation
+============================================================
+[2026-06-11T20:29:51.721390] [INVESTIGATION_START] {"memory_image": "charlie-2009-11-17.mddramimage", "disk_image": "charlie-2009-12-11.E01", "max_iterations": 3}
+[2026-06-11T20:29:51.721458] [ITERATION_START] {"iteration": 1}
+
+--- Iteration 1 ---
+[2026-06-11T20:29:51.721494] [PHASE_START] {"phase": "memory_analysis"}
+[2026-06-11T20:29:51.721517] [ANALYST_REASONING] {"step": "process_analysis", "reasoning": "Starting with process list \u2014 memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.", "tool_
+[2026-06-11T20:29:51.721547] [TOOL_CALL] {"tool": "get_process_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_process_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_process_list completed in 40.34s
+[2026-06-11T20:30:32.065087] [TOOL_RESULT] {"tool": "get_process_list", "total": 47, "suspicious": 2}
+[2026-06-11T20:30:32.065702] [FINDING_DETECTED] {"id": "MEM-3908", "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship", "confidence": 20}
+[2026-06-11T20:30:32.065757] [FINDING_DETECTED] {"id": "MEM-2160", "description": "Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship", "confidence": 20}
+[2026-06-11T20:30:32.065779] [ANALYST_REASONING] {"step": "network_analysis", "reasoning": "Checking network connections after process analysis \u2014 if suspicious process has external connection, that is strong C2 indicator.", "tool_chosen": "get_
+[2026-06-11T20:30:32.065803] [TOOL_CALL] {"tool": "get_network_connections", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_network_connections with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_network_connections completed in 24.99s
+[2026-06-11T20:30:57.051736] [TOOL_RESULT] {"tool": "get_network_connections", "total": 0, "suspicious": 0}
+[2026-06-11T20:30:57.051801] [ANALYST_REASONING] {"step": "persistence_analysis", "reasoning": "Checking registry Run keys \u2014 common persistence mechanism. Malware writes here to survive reboot.", "tool_chosen": "get_registry_run_keys", "expecte
+[2026-06-11T20:30:57.051837] [TOOL_CALL] {"tool": "get_registry_run_keys", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_registry_run_keys with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_registry_run_keys completed in 19.85s
+[2026-06-11T20:31:16.960010] [TOOL_RESULT] {"tool": "get_registry_run_keys", "total": 0, "suspicious": 0}
+[2026-06-11T20:31:16.960064] [ANALYST_REASONING] {"step": "injection_detection", "reasoning": "Running malfind after process analysis \u2014 code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs 
+[2026-06-11T20:31:16.960090] [TOOL_CALL] {"tool": "get_malfind", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_malfind with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_malfind completed in 57.15s
+[2026-06-11T20:32:14.115645] [TOOL_RESULT] {"tool": "get_malfind", "total": 35, "suspicious": 0}
+[2026-06-11T20:32:14.116391] [FINDING_DETECTED] {"id": "MAL-924-0x850000", "description": "Injected code detected in csrss.exe (PID 924) at 0x850000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T20:32:14.116454] [FINDING_DETECTED] {"id": "MAL-924-0xbd0000", "description": "Injected code detected in csrss.exe (PID 924) at 0xbd0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T20:32:14.118054] [FINDING_DETECTED] {"id": "MAL-924-0x7f6f0000", "description": "Injected code detected in csrss.exe (PID 924) at 0x7f6f0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T20:32:14.118260] [FINDING_DETECTED] {"id": "MAL-948-0x5c0000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x5c0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T20:32:14.118373] [FINDING_DETECTED] {"id": "MAL-948-0x20e90000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x20e90000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118422] [FINDING_DETECTED] {"id": "MAL-948-0x4090000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x4090000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118450] [FINDING_DETECTED] {"id": "MAL-948-0xc120000", "description": "Injected code detected in winlogon.exe (PID 948) at 0xc120000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118474] [FINDING_DETECTED] {"id": "MAL-948-0x27a10000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x27a10000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118624] [FINDING_DETECTED] {"id": "MAL-948-0x2fd20000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x2fd20000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118673] [FINDING_DETECTED] {"id": "MAL-948-0x29130000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x29130000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T20:32:14.118885] [ANALYST_REASONING] {"step": "evtx_analysis", "reasoning": "Checking Windows Event Logs \u2014 process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.", "tool
+[2026-06-11T20:32:14.118933] [TOOL_CALL] {"tool": "get_evtx_events", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_evtx_events with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_evtx_events completed in 18.45s
+[2026-06-11T20:32:32.572403] [TOOL_RESULT] {"tool": "get_evtx_events", "total": 0, "suspicious": 0}
+[2026-06-11T20:32:32.575692] [REASONING_CREATED] {"finding_id": "MEM-3908", "hypothesis": "Possible code injection or malicious process masquerading", "reasoning": "1 pieces of supporting evidence identified. Additional evidence required: Network co
+[2026-06-11T20:32:32.580652] [CONFIDENCE_RECALCULATED] {"finding_id": "MEM-3908", "old_confidence": 0.2, "new_confidence": 0.16}
+[2026-06-11T20:32:32.581222] [CONFIDENCE_EVOLUTION] {"finding_id": "MEM-3908", "old_confidence": 0.2, "new_confidence": 0.16, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.581186"}
+[2026-06-11T20:32:32.582650] [CONFIDENCE_UPDATED] {"finding_id": "MEM-3908", "old_confidence": 20, "new_confidence": 16, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "1 pieces of supporting evidence identified. Additional evidenc
+[2026-06-11T20:32:32.582727] [REASONING_CREATED] {"finding_id": "MEM-2160", "hypothesis": "Possible code injection or malicious process masquerading", "reasoning": "1 pieces of supporting evidence identified. Additional evidence required: Network co
+[2026-06-11T20:32:32.582794] [CONFIDENCE_RECALCULATED] {"finding_id": "MEM-2160", "old_confidence": 0.2, "new_confidence": 0.16}
+[2026-06-11T20:32:32.582841] [CONFIDENCE_EVOLUTION] {"finding_id": "MEM-2160", "old_confidence": 0.2, "new_confidence": 0.16, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.582831"}
+[2026-06-11T20:32:32.582879] [CONFIDENCE_UPDATED] {"finding_id": "MEM-2160", "old_confidence": 20, "new_confidence": 16, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "1 pieces of supporting evidence identified. Additional evidenc
+[2026-06-11T20:32:32.582909] [REASONING_CREATED] {"finding_id": "MAL-924-0x850000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."}
+[2026-06-11T20:32:32.582945] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-924-0x850000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.583442] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-924-0x850000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.583422"}
+[2026-06-11T20:32:32.583506] [CONFIDENCE_UPDATED] {"finding_id": "MAL-924-0x850000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Additional
+[2026-06-11T20:32:32.583542] [REASONING_CREATED] {"finding_id": "MAL-924-0xbd0000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."}
+[2026-06-11T20:32:32.583586] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-924-0xbd0000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.583616] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-924-0xbd0000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.583609"}
+[2026-06-11T20:32:32.583645] [CONFIDENCE_UPDATED] {"finding_id": "MAL-924-0xbd0000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Additional
+[2026-06-11T20:32:32.583671] [REASONING_CREATED] {"finding_id": "MAL-924-0x7f6f0000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."
+[2026-06-11T20:32:32.583705] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-924-0x7f6f0000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.583735] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-924-0x7f6f0000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.583727"}
+[2026-06-11T20:32:32.583765] [CONFIDENCE_UPDATED] {"finding_id": "MAL-924-0x7f6f0000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Addition
+[2026-06-11T20:32:32.583790] [REASONING_CREATED] {"finding_id": "MAL-948-0x5c0000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."}
+[2026-06-11T20:32:32.583822] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x5c0000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.583849] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x5c0000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.583843"}
+[2026-06-11T20:32:32.583879] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0x5c0000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Additional
+[2026-06-11T20:32:32.583901] [REASONING_CREATED] {"finding_id": "MAL-948-0x20e90000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."
+[2026-06-11T20:32:32.583932] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x20e90000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.584580] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x20e90000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.584561"}
+[2026-06-11T20:32:32.584627] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0x20e90000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Addition
+[2026-06-11T20:32:32.584659] [REASONING_CREATED] {"finding_id": "MAL-948-0x4090000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."}
+[2026-06-11T20:32:32.585014] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x4090000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.585344] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x4090000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.585328"}
+[2026-06-11T20:32:32.586337] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0x4090000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Additiona
+[2026-06-11T20:32:32.586378] [REASONING_CREATED] {"finding_id": "MAL-948-0xc120000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."}
+[2026-06-11T20:32:32.586426] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0xc120000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.586761] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0xc120000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.586713"}
+[2026-06-11T20:32:32.586808] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0xc120000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Additiona
+[2026-06-11T20:32:32.586837] [REASONING_CREATED] {"finding_id": "MAL-948-0x27a10000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."
+[2026-06-11T20:32:32.586876] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x27a10000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.586905] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x27a10000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.586898"}
+[2026-06-11T20:32:32.586931] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0x27a10000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Addition
+[2026-06-11T20:32:32.586955] [REASONING_CREATED] {"finding_id": "MAL-948-0x2fd20000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."
+[2026-06-11T20:32:32.586986] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x2fd20000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.587012] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x2fd20000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.587006"}
+[2026-06-11T20:32:32.587036] [CONFIDENCE_UPDATED] {"finding_id": "MAL-948-0x2fd20000", "old_confidence": 30, "new_confidence": 42, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "3 pieces of supporting evidence identified. Addition
+[2026-06-11T20:32:32.587058] [REASONING_CREATED] {"finding_id": "MAL-948-0x29130000", "hypothesis": "Injected executable memory detected", "reasoning": "3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation."
+[2026-06-11T20:32:32.587118] [CONFIDENCE_RECALCULATED] {"finding_id": "MAL-948-0x29130000", "old_confidence": 0.3, "new_confidence": 0.42}
+[2026-06-11T20:32:32.589731] [CONFIDENCE_EVOLUTION] {"finding_id": "MAL-948-0x29130000", "old_confidence": 0.3, "new_confidence": 0.42, "reason": "Recalculated: Base + 0.0 (corroboration) + 0.0 (hypothesis)", "timestamp": "2026-06-11T20:32:32.589691"}/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:180: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/sansforensics/sift-aegis/orchestrator.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),

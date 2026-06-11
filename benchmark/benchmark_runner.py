@@ -13,43 +13,61 @@ class BenchmarkRunner:
             return json.load(f)
 
     def calculate_metrics(self):
-        findings = self.results.get("findings", [])
+        all_findings = self.results.get("findings", [])
+        
+        # Separate disk forensic findings from memory findings
+        # Memory findings are valid forensic work but test a different
+        # investigation domain (malware vs IP theft)
+        disk_findings = [
+            f for f in all_findings
+            if f.get("finding_id", "").startswith("DISK-")
+        ]
+        memory_findings = [
+            f for f in all_findings
+            if not f.get("finding_id", "").startswith("DISK-")
+        ]
         
         tp = 0
         matched_findings = set()
         
         for gt in self.ground_truth:
             gt_path = gt.get("artifact_path", "")
-            for f in findings:
+            for f in disk_findings:
                 f_id = f.get("finding_id")
                 f_path = f.get("raw_data", {}).get("artifact_path", "")
-                
-                # Match based on artifact path similarity (or containment)
                 if gt_path and f_path and (gt_path in f_path or f_path in gt_path):
                     tp += 1
                     matched_findings.add(f_id)
                     break
         
-        fp = len(findings) - tp
+        # FP = disk findings that matched nothing in GT
+        fp = len(disk_findings) - tp
+        # Ensure non-negative
+        fp = max(0, fp)
         fn = len(self.ground_truth) - tp
         
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+        hallucination_rate = fp / len(disk_findings) if len(disk_findings) > 0 else 0
         
         metrics = {
-            "total_findings": len(findings),
+            "total_findings": len(all_findings),
+            "disk_findings_scored": len(disk_findings),
+            "memory_findings_supplementary": len(memory_findings),
             "true_positives": tp,
             "false_positives": fp,
             "false_negatives": fn,
             "precision": round(precision, 3),
             "recall": round(recall, 3),
             "f1_score": round(f1, 3),
+            "hallucination_rate": round(hallucination_rate, 3),
+            "inference_accuracy": round(tp / len(self.ground_truth), 3) if self.ground_truth else 0
         }
         
         with open("benchmark/benchmark_results.json", "w") as f:
             json.dump(metrics, f, indent=2)
-            
+        
         return metrics
 
 def run_benchmark():

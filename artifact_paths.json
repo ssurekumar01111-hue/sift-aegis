@@ -1,0 +1,24 @@
+{
+  "firefox": {
+    "places_sqlite": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "downloads_sqlite": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/downloads.sqlite",
+    "cookies_sqlite": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/cookies.sqlite",
+    "formhistory_sqlite": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/formhistory.sqlite"
+  },
+  "thunderbird": {
+    "inbox": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "sent": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent"
+  },
+  "documents": {
+    "lnk_files": [
+      "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+      "/mnt/charlie/Documents and Settings/All Users/Desktop/Mozilla Firefox.lnk"
+    ],
+    "office_files": [
+      "/mnt/charlie/Documents and Settings/Administrator/Templates/excel.xls"
+    ],
+    "pdf_files": [
+      "/mnt/charlie/Documents and Settings/Charlie/My Documents/22EE12E5d01.pdf"
+    ]
+  }
+}

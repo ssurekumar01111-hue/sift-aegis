@@ -1,0 +1,13 @@
+Total browser items: 100
+Patent URLs found: 34
+Sample patent URLs:
+  http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_
+  http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_
+  http://www.wipo.int/pctdb/en/wadList.jsp?IA=KR2006002671&LANGUAGE=EN&ID=id00000004717799&VOL=66&DOC=
+  http://www.wipo.int/pctdb/images4/PATENTSCOPE/66/57/12/015712.pdf
+  http://www.wipo.int/pctdb/en/data.jsp?IA=KR2006002671&WEEK=032007&DATE=18012007
+
+Sample raw browser items (first 3):
+  {'url': 'http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_FIELD=256&SERVER_TYPE=19-00&SORT=11274962-KEY&QUERY=et%2Fquantum+and+et%2Fcryptography%0D%0A&START=1&ELEMENT_SET=BASICHTML-ENG&RESULT=10&DISP=25&FORM=SEP-0%2FHITNUM%2CB-ENG%2CDP%2CMC%2CAN%2CPA%2CABSUM-ENG&IDOC=929058&IA=KR2006002671&LANG=ENG&DISPLAY=CLAIMS', 'title': '(WO/2007/007996) METHOD OF QUANTUM CRYPTOGRAPHY USING BLIND PHOTON POLARIZATION QUIBITS WITH MULTIPLE STAGES', 'visit_count': 1, 'last_visit_date': 1260483787375000, 'artifact_type': 'URL_HISTORY', 'source_file': '/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite'}
+  {'url': 'http://www.wipo.int/pctdb/en/fetch.jsp?SEARCH_IA=KR2006002671&DBSELECT=PCT&C=00&TOTAL=31&IDB=0&TYPE_FIELD=256&SERVER_TYPE=19-00&SORT=11274962-KEY&QUERY=et%2Fquantum+and+et%2Fcryptography%0D%0A&START=1&ELEMENT_SET=BASICHTML-ENG&RESULT=10&DISP=25&FORM=SEP-0%2FHITNUM%2CB-ENG%2CDP%2CMC%2CAN%2CPA%2CABSUM-ENG&IDOC=929058&IA=KR2006002671&LANG=ENG&DISPLAY=NATIONAL', 'title': '(WO/2007/007996) METHOD OF QUANTUM CRYPTOGRAPHY USING BLIND PHOTON POLARIZATION QUIBITS WITH MULTIPLE STAGES', 'visit_count': 1, 'last_visit_date': 1260483787375000, 'artifact_type': 'URL_HISTORY', 'source_file': '/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite'}
+  {'url': 'http://www.wipo.int/pctdb/en/wadList.jsp?IA=KR2006002671&LANGUAGE=EN&ID=id00000004717799&VOL=66&DOC=015712&WO=07/007996&WEEK=NA&TYPE=NA&DOC_TYPE=IB304&ACCESS=D&PAGE=0', 'title': 'wadList.jsp', 'visit_count': 1, 'last_visit_date': 1260483779390000, 'artifact_type': 'URL_HISTORY', 'source_file': '/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite'}

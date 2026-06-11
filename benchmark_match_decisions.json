@@ -1,0 +1,52 @@
+[
+  {
+    "gt_id": "GT-001",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to parse email artifacts and report on the specific assignment email."
+  },
+  {
+    "gt_id": "GT-002",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on document access (LNK files)."
+  },
+  {
+    "gt_id": "GT-003",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on browser history."
+  },
+  {
+    "gt_id": "GT-004",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on document creation."
+  },
+  {
+    "gt_id": "GT-005",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on document staging."
+  },
+  {
+    "gt_id": "GT-006",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to parse email artifacts."
+  },
+  {
+    "gt_id": "GT-007",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to parse email artifacts."
+  },
+  {
+    "gt_id": "GT-008",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to parse email artifacts."
+  },
+  {
+    "gt_id": "GT-009",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on document usage."
+  },
+  {
+    "gt_id": "GT-010",
+    "decision": "FN",
+    "reason": "Agent findings focus on memory-based process injection and suspicious process anomalies. Agent failed to report on downloaded tools."
+  }
+]

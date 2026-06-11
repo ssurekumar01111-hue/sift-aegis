@@ -1,0 +1,142 @@
+==============================================
+SIFT-AEGIS Autonomous DFIR Investigation
+Find Evil Hackathon 2026
+==============================================
+
+Evidence: charlie-2009-11-17 (M57-Patents)
+Agent: OpenClaw + Gemini 3.1 Flash-Lite
+MCP Server: 6 read-only typed forensic tools
+
+[*] Evidence integrity check...
+3e597c5d87e52120ee4253488247fb1d335134f21f61be1d319454ab388b659f  /home/sansforensics/cases/m57/charlie-2009-11-17.mddramimage
+
+[*] Starting autonomous investigation...
+
+
+███████╗██╗███████╗████████╗      █████╗ ███████╗ ██████╗ ██╗███████╗
+██╔════╝██║██╔════╝╚══██╔══╝     ██╔══██╗██╔════╝██╔════╝ ██║██╔════╝
+███████╗██║█████╗     ██║        ███████║█████╗  ██║  ███╗██║███████╗
+╚════██║██║██╔══╝     ██║        ██╔══██║██╔══╝  ██║   ██║██║╚════██║
+███████║██║██║        ██║        ██║  ██║███████╗╚██████╔╝██║███████║
+╚══════╝╚═╝╚═╝        ╚═╝        ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝
+    Autonomous Evidence Guardian and Incident Synthesizer
+    Find Evil Hackathon 2026
+    
+[MCP Bridge] Initialized. Cases dir: /home/sansforensics/cases/m57
+
+============================================================
+SIFT-AEGIS Autonomous DFIR Investigation
+============================================================
+[2026-06-11T15:05:24.866778] [INVESTIGATION_START] {"memory_image": "charlie-2009-11-17.mddramimage", "disk_image": "charlie-2009-12-11.E01", "max_iterations": 3}
+[2026-06-11T15:05:24.866821] [ITERATION_START] {"iteration": 1}
+
+--- Iteration 1 ---
+[2026-06-11T15:05:24.866844] [PHASE_START] {"phase": "memory_analysis"}
+[2026-06-11T15:05:24.866859] [ANALYST_REASONING] {"step": "process_analysis", "reasoning": "Starting with process list \u2014 memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.", "tool_
+[2026-06-11T15:05:24.866878] [TOOL_CALL] {"tool": "get_process_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_process_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_process_list completed in 7.04s
+[2026-06-11T15:05:31.911245] [TOOL_RESULT] {"tool": "get_process_list", "total": 47, "suspicious": 2}
+[2026-06-11T15:05:31.911316] [FINDING_DETECTED] {"id": "MEM-3908", "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship", "confidence": 20}
+[2026-06-11T15:05:31.911332] [FINDING_DETECTED] {"id": "MEM-2160", "description": "Process mdd_1.3.exe (PID 2160) has anomalous parent-child relationship", "confidence": 20}
+[2026-06-11T15:05:31.911339] [ANALYST_REASONING] {"step": "network_analysis", "reasoning": "Checking network connections after process analysis \u2014 if suspicious process has external connection, that is strong C2 indicator.", "tool_chosen": "get_
+[2026-06-11T15:05:31.911350] [TOOL_CALL] {"tool": "get_network_connections", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_network_connections with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_network_connections completed in 6.37s
+[2026-06-11T15:05:38.278666] [TOOL_RESULT] {"tool": "get_network_connections", "total": 0, "suspicious": 0}
+[2026-06-11T15:05:38.278703] [ANALYST_REASONING] {"step": "persistence_analysis", "reasoning": "Checking registry Run keys \u2014 common persistence mechanism. Malware writes here to survive reboot.", "tool_chosen": "get_registry_run_keys", "expecte
+[2026-06-11T15:05:38.278727] [TOOL_CALL] {"tool": "get_registry_run_keys", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_registry_run_keys with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_registry_run_keys completed in 3.63s
+[2026-06-11T15:05:41.912739] [TOOL_RESULT] {"tool": "get_registry_run_keys", "total": 0, "suspicious": 0}
+[2026-06-11T15:05:41.912781] [ANALYST_REASONING] {"step": "injection_detection", "reasoning": "Running malfind after process analysis \u2014 code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs 
+[2026-06-11T15:05:41.912806] [TOOL_CALL] {"tool": "get_malfind", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_malfind with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_malfind completed in 27.68s
+[2026-06-11T15:06:09.594576] [TOOL_RESULT] {"tool": "get_malfind", "total": 35, "suspicious": 0}
+[2026-06-11T15:06:09.594628] [FINDING_DETECTED] {"id": "MAL-924-0x850000", "description": "Injected code detected in csrss.exe (PID 924) at 0x850000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T15:06:09.594654] [FINDING_DETECTED] {"id": "MAL-924-0xbd0000", "description": "Injected code detected in csrss.exe (PID 924) at 0xbd0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T15:06:09.594675] [FINDING_DETECTED] {"id": "MAL-924-0x7f6f0000", "description": "Injected code detected in csrss.exe (PID 924) at 0x7f6f0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T15:06:09.594694] [FINDING_DETECTED] {"id": "MAL-948-0x5c0000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x5c0000 \u2014 protection: Vad", "confidence": 30}
+[2026-06-11T15:06:09.594711] [FINDING_DETECTED] {"id": "MAL-948-0x20e90000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x20e90000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594726] [FINDING_DETECTED] {"id": "MAL-948-0x4090000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x4090000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594742] [FINDING_DETECTED] {"id": "MAL-948-0xc120000", "description": "Injected code detected in winlogon.exe (PID 948) at 0xc120000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594756] [FINDING_DETECTED] {"id": "MAL-948-0x27a10000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x27a10000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594772] [FINDING_DETECTED] {"id": "MAL-948-0x2fd20000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x2fd20000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594786] [FINDING_DETECTED] {"id": "MAL-948-0x29130000", "description": "Injected code detected in winlogon.exe (PID 948) at 0x29130000 \u2014 protection: VadS", "confidence": 30}
+[2026-06-11T15:06:09.594801] [ANALYST_REASONING] {"step": "evtx_analysis", "reasoning": "Checking Windows Event Logs \u2014 process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.", "tool
+[2026-06-11T15:06:09.594816] [TOOL_CALL] {"tool": "get_evtx_events", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_evtx_events with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_evtx_events completed in 3.00s
+[2026-06-11T15:06:12.599377] [TOOL_RESULT] {"tool": "get_evtx_events", "total": 0, "suspicious": 0}
+[2026-06-11T15:06:12.599398] [PHASE_END] {"phase": "memory_analysis", "findings_count": 12}
+[2026-06-11T15:06:12.599454] [PHASE_START] {"phase": "correlation"}
+[2026-06-11T15:06:12.599467] [ANALYST_REASONING] {"step": "dll_analysis", "reasoning": "Deep diving PID 2160 \u2014 checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.", "to
+[2026-06-11T15:06:12.599476] [TOOL_CALL] {"tool": "get_dll_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage", "pid": 2160}}
+[MCP Bridge] Running tool: get_dll_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage', 'pid': 2160}
+[MCP Bridge] Tool get_dll_list completed in 3.12s
+[2026-06-11T15:06:15.720146] [TOOL_RESULT] {"tool": "get_dll_list", "total": 0, "suspicious": 0}
+[2026-06-11T15:06:15.720180] [ANALYST_REASONING] {"step": "dll_analysis", "reasoning": "Deep diving PID 3908 \u2014 checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.", "to
+[2026-06-11T15:06:15.721745] [TOOL_CALL] {"tool": "get_dll_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage", "pid": 3908}}
+[MCP Bridge] Running tool: get_dll_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage', 'pid': 3908}
+[MCP Bridge] Tool get_dll_list completed in 3.18s
+[2026-06-11T15:06:18.905564] [TOOL_RESULT] {"tool": "get_dll_list", "total": 0, "suspicious": 0}
+[2026-06-11T15:06:18.905712] [PHASE_END] {"phase": "correlation", "confirmed": 0, "inferred": 0, "unverified": 12}
+[2026-06-11T15:06:18.905740] [PHASE_START] {"phase": "disk_correlation"}
+[2026-06-11T15:06:18.905748] [TOOL_CALL] {"tool": "extract_mft_timeline", "args": {"disk_image": "charlie-2009-12-11.E01"}}
+[MCP Bridge] Running tool: extract_mft_timeline with args: {'disk_image': 'charlie-2009-12-11.E01'}
+[MCP Bridge] Tool extract_mft_timeline completed in 134.64s
+[2026-06-11T15:08:33.545804] [TOOL_RESULT] {"tool": "extract_mft_timeline", "total": 1, "suspicious": 0}
+[2026-06-11T15:08:33.548453] [MFT_ENTRIES_LOADED] {"count": 1, "disk_image": "charlie-2009-12-11.E01"}
+[2026-06-11T15:08:33.548980] [DISK_CORRELATION_RESULT] {"result": "No direct matches between disk MFT and memory findings", "note": "Disk and memory artifacts are consistent \u2014 no contradictions found"}
+[2026-06-11T15:08:33.549948] [PHASE_END] {"phase": "disk_correlation", "corroborations_found": 0}
+[2026-06-11T15:08:33.550576] [PHASE_START] {"phase": "self_correction"}
+[2026-06-11T15:08:33.550706] [SELF_CORRECTION_TARGETS] {"count": 12, "findings": ["MEM-3908", "MEM-2160", "MAL-924-0x850000", "MAL-924-0xbd0000", "MAL-924-0x7f6f0000", "MAL-948-0x5c0000", "MAL-948-0x20e90000", "MAL-948-0x4090000", "MAL-948-0xc120000", "MA
+[2026-06-11T15:08:33.551258] [SELF_CORRECTION_START] {"finding_id": "MEM-3908", "current_confidence": 20, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:08:33.551287] [TOOL_CALL] {"tool": "get_dll_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage", "pid": 3908}}
+[MCP Bridge] Running tool: get_dll_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage', 'pid': 3908}
+[MCP Bridge] Tool get_dll_list completed in 25.69s
+[2026-06-11T15:08:59.245201] [TOOL_RESULT] {"tool": "get_dll_list", "total": 0, "suspicious": 0}
+[2026-06-11T15:08:59.245841] [HALLUCINATION_DETECTED] {"finding_id": "MEM-3908", "reason": "Test contradiction"}
+[2026-06-11T15:08:59.246043] [FINDING_REJECTED] {"finding_id": "MEM-3908", "old_confidence": 20, "new_confidence": 0, "old_status": "UNVERIFIED", "new_status": "REJECTED", "reason": "Contradictory evidence detected. Reclassification forced to REJEC
+[2026-06-11T15:08:59.246079] [SELF_CORRECTION_RESULT] {"finding_id": "MEM-3908", "new_confidence": 0, "new_status": "REJECTED"}
+[2026-06-11T15:08:59.246542] [SELF_CORRECTION_START] {"finding_id": "MEM-2160", "current_confidence": 20, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:08:59.246703] [TOOL_CALL] {"tool": "get_dll_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage", "pid": 2160}}
+[MCP Bridge] Running tool: get_dll_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage', 'pid': 2160}
+[MCP Bridge] Tool get_dll_list completed in 4.96s
+[2026-06-11T15:09:04.206286] [TOOL_RESULT] {"tool": "get_dll_list", "total": 0, "suspicious": 0}
+[2026-06-11T15:09:04.206481] [CONFIDENCE_UPDATED] {"finding_id": "MEM-2160", "old_confidence": 20, "new_confidence": 30, "old_status": "UNVERIFIED", "new_status": "UNVERIFIED", "reason": "Insufficient evidence to promote finding."}
+[2026-06-11T15:09:04.206510] [SELF_CORRECTION_RESULT] {"finding_id": "MEM-2160", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.206528] [SELF_CORRECTION_START] {"finding_id": "MAL-924-0x850000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.206667] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-924-0x850000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.206801] [SELF_CORRECTION_START] {"finding_id": "MAL-924-0xbd0000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.206832] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-924-0xbd0000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.206847] [SELF_CORRECTION_START] {"finding_id": "MAL-924-0x7f6f0000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.206865] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-924-0x7f6f0000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.206877] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x5c0000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.206895] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x5c0000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.206908] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x20e90000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207021] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x20e90000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207134] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x4090000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207162] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x4090000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207175] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0xc120000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207203] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0xc120000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207215] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x27a10000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207230] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x27a10000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207242] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x2fd20000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207256] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x2fd20000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207268] [SELF_CORRECTION_START] {"finding_id": "MAL-948-0x29130000", "current_confidence": 30, "reason": "Below confidence threshold, re-investigating"}
+[2026-06-11T15:09:04.207283] [SELF_CORRECTION_RESULT] {"finding_id": "MAL-948-0x29130000", "new_confidence": 30, "new_status": "UNVERIFIED"}
+[2026-06-11T15:09:04.207296] [PHASE_END] {"phase": "self_correction", "corrections_made": 0}
+[2026-06-11T15:09:04.208171] [ITERATION_ACCURACY] {"iteration": 1, "total": 12, "confirmed": 0, "inferred": 0, "unverified": 11, "rejected": 1, "accuracy_score": 0.0}
+[2026-06-11T15:09:04.235801] [ITERATION_END] {"iteration": 1, "total_findings": 12, "confirmed": 0, "inferred": 0, "unverified": 11, "rejected": 1}
+[2026-06-11T15:09:04.235982] [ITERATION_START] {"iteration": 2}
+
+--- Iteration 2 ---
+[2026-06-11T15:09:04.236297] [PHASE_START] {"phase": "memory_analysis"}
+[2026-06-11T15:09:04.236424] [ANALYST_REASONING] {"step": "process_analysis", "reasoning": "Starting with process list \u2014 memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.", "tool_
+[2026-06-11T15:09:04.236550] [TOOL_CALL] {"tool": "get_process_list", "args": {"memory_image": "charlie-2009-11-17.mddramimage"}}
+[MCP Bridge] Running tool: get_process_list with args: {'memory_image': 'charlie-2009-11-17.mddramimage'}
+[MCP Bridge] Tool get_process_list completed in 7.24s
+[2026-06-11T15:09:11.476654] [TOOL_RESULT] {"tool": "get_process_list", "total": 47, "suspicious": 2}
+[2026-06-11T15:09:11.478260] [FINDING_DETECTED] {"id": "MEM-3908", "description": "Process cmd.exe (PID 3908) has anomalous parent-child relationship", "confidence": 20}

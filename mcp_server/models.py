@@ -138,3 +138,9 @@ class DocumentArtifact(BaseModel):
     created: str
     modified: str
     accessed: str
+
+class EVTXAnalysisResult(BaseModel):
+    entries: list[EVTXEntry] = []
+    total_events: int = 0
+    source_file: str = ""
+    error: str = ""

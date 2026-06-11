@@ -12,6 +12,8 @@ import os
 from datetime import datetime
 from typing import Optional
 from fastmcp import FastMCP
+mcp = FastMCP("sift-aegis-forensics")
+
 from models import (
     EvidenceMetadata, ProcessListResult, ProcessEntry,
     NetworkConnectionList, NetworkConnection,
@@ -50,7 +52,8 @@ def extract_document_metadata(file_path: str = "/home/sansforensics/sift-aegis/r
     with open(file_path, "r") as f:
         return json.load(f)
 
-mcp = FastMCP("sift-aegis-forensics")
+# mcp = FastMCP("sift-aegis-forensics")  <-- REMOVED DUPLICATE
+
 
 CASES_DIR = os.getenv("CASES_DIR", "/home/sansforensics/cases/m57")
 
