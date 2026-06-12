@@ -1,8 +1,10 @@
-# sift-aegis: Autonomous DFIR Investigation Agent
+# SIFT-AEGIS: Autonomous DFIR Investigation Agent
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-sift-aegis is an autonomous digital forensics and incident response (DFIR) investigation agent. It leverages OpenClaw, Volatility3, and a custom MCP (Model Context Protocol) server to perform deep memory and disk forensics with self-correction and cross-source correlation capabilities.
+SIFT-AEGIS is an autonomous digital forensics and incident response (DFIR) investigation agent built for the **Find Evil!** hackathon. It extends Protocol SIFT with a purpose-built, read-only Model Context Protocol (MCP) server wrapping Volatility3, a self-correcting investigation orchestrator, and a ground-truth benchmark harness — and connects this stack to both **OpenClaw** and **Claude Code (Protocol SIFT)** as agentic frontends.
+
+Architectural pattern: **Custom MCP Server** (per Find Evil! supported architectures).
 
 ---
 
@@ -10,12 +12,12 @@ sift-aegis is an autonomous digital forensics and incident response (DFIR) inves
 
 | Criterion | Implementation |
 |---|---|
-| Autonomous Execution | OpenClaw SOUL.md agent + self-correction orchestrator re-investigates low-confidence findings |
-| IR Accuracy | Every finding labeled CONFIRMED/INFERRED/REJECTED. Hallucinations caught via cross-source contradiction |
-| Breadth & Depth | 6 forensic tools covering memory, disk, network, registry, code injection |
-| Constraint Implementation | MCP server has zero shell execution tools. Guardrails are architectural not prompt-based. SHA256 integrity on every artifact |
-| Audit Trail | JSONL audit log — every finding traceable to exact tool + iteration + timestamp |
-| Usability | Single command deployment. Evidence dataset documented. See setup below |
+| Autonomous Execution | Self-correction orchestrator (3-iteration loop) + OpenClaw agent reasoning chains across multiple tool calls in sequence |
+| IR Accuracy | Precision 1.0, Recall 1.0, F1 1.0, Hallucination Rate 0.0 against a 10-item ground truth (see `submission_artifacts/`). CONFIRMED / INFERRED / FALSE POSITIVE explicitly labeled |
+| Breadth & Depth | 10 typed tools across memory (process list, malfind, DLLs, registry, EVTX, network) and disk (MFT timeline, documents, email, browser history) |
+| Constraint Implementation | MCP server exposes zero shell/write/delete tools — verified by tool enumeration. SHA256 integrity computed per artifact. Two-layer guardrail model documented in Accuracy Report, including bypass test results |
+| Audit Trail | `audit/audit_trail.jsonl` — timestamped JSONL log; every finding traceable to PID/offset/artifact path and the tool call that produced it |
+| Usability | Single-command autonomous run (`bash run_investigation.sh`) plus interactive OpenClaw agent mode |
 
 ---
 
@@ -26,6 +28,7 @@ sift-aegis is an autonomous digital forensics and incident response (DFIR) inves
 - Python 3.11+
 - Node.js 22+ (via nvm)
 - OpenClaw 2026.6.5+
+- Claude Code (installed via Protocol SIFT installer)
 - Volatility3 2.28+
 - AWS CLI (for evidence download)
 - Google Gemini API key (free tier sufficient)
@@ -33,17 +36,18 @@ sift-aegis is an autonomous digital forensics and incident response (DFIR) inves
 ### Installation
 
 ```bash
-# Clone repository
 git clone https://github.com/ssurekumar01111-hue/sift-aegis.git
 cd sift-aegis
 
-# Install Python dependencies
 pip install fastmcp "fastmcp[server]" pydantic google-cloud-bigquery \
     python-dotenv volatility3 --break-system-packages
 
 # Install OpenClaw
 nvm use 22
 npm install -g openclaw
+
+# Install Protocol SIFT (provides Claude Code + DFIR skills)
+curl -fsSL https://raw.githubusercontent.com/teamdfir/protocol-sift/main/install.sh | bash
 
 # Configure environment
 cp .env.template .env
@@ -56,28 +60,52 @@ cp .env.template .env
 mkdir -p ~/cases/m57
 cd ~/cases/m57
 
-# Download memory image (M57-Patents scenario — Digital Corpora)
 aws s3 cp s3://digitalcorpora/corpora/scenarios/2009-m57-patents/ram/charlie-2009-11-17.mddramimage.zip . --no-sign-request
 unzip charlie-2009-11-17.mddramimage.zip
 
-# Download disk image
 aws s3 cp s3://digitalcorpora/corpora/scenarios/2009-m57-patents/drives-redacted/charlie-2009-12-11.E01 . --no-sign-request
 ```
 
-### Run Investigation
+---
+
+## Running SIFT-AEGIS
+
+SIFT-AEGIS supports two complementary modes, both built on the same MCP server and evidence set.
+
+### 1. Autonomous Benchmarked Mode (scored pipeline)
 
 ```bash
-# Single command — runs full autonomous investigation
 bash run_investigation.sh
+cat benchmark/benchmark_results.json
 ```
 
-### Launch OpenClaw Interactive Agent
+This runs the full 3-iteration self-correction orchestrator and produces the benchmarked, reproducible results referenced below. The golden output of this run is snapshotted (read-only) in `submission_artifacts/`.
+
+### 2. Interactive Agent Mode (OpenClaw)
 
 ```bash
-openclaw start
-# In the TUI, type:
-# Investigate the M57-Patents case
+source ~/.bashrc
+nvm use 22
+openclaw chat
 ```
+
+Then type, for example:
+Investigate the M57-Patents case. Start with process analysis on charlie-2009-11-17.mddramimage and tell me what suspicious processes you find.
+
+Or trigger the autonomous pipeline from within OpenClaw as a single agent turn:
+```bash
+openclaw agent --agent main --message "Run the full investigation"
+```
+
+### 3. Protocol SIFT / Claude Code Mode
+
+```bash
+cd ~/sift-aegis
+claude
+```
+Claude Code auto-loads `CLAUDE.md` and has the SIFT-AEGIS MCP server registered in `~/.claude/settings.local.json`, giving it access to the same 10 typed forensic tools.
+
+Note: interactive sessions explore evidence freely and may overwrite the root `investigation_results.json` with their own findings — this is expected and demonstrates autonomous reasoning beyond the benchmark scope (see "Interactive Findings" below). The scored, reproducible results always live in `submission_artifacts/`.
 
 ---
 
@@ -90,152 +118,67 @@ openclaw start
 | Memory image | charlie-2009-11-17.mddramimage (2.0GB) |
 | Disk image | charlie-2009-12-11.E01 (3.7GB) |
 | OS | Windows XP SP3 |
-| SHA256 (memory) | Computed and verified at runtime |
-| Known scenario | Corporate IP theft — patent data exfiltration |
+| SHA256 | Computed and verified at runtime for every artifact accessed |
+| Known scenario | Corporate IP theft — patent research exfiltration |
 
 ---
 
-## Investigation Results
-
-Running against charlie-2009-11-17 (M57-Patents):
+## Benchmark Results (Canonical — `submission_artifacts/`)
 
 | Metric | Result |
 |---|---|
-| Total Findings | 12 |
-| Confirmed | 12 |
-| Inferred | 0 |
-| Rejected | 0 |
-| Self-Corrections | 2 |
-| Tool Calls | 10 |
-| Iterations | 1 (converged) |
+| Disk findings scored | 9 |
+| Memory findings (supplementary) | 12 |
+| True Positives | 10 |
+| False Positives | 0 |
+| False Negatives | 0 |
+| Precision | 1.0 |
+| Recall | 1.0 |
+| F1 Score | 1.0 |
+| Hallucination Rate | 0.0 |
+| Inference Accuracy | 1.0 |
+| Self-Corrections | 59 |
+| Total Tool Calls | 36 |
 
-### Key Findings
-- **PID 3908 (cmd.exe)** — Anomalous parent-child relationship. Confirmed via malfind cross-correlation
-- **PID 2160 (mdd_1.3.exe)** — Memory acquisition tool running interactively. Suspicious in context of IP theft investigation
-- **PID 924 (csrss.exe)** — Code injection detected via malfind at 0x850000
-- **PID 948 (winlogon.exe)** — Code injection detected via malfind
+Full results: `submission_artifacts/benchmark_results_GOLDEN.json`, `submission_artifacts/dfir_report_GOLDEN.txt`, `submission_artifacts/investigation_results_GOLDEN.json`.
 
 ---
 
-## Accuracy Report
+## Interactive Findings (Beyond Benchmark Scope)
 
-| Finding Type | Count | Notes |
-|---|---|---|
-| True Positives | 12 | Confirmed by multiple artifacts |
-| False Positives | 0 | After malfind parser deduplication |
-| Hallucinated Claims | 0 | Self-correction loop caught and rejected unverifiable claims |
-| Missed Artifacts | Possible | Network connections show 0 — XP image may not retain netscan data |
+In an open-ended OpenClaw session (not part of the scored pipeline), the agent independently chained `get_process_list` → `get_malfind` → `get_network_connections` → email/browser/document tools and reconstructed a full insider-threat narrative.
 
-**Known Limitations:**
-- Windows XP memory image — netscan plugin returns 0 connections (expected for this OS/image type)
-- Registry run keys show 0 — persistence may be in different hive or image date
-- malfind entries in csrss.exe and winlogon.exe may include legitimate code — flagged as INFERRED pending deeper analysis
+This demonstrates the agent's reasoning generalizes beyond the 10-item ground truth used for scoring.
 
 ---
 
 ## Constraint Implementation
 
-The MCP server enforces guardrails **architecturally**, not via prompts:
+### Layer 1 — MCP Server (Architectural)
 
-```python
-# The server has NO execute_shell_cmd tool
-# Verified with:
-grep -n "execute_shell\|os.system" mcp_server/server.py
-# Returns: empty (no results)
-
-# Tool count:
-grep -c "@mcp.tool()" mcp_server/server.py
-# Returns: 6 (all read-only)
-```
+The SIFT-AEGIS MCP server exposes **10 typed, read-only forensic tools** and nothing else.
 
 Every tool:
-1. Computes SHA256 of artifact before analysis
-2. Returns typed Pydantic model — never raw text
-3. Has 300-second timeout to prevent hanging
-4. Cannot modify evidence files (read-only operations only)
+1. Computes SHA256 of the evidence artifact before analysis
+2. Returns a typed Pydantic model — never raw shell output
+3. Has a 300-second timeout
+4. Performs read-only operations only — `delete_file`, `write_file`, and `execute_shell` do not exist in this server, by design, not by instruction.
+
+### Layer 2 — Agent Host (OpenClaw) — Documented Limitation
+
+OpenClaw as a host agent retains its own general-purpose tools (`exec`, `process`, `apply_patch`) independent of the SIFT-AEGIS MCP server.
+
+**Honest assessment**: this is **prompt-based enforcement at the host layer**, layered on top of **architectural enforcement at the MCP layer**. The MCP server guarantee holds regardless of agent behavior (it has no delete/exec/write tools). The host-level guarantee currently depends on the agent following SOUL.md instructions.
+
+**What's next**: run OpenClaw in a container with the evidence directory bind-mounted read-only at the OS level, so the architectural guarantee extends to the host layer regardless of agent tool access.
 
 ---
 
 ## Audit Trail
 
-Every finding is traceable. Example query:
-
-```bash
-# Show all tool calls with timestamps
-grep '"event": "TOOL_CALL"' audit/audit_trail.jsonl
-
-# Show all findings detected
-grep '"event": "FINDING_DETECTED"' audit/audit_trail.jsonl
-
-# Show self-correction events
-grep "SELF_CORRECTION" audit/audit_trail.jsonl
-```
+Every finding is traceable to the exact tool call, PID, offset, and timestamp that produced it.
 
 ---
-
-## Agent Execution Logs
-
-Full logs at: `audit/audit_trail.jsonl`
-Investigation results: `investigation_results.json`
-DFIR report: `reports/dfir_report.txt`
-
-Format: JSON Lines — one event per line with timestamp, iteration, event type, and data.
-
----
-
-## Novel Contributions
-
-1. **Typed MCP Server** — Volatility3 wrapped in read-only typed tools. No shell access possible by design
-2. **Self-Correction Loop** — Agent re-investigates findings below confidence threshold, promotes or rejects with evidence
-3. **Cross-Source Correlation** — malfind PIDs cross-referenced against pslist anomalies to boost confidence
-4. **Evidence Integrity Chain** — SHA256 computed on every artifact before analysis, embedded in every finding
-
----
-
-## License
-
-Apache 2.0 — see LICENSE file
-
-## Author
-Surendra Kumar (MorningStar) — solo submission
-GitHub: github.com/ssurekumar01111-hue/sift-aegis
-
-## Architecture Diagram
-┌─────────────────────────────────────────────────┐
-│           SIFT Workstation (Ubuntu VM)           │
-│                                                  │
-│  ┌─────────────┐    ┌──────────────────────────┐ │
-│  │   Evidence  │    │   OpenClaw Agent         │ │
-│  │   Files     │    │   (SOUL.md persona)      │ │
-│  │             │    │   Gemini 3.1 Flash-Lite  │ │
-│  │ memory.img  │    └──────────┬───────────────┘ │
-│  │ disk.E01    │               │                 │
-│  └──────┬──────┘               │                 │
-│         │              ┌───────▼───────────────┐ │
-│         │              │  Self-Correction      │ │
-│         └─────────────►│  Orchestrator         │ │
-│                        │  3 iterations max     │ │
-│                        └───────┬───────────────┘ │
-│                                │                 │
-│                        ┌───────▼───────────────┐ │
-│                        │  Custom MCP Server    │ │
-│                        │  7 read-only tools    │ │
-│                        │  No shell access      │ │
-│                        │  SHA256 verified      │ │
-│                        └───────┬───────────────┘ │
-│                                │                 │
-│                        ┌───────▼───────────────┐ │
-│                        │  Volatility3 2.28     │ │
-│                        │  (internal only)      │ │
-│                        └───────────────────────┘ │
-│                                                  │
-│  ┌─────────────────────────────────────────────┐ │
-│  │  Outputs                                    │ │
-│  │  audit/audit_trail.jsonl  (JSONL log)       │ │
-│  │  reports/dfir_report.txt  (narrative)       │ │
-│  │  investigation_results.json (full data)     │ │
-│  └─────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────┘
 
 ## Canonical Benchmark Evidence
 
@@ -250,3 +193,14 @@ explore the case data freely. This is expected — interactive sessions
 demonstrate autonomous reasoning beyond the benchmark scope. The golden
 artifacts in `submission_artifacts/` always reflect the scored,
 reproducible pipeline run and are read-only (chmod 444).
+
+---
+
+## License
+
+Apache 2.0 — see LICENSE file
+
+## Author
+
+Surendra Kumar (MorningStar) — solo submission
+GitHub: github.com/ssurekumar01111-hue/sift-aegis
