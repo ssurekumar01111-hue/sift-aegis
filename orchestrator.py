@@ -400,74 +400,119 @@ class SIFTAEGISOrchestrator:
             "reasoning": finding.confidence_explanation
         })
 
-    def _get_corroboration_bonus(self, finding: Finding) -> float:
-        sources = set(finding.evidence_sources)
-        if all(s in sources for s in ["get_process_list", "get_registry_run_keys", "extract_mft_timeline", "get_network_connections"]):
-            return 0.30
-        if all(s in sources for s in ["get_process_list", "get_dll_list", "get_network_connections"]):
-            return 0.20
-        if all(s in sources for s in ["get_process_list", "get_dll_list"]):
-            return 0.10
-        return 0.0
-
-    def _get_hypothesis_bonus(self, finding: Finding) -> float:
-        # Simple hypothesis alignment: if required evidence for category exists
-        requirements = {
-            "Suspicious Process": ["get_network_connections", "get_dll_list"],
-            "Code Injection": ["get_dll_list", "get_malfind"],
-            "Persistence Mechanism": ["get_registry_run_keys"],
-            "Browser Research Activity": ["analyze_browser_artifacts"],
-            "Email Communication": ["extract_outlook_emails"],
-            "Document Access": ["extract_document_metadata"],
-            "External Exfiltration Contact": ["extract_outlook_emails"],
-            "Data Staging": ["extract_document_metadata"],
-        }
-        required = requirements.get(finding.category, [])
-        if required and all(s in finding.evidence_sources for s in required):
-            return 0.10
-        return 0.0
-
-    def calculate_confidence(self, finding: Finding) -> float:
-        """Score a finding's confidence based on weighted evidence sources, corroboration, and hypothesis alignment."""
+    def calculate_confidence(self, finding: Finding, all_findings: list = None) -> float:
+        """
+        Weighted evidence model for confidence scoring.
+        Base confidence = 10%
+        Evidence weights:
+        - each thunderbird: item +15%
+        - each filesystem: item +12%
+        - each lnk: item +10%
+        - each malfind: item +15%
+        - each pslist: item +10%
+        Bonuses:
+        - evidence spans 2+ source types: +15%
+        - evidence date within 7 days of another confirmed finding: +10%
+        Penalty:
+        - contradictory evidence present: -20%
+        Cap confidence at 95%.
+        """
         old_confidence = finding.confidence
-        score = 0.0
-        unique_sources = set(finding.evidence_sources)
+        score = 0.10
         
-        # Base score from sources
-        for source in unique_sources:
-            score += self.source_weights.get(source, 0.05)
+        # Analyze supporting evidence sources
+        source_types = set()
+        
+        import re
+        from datetime import datetime as dt
+        
+        # Extract dates for this finding
+        finding_dates = []
+        
+        for ev in finding.supporting_evidence:
+            if isinstance(ev, str):
+                if ev.startswith("thunderbird:"):
+                    score += 0.15
+                    source_types.add("thunderbird")
+                elif ev.startswith("filesystem:"):
+                    score += 0.12
+                    source_types.add("filesystem")
+                elif ev.startswith("lnk:"):
+                    score += 0.10
+                    source_types.add("lnk")
+                elif ev.startswith("malfind:"):
+                    score += 0.15
+                    source_types.add("malfind")
+                elif ev.startswith("pslist:"):
+                    score += 0.10
+                    source_types.add("pslist")
+                
+                if ":" in ev:
+                    source_types.add(ev.split(":")[0])
+                
+                # Extract date
+                match = re.search(r'(\d{4}-\d{2}-\d{2})', ev)
+                if match:
+                    try:
+                        finding_dates.append(dt.strptime(match.group(1), "%Y-%m-%d"))
+                    except ValueError:
+                        pass
+        
+        # Cross-source bonus
+        has_cross_source = False
+        valid_pairs = [
+            {"thunderbird", "filesystem"},
+            {"thunderbird", "lnk"},
+            {"thunderbird", "firefox"},
+            {"filesystem", "lnk"},
+            {"malfind", "pslist"},
+            {"pslist", "evtx"}
+        ]
+        
+        for pair in valid_pairs:
+            if pair.issubset(source_types):
+                has_cross_source = True
+                break
+                
+        if has_cross_source:
+            score += 0.15
             
-        # Supporting evidence bonus
-        score += 0.05 * len(finding.supporting_evidence)
-        
-        # Corroboration Bonus
-        corroboration_bonus = self._get_corroboration_bonus(finding)
-        if corroboration_bonus > 0:
-            self.log("CORROBORATION_BONUS_APPLIED", {"finding_id": finding.id, "bonus": corroboration_bonus})
-        score += corroboration_bonus
-        
-        # Hypothesis Alignment Bonus
-        hypothesis_bonus = self._get_hypothesis_bonus(finding)
-        if hypothesis_bonus > 0:
-            self.log("HYPOTHESIS_ALIGNMENT_BONUS_APPLIED", {"finding_id": finding.id, "bonus": hypothesis_bonus})
-        score += hypothesis_bonus
-        
-        # Penalties
+        # Temporal proximity bonus
+        if all_findings is None:
+            all_findings = getattr(self, "findings_map", {}).values()
+            
+        temporal_bonus_applied = False
+        if finding_dates:
+            for other in all_findings:
+                if other.id != finding.id and other.status == "CONFIRMED":
+                    for other_ev in other.supporting_evidence:
+                        if isinstance(other_ev, str):
+                            match = re.search(r'(\d{4}-\d{2}-\d{2})', other_ev)
+                            if match:
+                                try:
+                                    other_date = dt.strptime(match.group(1), "%Y-%m-%d")
+                                    for fd in finding_dates:
+                                        if abs((fd - other_date).days) <= 7:
+                                            score += 0.10
+                                            temporal_bonus_applied = True
+                                            break
+                                except ValueError:
+                                    pass
+                        if temporal_bonus_applied:
+                            break
+                if temporal_bonus_applied:
+                    break
+
+        # Penalty
         if finding.contradictory_evidence:
-            score -= 0.25 * len(finding.contradictory_evidence)
-        
-        if finding.missing_evidence:
-            score -= 0.03 * len(finding.missing_evidence)
+            score -= 0.20
             
-        if "missing_verification" in finding.contradictory_evidence:
-            score -= 0.15
-            
-        new_confidence = round(max(min(score, 1.0), 0.0), 2)
+        new_confidence = round(max(min(score, 0.95), 0.0), 2)
         
         # Record history and log evolution
         if new_confidence != old_confidence:
             self.log("CONFIDENCE_RECALCULATED", {"finding_id": finding.id, "old_confidence": old_confidence, "new_confidence": new_confidence})
-            change_reason = f"Recalculated: Base + {corroboration_bonus} (corroboration) + {hypothesis_bonus} (hypothesis)"
+            change_reason = f"Recalculated: Base + {score - 0.10:.2f} (weighted)"
             evolution_entry = {
                 "old_confidence": old_confidence,
                 "new_confidence": new_confidence,
@@ -501,7 +546,15 @@ class SIFTAEGISOrchestrator:
         source_types = set()
         for ev in finding.supporting_evidence:
             if isinstance(ev, str) and ":" in ev:
-                source_types.add(ev.split(":")[0])
+                parts = ev.split(":")
+                base_source = parts[0]
+                source_types.add(base_source)
+                
+                # Granular Thunderbird differentiation: Inbox vs Sent
+                if base_source == "thunderbird" and len(parts) > 1:
+                    mailbox = parts[1].lower()
+                    if mailbox in ["inbox", "sent"]:
+                        source_types.add(f"thunderbird_{mailbox}")
                 
         has_cross_source = False
         valid_pairs = [
@@ -510,7 +563,8 @@ class SIFTAEGISOrchestrator:
             {"thunderbird", "firefox"},
             {"filesystem", "lnk"},
             {"malfind", "pslist"},
-            {"pslist", "evtx"}
+            {"pslist", "evtx"},
+            {"thunderbird_inbox", "thunderbird_sent"} # NEW: Independent email flows
         ]
         
         for pair in valid_pairs:
