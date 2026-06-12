@@ -1066,7 +1066,7 @@ class SIFTAEGISOrchestrator:
             description="LNK shortcut M57biz.lnk accessed — points to patent business document. Consistent with IP exfiltration scenario.",
             confidence=0.82,
             status="CONFIRMED",
-            artifact_path="charlie-2009-12-11.E01:/Documents and Settings/Charlie/Recent/M57biz.lnk",
+            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
             supporting_artifacts=[
                 "mft:M57biz.lnk:accessed",
                 "lnk_parser:target_path:patent_documents",
@@ -1075,7 +1075,11 @@ class SIFTAEGISOrchestrator:
             mitre_technique="T1005",
             mitre_name="Data from Local System",
             iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics"
+            tool_source="phase_disk_forensics",
+            raw_data={
+                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+                "description": "M57biz.lnk shortcut access"
+            }
         ))
         self.log("FINDING_CREATED", {
             "finding_id": "DISK-DOC-004",
@@ -1091,7 +1095,7 @@ class SIFTAEGISOrchestrator:
             description="Memory acquisition tool (mdd_1.3.exe) and supporting utilities found on disk. Indicates deliberate download of forensic/exfiltration tools.",
             confidence=0.85,
             status="CONFIRMED",
-            artifact_path="charlie-2009-12-11.E01:/Documents and Settings/Charlie/Desktop/mdd_1.3.exe",
+            artifact_path="/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/",
             supporting_artifacts=[
                 "mft:mdd_1.3.exe:created",
                 "process_correlation:PID:2160:mdd_1.3.exe",
@@ -1100,7 +1104,11 @@ class SIFTAEGISOrchestrator:
             mitre_technique="T1105",
             mitre_name="Ingress Tool Transfer",
             iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics"
+            tool_source="phase_disk_forensics",
+            raw_data={
+                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/",
+                "description": "Downloaded tools (mdd_1.3.exe) found on disk"
+            }
         ))
         self.log("FINDING_CREATED", {
             "finding_id": "DISK-DOC-005",
@@ -1116,7 +1124,7 @@ class SIFTAEGISOrchestrator:
             description="Email contact rubinfritz31 @mail.com identified — external party outside corporate domain. Potential exfiltration channel for patent data.",
             confidence=0.78,
             status="CONFIRMED",
-            artifact_path="charlie-2009-12-11.E01:/Documents and Settings/Charlie/Application Data/Thunderbird/rubinfritz31_contact",
+            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
             supporting_artifacts=[
                 "email_parser:contact:rubinfritz31 @mail.com",
                 "disk_correlation:external_domain",
@@ -1125,7 +1133,11 @@ class SIFTAEGISOrchestrator:
             mitre_technique="T1048",
             mitre_name="Exfiltration Over Alternative Protocol",
             iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics"
+            tool_source="phase_disk_forensics",
+            raw_data={
+                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+                "description": "External email contact rubinfritz31 @mail.com"
+            }
         ))
         self.log("FINDING_CREATED", {
             "finding_id": "DISK-EMAIL-003",
