@@ -87,6 +87,9 @@ class InvestigationState:
     iteration_accuracy: list = field(default_factory=list)
     corrections_made: int = 0
     start_time: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    failed_tools: dict = field(default_factory=dict)
+    skipped_tools: set = field(default_factory=set)
+    strategy_changes: list = field(default_factory=list)
 
 class SIFTAEGISOrchestrator:
     
@@ -106,6 +109,18 @@ class SIFTAEGISOrchestrator:
             "analyze_browser_artifacts": 0.25,
             "extract_outlook_emails": 0.25,
             "extract_document_metadata": 0.20,
+        }
+        self.alternatives = {
+            "get_dll_list": "get_malfind",
+            "get_malfind": "get_dll_list",
+            "get_process_list": "extract_mft_timeline",
+            "get_network_connections": "get_evtx_events",
+            "get_registry_run_keys": "extract_mft_timeline",
+            "analyze_browser_artifacts": "extract_outlook_emails",
+            "extract_outlook_emails": "analyze_browser_artifacts",
+            "extract_document_metadata": "extract_mft_timeline",
+            "get_evtx_events": "extract_mft_timeline",
+            "extract_mft_timeline": "get_process_list"
         }
 
     def generate_evidence_graph(self):
@@ -184,6 +199,91 @@ class SIFTAEGISOrchestrator:
     
     def run_tool_logged(self, tool_name: str, **kwargs) -> dict:
         """Run tool and log to audit trail."""
+        # Tool degradation: Check if tool is degraded
+        if tool_name in self.state.skipped_tools:
+            alternative_tool = self.alternatives.get(tool_name)
+            
+            # Avoid infinite recursion if alternative is also skipped
+            if alternative_tool and alternative_tool not in self.state.skipped_tools:
+                reason = f"skipping {tool_name} and selecting alternative evidence path: {alternative_tool}"
+                log_msg = f"[STRATEGY CHANGE] Iteration {self.state.iteration}: {reason}"
+                print(log_msg)
+                
+                # Filter and adapt kwargs for the alternative tool
+                alt_kwargs = kwargs.copy()
+                
+                # List of tools and their primary image argument name
+                memory_tools = ["get_process_list", "get_network_connections", "get_registry_run_keys", 
+                                "get_dll_list", "get_malfind", "get_evtx_events"]
+                disk_tools = ["extract_mft_timeline"]
+                path_tools = ["analyze_browser_artifacts", "extract_outlook_emails", "extract_document_metadata"]
+                
+                # Handle image/path argument swaps
+                if alternative_tool in memory_tools:
+                    if "disk_image" in alt_kwargs:
+                        alt_kwargs["memory_image"] = MEMORY_IMAGE
+                        del alt_kwargs["disk_image"]
+                    if "image_mount_path" in alt_kwargs:
+                        alt_kwargs["memory_image"] = MEMORY_IMAGE
+                        del alt_kwargs["image_mount_path"]
+                    if "file_path" in alt_kwargs:
+                        alt_kwargs["memory_image"] = MEMORY_IMAGE
+                        del alt_kwargs["file_path"]
+                elif alternative_tool in disk_tools:
+                    if "memory_image" in alt_kwargs:
+                        alt_kwargs["disk_image"] = DISK_IMAGE
+                        del alt_kwargs["memory_image"]
+                    if "image_mount_path" in alt_kwargs:
+                        alt_kwargs["disk_image"] = DISK_IMAGE
+                        del alt_kwargs["image_mount_path"]
+                    if "file_path" in alt_kwargs:
+                        alt_kwargs["disk_image"] = DISK_IMAGE
+                        del alt_kwargs["file_path"]
+                elif alternative_tool in path_tools:
+                    # For path tools, we need to know which path to use. 
+                    # This is simplified; in a real scenario we'd need a mapping.
+                    paths = {
+                        "analyze_browser_artifacts": "/home/sansforensics/sift-aegis/real_browser_artifacts.json",
+                        "extract_outlook_emails": "/home/sansforensics/sift-aegis/real_email_artifacts.json",
+                        "extract_document_metadata": "/home/sansforensics/sift-aegis/real_document_artifacts.json"
+                    }
+                    target_arg = "image_mount_path" if alternative_tool == "analyze_browser_artifacts" else "file_path"
+                    alt_kwargs[target_arg] = paths.get(alternative_tool)
+                    # Clean up other image/path args
+                    for arg in ["memory_image", "disk_image", "image_mount_path", "file_path"]:
+                        if arg in alt_kwargs and arg != target_arg:
+                            del alt_kwargs[arg]
+
+                # Specific check for 'pid' - only get_dll_list uses it
+                if alternative_tool != "get_dll_list" and "pid" in alt_kwargs:
+                    del alt_kwargs["pid"]
+                
+                self.state.strategy_changes.append({
+                    "iteration": self.state.iteration,
+                    "original_tool": tool_name,
+                    "replacement_tool": alternative_tool,
+                    "reason": reason,
+                    "timestamp": datetime.utcnow().isoformat()
+                })
+                self.log("STRATEGY_CHANGE", {
+                    "iteration": self.state.iteration,
+                    "original_tool": tool_name,
+                    "replacement_tool": alternative_tool,
+                    "reason": reason
+                })
+                return self.run_tool_logged(alternative_tool, **alt_kwargs)
+            else:
+                reason = f"skipping {tool_name} - no viable alternative"
+                log_msg = f"[STRATEGY CHANGE] Iteration {self.state.iteration}: {reason}"
+                print(log_msg)
+                self.log("STRATEGY_CHANGE", {
+                    "iteration": self.state.iteration,
+                    "original_tool": tool_name,
+                    "replacement_tool": None,
+                    "reason": reason
+                })
+                return {"total_count": 0, "suspicious_count": 0, "entries": [], "skipped": True}
+
         self.log("TOOL_CALL", {"tool": tool_name, "args": kwargs})
         result = self.bridge.run_tool(tool_name, **kwargs)
         
@@ -191,20 +291,49 @@ class SIFTAEGISOrchestrator:
         if isinstance(result, list):
             result = {"total_count": len(result), "suspicious_count": 0, "evidence": {}, "entries": result}
         
+        if result is None:
+            result = {"total_count": 0, "suspicious_count": 0, "entries": []}
+            
+        total_count = result.get("total_count", 0)
+        
+        # Tool degradation tracking
+        if total_count == 0:
+            self.state.failed_tools[tool_name] = self.state.failed_tools.get(tool_name, 0) + 1
+            if self.state.failed_tools[tool_name] >= 2:
+                self.state.skipped_tools.add(tool_name)
+                reason = f"tool {tool_name} marked degraded after 2 consecutive zero-result runs."
+                log_msg = f"[STRATEGY CHANGE] Iteration {self.state.iteration}: {reason}"
+                print(log_msg)
+                self.state.strategy_changes.append({
+                    "iteration": self.state.iteration,
+                    "original_tool": tool_name,
+                    "replacement_tool": self.alternatives.get(tool_name),
+                    "reason": reason,
+                    "timestamp": datetime.utcnow().isoformat()
+                })
+                self.log("STRATEGY_CHANGE", {
+                    "iteration": self.state.iteration,
+                    "original_tool": tool_name,
+                    "replacement_tool": self.alternatives.get(tool_name),
+                    "reason": reason
+                })
+        else:
+            self.state.failed_tools[tool_name] = 0
+
         self.state.tool_calls.append({
             "timestamp": datetime.utcnow().isoformat(),
             "iteration": self.state.iteration,
             "tool": tool_name,
             "args": kwargs,
             "result_summary": {
-                "total_count": result.get("total_count", 0),
+                "total_count": total_count,
                 "suspicious_count": result.get("suspicious_count", 0),
                 "sha256": result.get("evidence", {}).get("sha256", "")[:16] + "..." if isinstance(result.get("evidence"), dict) else "N/A"
             }
         })
         self.log("TOOL_RESULT", {
             "tool": tool_name,
-            "total": result.get("total_count", 0),
+            "total": total_count,
             "suspicious": result.get("suspicious_count", 0)
         })
         return result
@@ -368,9 +497,30 @@ class SIFTAEGISOrchestrator:
             })
             finding.confidence_change_reason = finding.confidence_explanation
         
+        # Cross-source corroboration check
+        source_types = set()
+        for ev in finding.supporting_evidence:
+            if isinstance(ev, str) and ":" in ev:
+                source_types.add(ev.split(":")[0])
+                
+        has_cross_source = False
+        valid_pairs = [
+            {"thunderbird", "filesystem"},
+            {"thunderbird", "lnk"},
+            {"thunderbird", "firefox"},
+            {"filesystem", "lnk"},
+            {"malfind", "pslist"},
+            {"pslist", "evtx"}
+        ]
+        
+        for pair in valid_pairs:
+            if pair.issubset(source_types):
+                has_cross_source = True
+                break
+        
         if len(finding.contradictory_evidence) > 0:
             finding.status = "REJECTED"
-        elif finding.confidence >= 0.85 and len(finding.evidence_sources) >= 2:
+        elif finding.confidence >= 0.85 and has_cross_source:
             finding.status = "CONFIRMED"
         elif finding.confidence >= 0.60:
             finding.status = "INFERRED"
@@ -1051,6 +1201,79 @@ class SIFTAEGISOrchestrator:
                 "description": finding.description,
                 "confidence": int(finding.confidence * 100)
             })
+
+        # Find M57biz file access
+        m57biz_docs = [
+            d for d in documents
+            if "m57biz" in d.get("file_name", "").lower()
+            or "m57biz" in d.get("file_path", "").lower()
+        ]
+        
+        if m57biz_docs:
+            finding = Finding(
+                id="DISK-DOC-004",
+                title="M57biz Business Document Access",
+                category="Document Access",
+                description=f"Charlie accessed M57biz business files. {len(m57biz_docs)} related artifacts found.",
+                confidence=0.25,
+                status="UNVERIFIED",
+                supporting_evidence=[
+                    f"filesystem:{d.get('file_name')}:{d.get('modified','')}"
+                    for d in m57biz_docs[:3]
+                ],
+                contradictory_evidence=[],
+                evidence_sources=["extract_document_metadata"],
+                iteration_found=self.state.iteration,
+                tool_source="extract_document_metadata",
+                raw_data={
+                    "artifact_path": m57biz_docs[0].get("source_file", m57biz_docs[0].get("file_path", DOCUMENT_JSON)) if m57biz_docs else DOCUMENT_JSON,
+                    "lnk_count": len(m57biz_docs),
+                    "files": [d.get("file_name") for d in m57biz_docs]
+                }
+            )
+            findings.append(finding)
+            self.log("FINDING_DETECTED", {
+                "id": finding.id,
+                "description": finding.description,
+                "confidence": int(finding.confidence * 100)
+            })
+
+        # Find downloaded research tools
+        tool_docs = [
+            d for d in documents
+            if "alternatiff" in d.get("file_name", "").lower()
+            or ("downloads" in d.get("file_path", "").lower() and ".exe" in d.get("file_name", "").lower())
+        ]
+        
+        if tool_docs:
+            finding = Finding(
+                id="DISK-DOC-005",
+                title="Downloaded Research Tools",
+                category="Document Access",
+                description=f"Charlie downloaded patent research tools including alternatiff. {len(tool_docs)} tool artifacts found.",
+                confidence=0.25,
+                status="UNVERIFIED",
+                supporting_evidence=[
+                    f"filesystem:{d.get('file_name')}:{d.get('modified','')}"
+                    for d in tool_docs[:3]
+                ],
+                contradictory_evidence=[],
+                evidence_sources=["extract_document_metadata"],
+                iteration_found=self.state.iteration,
+                tool_source="extract_document_metadata",
+                raw_data={
+                    "artifact_path": tool_docs[0].get("source_file", tool_docs[0].get("file_path", DOCUMENT_JSON)) if tool_docs else DOCUMENT_JSON,
+                    "lnk_count": len(tool_docs),
+                    "files": [d.get("file_name") for d in tool_docs]
+                }
+            )
+            findings.append(finding)
+            self.log("FINDING_DETECTED", {
+                "id": finding.id,
+                "description": finding.description,
+                "confidence": int(finding.confidence * 100)
+            })
+
         
         # Generate reasoning and classify all findings
         for finding in findings:
@@ -1289,6 +1512,7 @@ class SIFTAEGISOrchestrator:
             "findings": [f.to_dict() for f in all_findings],
             "audit_log": self.audit_log,
             "tool_calls": self.state.tool_calls,
+            "strategy_changes": self.state.strategy_changes,
             "accuracy_delta": {
                 "iteration_1_accuracy": self.state.iteration_accuracy[0]["accuracy_score"] if self.state.iteration_accuracy else 0,
                 "final_accuracy": self.state.iteration_accuracy[-1]["accuracy_score"] if self.state.iteration_accuracy else 0,

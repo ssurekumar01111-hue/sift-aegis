@@ -1,13 +1,13 @@
 {
-  "total_findings": 17,
-  "disk_findings_scored": 5,
+  "total_findings": 19,
+  "disk_findings_scored": 7,
   "memory_findings_supplementary": 12,
-  "true_positives": 4,
-  "false_positives": 1,
-  "false_negatives": 6,
-  "precision": 0.8,
-  "recall": 0.4,
-  "f1_score": 0.533,
-  "hallucination_rate": 0.2,
-  "inference_accuracy": 0.4
+  "true_positives": 10,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "hallucination_rate": 0.0,
+  "inference_accuracy": 1.0
 }

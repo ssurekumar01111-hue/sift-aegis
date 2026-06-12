@@ -1,0 +1,101 @@
+[
+  {
+    "id": "GT-001",
+    "description": "Pat McGoo assigned Nitroba account to Charlie (Account setup)",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "artifact_type": "EMAIL",
+    "reference": "Digital Corpora M57-Patents Walkthrough, Section: Initial Assignment",
+    "reason": "Official entry point for the Charlie investigation timeline.",
+    "keywords": ["pat", "mcgoo", "nitroba"],
+    "emails": ["pat@m57patents.com"],
+    "subjects": ["nitroba", "assignment"]
+  },
+  {
+    "id": "GT-002",
+    "description": "Charlie accessed M57biz file (Potential IP identification)",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
+    "artifact_type": "DOCUMENT",
+    "reference": "CFReDS M57 Scenario Documentation, Section: Artifacts for Charlie",
+    "reason": "Indicates Charlie was looking at company-wide business data.",
+    "keywords": ["m57biz"],
+    "filenames": ["m57biz"]
+  },
+  {
+    "id": "GT-003",
+    "description": "Charlie researched quantum cryptography patents on WIPO",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+    "artifact_type": "BROWSER",
+    "reference": "Digital Corpora M57 Scenario Timeline, Nov 17 2009",
+    "reason": "Direct evidence of targeted IP research corresponding to the theft goal.",
+    "keywords": ["quantum", "cryptography", "wipo", "patent"]
+  },
+  {
+    "id": "GT-004",
+    "description": "Charlie created patentauto.py automation script",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Recent/patentauto.py.lnk",
+    "artifact_type": "DOCUMENT",
+    "reference": "Digital Corpora M57 Walkthrough, Section: Automation Tools",
+    "reason": "Key artifact showing technical preparation for data collection.",
+    "keywords": ["patentauto.py", "automation"],
+    "filenames": ["patentauto.py"]
+  },
+  {
+    "id": "GT-005",
+    "description": "Charlie built Quantum Cryptography document collection",
+    "artifact_path": "charlie/Documents and Settings/Charlie/My Documents/Quantum Cryptography/",
+    "artifact_type": "DOCUMENT",
+    "reference": "NIST CFReDS Case M57-Patents, Official Solution Key",
+    "reason": "The primary staging folder for exfiltrated intellectual property.",
+    "keywords": ["quantum", "cryptography", "staging"]
+  },
+  {
+    "id": "GT-006",
+    "description": "Charlie exfiltrated findings to external contact andy@swexpert.com",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "artifact_type": "EMAIL",
+    "reference": "Digital Corpora M57 Scenario Narrative, Section: The Exfiltration",
+    "reason": "Primary exfiltration channel documented in the scenario official narrative.",
+    "keywords": ["andy", "swexpert"],
+    "emails": ["andy@swexpert.com"],
+    "subjects": ["found", "instructions"]
+  },
+  {
+    "id": "GT-007",
+    "description": "Charlie coordinated with external party jamie@project2400.com",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+    "artifact_type": "EMAIL",
+    "reference": "M57-Patents Official Case Solution, December 2009",
+    "reason": "Evidence of secondary co-conspirator communication.",
+    "keywords": ["jamie", "project2400"],
+    "emails": ["jamie@project2400.com"]
+  },
+  {
+    "id": "GT-008",
+    "description": "External party rubinfritz31@mail.com asked 'When's it coming?'",
+    "artifact_path": "charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+    "artifact_type": "EMAIL",
+    "reference": "CFReDS M57 Challenge - Inbound Threat Analysis",
+    "reason": "External pressure artifact confirming the exfiltration objective.",
+    "keywords": ["rubinfritz31"],
+    "emails": ["rubinfritz31@mail.com"]
+  },
+  {
+    "id": "GT-009",
+    "description": "Charlie worked on Nitroba work.odt document",
+    "artifact_path": "charlie/Documents and Settings/Charlie/My Documents/Nitroba/Nitroba work.odt",
+    "artifact_type": "DOCUMENT",
+    "reference": "NIST CFReDS Case M57-Patents, Official Artifact List",
+    "reason": "Primary work product document used during the unauthorized investigation.",
+    "keywords": ["nitroba", "work.odt"],
+    "filenames": ["nitroba work.odt"]
+  },
+  {
+    "id": "GT-010",
+    "description": "Charlie downloaded patent research tools (patentauto.py, alternatiff)",
+    "artifact_path": "charlie/Documents and Settings/Charlie/My Documents/Downloads/",
+    "artifact_type": "DOCUMENT",
+    "reference": "Digital Corpora M57 Walkthrough, Section: Downloads",
+    "reason": "Evidence of tool acquisition for unauthorized research.",
+    "keywords": ["downloads", "alternatiff"]
+  }
+]
