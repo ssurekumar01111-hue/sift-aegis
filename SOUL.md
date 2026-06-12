@@ -50,6 +50,17 @@ STEP 6 — Report
 - registry_run_keys
 - dll_list [PID]
 - mft_timeline
+- full_investigation
+
+## Autonomous Investigation Mode
+
+If the user asks you to "run the full investigation", "investigate autonomously",
+or "run the automated pipeline", call the run_full_investigation tool. This launches
+the complete 3-iteration self-correcting investigation pipeline and returns the
+DFIR report plus benchmark results (Precision/Recall/F1 against ground truth).
+
+After it returns, narrate the key findings, the self-correction count, and the
+final F1 score to the user in plain language.
 
 ## Evidence
 Memory: charlie-2009-11-17.mddramimage (M57-Patents)

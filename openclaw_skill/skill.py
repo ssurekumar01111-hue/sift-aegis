@@ -20,6 +20,7 @@ from server import (
     extract_mft_timeline,
     get_evtx_events
 )
+from investigation_launcher import run_full_investigation
 
 MEMORY_IMAGE = "charlie-2009-11-17.mddramimage"
 DISK_IMAGE = "charlie-2009-12-11.E01"
@@ -32,6 +33,7 @@ TOOL_MAP = {
     "dll_list": lambda pid="3908": get_dll_list(MEMORY_IMAGE, int(pid)),
     "mft_timeline": lambda: extract_mft_timeline(DISK_IMAGE),
     "evtx_events": lambda: get_evtx_events(MEMORY_IMAGE),
+    "full_investigation": lambda: run_full_investigation(),
 }
 
 def run_forensic_tool(tool_name: str, param: str = "") -> str:
@@ -76,6 +78,8 @@ def run_forensic_tool(tool_name: str, param: str = "") -> str:
                 if e.get("suspicious"):
                     summary["key_findings"].append(
                         f"Event {e['event_id']}: {e['description']} ({e.get('timestamp','')})")
+        elif tool_name == "full_investigation":
+            summary = {"tool": tool_name, "report": result}
         return json.dumps(summary, indent=2)
     except Exception as e:
         return json.dumps({"error": str(e), "tool": tool_name})
