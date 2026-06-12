@@ -13,7 +13,7 @@ Architectural pattern: **Custom MCP Server** (per Find Evil! supported architect
 | Criterion | Implementation |
 |---|---|
 | Autonomous Execution | Self-correction orchestrator (3-iteration loop) + OpenClaw agent reasoning chains across multiple tool calls in sequence |
-| IR Accuracy | Precision 1.0, Recall 1.0, F1 1.0, Hallucination Rate 0.0 against a 10-item ground truth (see `submission_artifacts/`). CONFIRMED / INFERRED / FALSE POSITIVE explicitly labeled |
+| IR Accuracy | Precision 0.8, Recall 0.4, F1 0.533, Hallucination Rate 0.2 against a 10-item ground truth (see `submission_artifacts/`). CONFIRMED / INFERRED / FALSE POSITIVE explicitly labeled |
 | Breadth & Depth | 10 typed tools across memory (process list, malfind, DLLs, registry, EVTX, network) and disk (MFT timeline, documents, email, browser history) |
 | Constraint Implementation | MCP server exposes zero shell/write/delete tools — verified by tool enumeration. SHA256 integrity computed per artifact. Two-layer guardrail model documented in Accuracy Report, including bypass test results |
 | Audit Trail | `audit/audit_trail.jsonl` — timestamped JSONL log; every finding traceable to PID/offset/artifact path and the tool call that produced it |

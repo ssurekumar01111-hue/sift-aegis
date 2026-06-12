@@ -769,7 +769,6 @@ class SIFTAEGISOrchestrator:
         self.log("PHASE_START", {"phase": "disk_forensics"})
         findings = []
         
-        MOUNT_PATH = "/mnt/charlie"
         EMAIL_JSON = "/home/sansforensics/sift-aegis/real_email_artifacts.json"
         BROWSER_JSON = "/home/sansforensics/sift-aegis/real_browser_artifacts.json"
         DOCUMENT_JSON = "/home/sansforensics/sift-aegis/real_document_artifacts.json"
@@ -816,7 +815,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="analyze_browser_artifacts",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+                    "artifact_path": patent_urls[0].get("source_file", BROWSER_JSON) if patent_urls else BROWSER_JSON,
                     "patent_url_count": len(patent_urls),
                     "sample_urls": [item["url"] for item in patent_urls[:3]]
                 }
@@ -874,7 +873,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="extract_outlook_emails",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
+                    "artifact_path": assignment_emails[0].get("source_file", EMAIL_JSON) if assignment_emails else EMAIL_JSON,
                     "assignment_email_count": len(assignment_emails),
                     "subjects": [e["subject"] for e in assignment_emails]
                 }
@@ -913,7 +912,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="extract_outlook_emails",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Sent",
+                    "artifact_path": exfil_emails[0].get("source_file", EMAIL_JSON) if exfil_emails else EMAIL_JSON,
                     "exfil_email_count": len(exfil_emails),
                     "recipients": list(set(e["to"] for e in exfil_emails)),
                     "subjects": [e["subject"] for e in exfil_emails]
@@ -970,7 +969,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="extract_document_metadata",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/My Documents/Quantum Cryptography/",
+                    "artifact_path": qc_docs[0].get("source_file", qc_docs[0].get("file_path", DOCUMENT_JSON)) if qc_docs else DOCUMENT_JSON,
                     "document_count": len(qc_docs),
                     "files": [d.get("file_name") for d in qc_docs]
                 }
@@ -1006,7 +1005,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="extract_document_metadata",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/Recent/patentauto.py.lnk",
+                    "artifact_path": automation_docs[0].get("source_file", automation_docs[0].get("file_path", DOCUMENT_JSON)) if automation_docs else DOCUMENT_JSON,
                     "modified": automation_docs[0].get("modified") if automation_docs else None
                 }
             )
@@ -1041,7 +1040,7 @@ class SIFTAEGISOrchestrator:
                 iteration_found=self.state.iteration,
                 tool_source="extract_document_metadata",
                 raw_data={
-                    "artifact_path": f"{MOUNT_PATH}/Documents and Settings/Charlie/My Documents/Nitroba/Nitroba work.odt",
+                    "artifact_path": nitroba_docs[0].get("source_file", nitroba_docs[0].get("file_path", DOCUMENT_JSON)) if nitroba_docs else DOCUMENT_JSON,
                     "lnk_count": len(nitroba_docs),
                     "files": [d.get("file_name") for d in nitroba_docs]
                 }
@@ -1057,122 +1056,6 @@ class SIFTAEGISOrchestrator:
         for finding in findings:
             self.generate_reasoning(finding)
             finding.status = self.classify_finding(finding)
-
-        # GT-002: M57biz.lnk shortcut file access — patent document link
-        findings.append(Finding(
-            id="DISK-DOC-004",
-            title="M57biz.lnk shortcut access",
-            category="Document Access",
-            description="LNK shortcut M57biz.lnk accessed — points to patent business document. Consistent with IP exfiltration scenario.",
-            confidence=0.82,
-            status="CONFIRMED",
-            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
-            supporting_artifacts=[
-                "mft:M57biz.lnk:accessed",
-                "lnk_parser:target_path:patent_documents",
-                "disk_correlation:recent_folder"
-            ],
-            mitre_technique="T1005",
-            mitre_name="Data from Local System",
-            iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics",
-            raw_data={
-                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Recent/M57biz.lnk",
-                "description": "M57biz.lnk shortcut access"
-            }
-        ))
-        self.log("FINDING_CREATED", {
-            "finding_id": "DISK-DOC-004",
-            "description": "M57biz.lnk shortcut access detected",
-            "gt_match": "GT-002"
-        })
-
-        # GT-010: Downloaded tools found on disk
-        findings.append(Finding(
-            id="DISK-DOC-005",
-            title="Downloaded tools found on disk",
-            category="Tool Download",
-            description="Memory acquisition tool (mdd_1.3.exe) and supporting utilities found on disk. Indicates deliberate download of forensic/exfiltration tools.",
-            confidence=0.85,
-            status="CONFIRMED",
-            artifact_path="/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/",
-            supporting_artifacts=[
-                "mft:mdd_1.3.exe:created",
-                "process_correlation:PID:2160:mdd_1.3.exe",
-                "disk_correlation:download_artifact"
-            ],
-            mitre_technique="T1105",
-            mitre_name="Ingress Tool Transfer",
-            iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics",
-            raw_data={
-                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/My Documents/Downloads/",
-                "description": "Downloaded tools (mdd_1.3.exe) found on disk"
-            }
-        ))
-        self.log("FINDING_CREATED", {
-            "finding_id": "DISK-DOC-005",
-            "description": "Downloaded tools (mdd_1.3.exe) found on disk",
-            "gt_match": "GT-010"
-        })
-
-        # GT-008: External email contact rubinfritz31 @mail.com
-        findings.append(Finding(
-            id="DISK-EMAIL-003",
-            title="External email contact rubinfritz31 @mail.com",
-            category="External Communication",
-            description="Email contact rubinfritz31 @mail.com identified — external party outside corporate domain. Potential exfiltration channel for patent data.",
-            confidence=0.78,
-            status="CONFIRMED",
-            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
-            supporting_artifacts=[
-                "email_parser:contact:rubinfritz31 @mail.com",
-                "disk_correlation:external_domain",
-                "timeline:communication_artifact"
-            ],
-            mitre_technique="T1048",
-            mitre_name="Exfiltration Over Alternative Protocol",
-            iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics",
-            raw_data={
-                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Thunderbird/Profiles/4zy34x9h.default/Mail/Local Folders/Inbox",
-                "description": "External email contact rubinfritz31 @mail.com"
-            }
-        ))
-        self.log("FINDING_CREATED", {
-            "finding_id": "DISK-EMAIL-003",
-            "description": "External contact rubinfritz31 @mail.com found",
-            "gt_match": "GT-008"
-        })
-        
-        # GT-003: Firefox browser history — WIPO patent research
-        findings.append(Finding(
-            id="DISK-BROWSER-001",
-            title="Firefox browser history — WIPO patent research",
-            category="Browser History",
-            description="Firefox browser history shows targeted WIPO patent database research — consistent with IP theft reconnaissance",
-            confidence=0.80,
-            status="CONFIRMED",
-            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
-            supporting_artifacts=[
-                "browser_history:places.sqlite:WIPO_visits",
-                "disk_correlation:firefox_profile",
-                "timeline:research_before_exfil"
-            ],
-            mitre_technique="T1213",
-            mitre_name="Data from Information Repositories",
-            iteration_found=self.state.iteration,
-            tool_source="phase_disk_forensics",
-            raw_data={
-                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
-                "description": "Firefox places.sqlite contains visits to WIPO patent database — evidence of targeted patent research prior to exfiltration"
-            }
-        ))
-        self.log("FINDING_CREATED", {
-            "finding_id": "DISK-BROWSER-001",
-            "gt_match": "GT-003",
-            "artifact": "places.sqlite"
-        })
         
         self.log("PHASE_END", {
             "phase": "disk_forensics",

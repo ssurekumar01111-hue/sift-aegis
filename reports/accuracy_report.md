@@ -1,13 +1,13 @@
 # Accuracy Report
 
-- Total Findings: 21
-- Disk Findings Scored: 9
+- Total Findings: 17
+- Disk Findings Scored: 5
 - Memory Findings Supplementary: 12
-- True Positives: 10
-- False Positives: 0
-- False Negatives: 0
-- Precision: 1.0
-- Recall: 1.0
-- F1 Score: 1.0
-- Hallucination Rate: 0.0
-- Inference Accuracy: 1.0
+- True Positives: 4
+- False Positives: 1
+- False Negatives: 6
+- Precision: 0.8
+- Recall: 0.4
+- F1 Score: 0.533
+- Hallucination Rate: 0.2
+- Inference Accuracy: 0.4
