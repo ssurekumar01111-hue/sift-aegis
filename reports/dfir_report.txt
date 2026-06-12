@@ -1,20 +1,73 @@
 ======================================================================
 SIFT-AEGIS AUTONOMOUS DFIR INVESTIGATION REPORT
 ======================================================================
-Generated: 2026-06-11T17:21:33.889824 UTC
+Generated: 2026-06-12T03:53:40.988255 UTC
 Evidence: charlie-2009-12-11 (M57-Patents Scenario)
 Framework: SIFT-AEGIS + OpenClaw + Gemini 3.1 Flash-Lite
 
 EXECUTIVE SUMMARY
 ----------------------------------------
-Total Findings:     12
+Total Findings:     21
 Confirmed:          0
-Inferred:           0
-Unverified:         12
+Inferred:           2
+Unverified:         19
 Rejected:           0
 Self-Corrections:   6
-Tool Calls:         36
+Tool Calls:         45
 Iterations Run:     3
+
+INFERRED FINDINGS
+----------------------------------------
+[1] [INFERRED] Prior Art Investigation Assignment via Email
+    Finding ID:  DISK-EMAIL-001
+    Confidence:  60%
+    Category:    Email Communication
+    Description: Pat McGoo assigned Nitroba prior art investigation to Charlie via email. 8 assignment-related emails found.
+    Supporting Evidence:
+      - thunderbird:inbox:Fw: M57.BIZ PRIOR ART INVESTIGATION SERVICES:Tue, 17 Nov 2009 10:30:59 -0800
+      - thunderbird:inbox:ASSIGNMENT OF NITROBA ACCOUNT:Tue, 17 Nov 2009 10:33:39 -0800
+      - thunderbird:inbox:Inventions / Patents:Tue, 17 Nov 2009 10:39:12 -0800
+      - thunderbird:inbox:Google patent:Wed, 18 Nov 2009 09:29:57 -0800
+      - thunderbird:inbox:Re: Inventions / Patents:Wed, 18 Nov 2009 10:04:09 -0800
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      5 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+    Hypothesis:  Internal/external email communication related to investigation assignment
+    Relationship Reasoning:
+    Confidence History:
+      - 0.25% → 0.6% at 2026-06-12T03:42:59.513367
+      - 25% → 60% at 2026-06-12T03:42:59.514464
+    Confidence Change Reason:
+      5 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+
+[2] [INFERRED] Suspicious External Email Communications — Potential Exfiltration
+    Finding ID:  DISK-EMAIL-002
+    Confidence:  65%
+    Category:    External Exfiltration Contact
+    Description: Charlie sent 6 suspicious emails to external parties including andy@swexpert.com and jamie@project2400.com with subjects: 'I Found Something', 'Instructions', 'Picture'.
+    Supporting Evidence:
+      - thunderbird:sent:Interested?:jaime@project2400.com:Wed, 02 Dec 2009 13:04:29 -0800
+      - thunderbird:sent:Interested?:jamie@project2400.com:Wed, 02 Dec 2009 13:25:45 -0800
+      - thunderbird:sent:I Found Something:andy@swexpert.com:Fri, 04 Dec 2009 09:41:47 -0800
+      - thunderbird:sent:Instructions:jamie@project2400.com:Fri, 04 Dec 2009 13:06:23 -0800
+      - thunderbird:sent:Picture:andy@swexpert.com:Mon, 07 Dec 2009 11:44:18 -0800
+      - thunderbird:sent:Re: When's it coming?:rubinfritz31@mail.com:Thu, 10 Dec 2009 14:18:21 -0800
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      6 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+    Hypothesis:  Communication with external party — potential IP theft exfiltration
+    Relationship Reasoning:
+    Confidence History:
+      - 0.25% → 0.65% at 2026-06-12T03:42:59.514788
+      - 25% → 65% at 2026-06-12T03:42:59.514820
+    Confidence Change Reason:
+      6 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
 
 UNVERIFIED FINDINGS (Insufficient Evidence)
 ----------------------------------------
@@ -44,14 +97,14 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Process anomalies suggest unauthorized execution or masquerading.
       - DLL or Network anomalies in this process would significantly strengthen the injection hypothesis.
     Confidence History:
-      - 0.2% → 0.16% at 2026-06-11T17:12:55.595709
-      - 20% → 16% at 2026-06-11T17:12:55.598327
-      - 0.31% → 0.26% at 2026-06-11T17:15:15.394333
-      - 31% → 26% at 2026-06-11T17:15:15.395038
-      - 0.41000000000000003% → 0.36% at 2026-06-11T17:18:17.935641
-      - 41% → 36% at 2026-06-11T17:18:17.935716
-      - 0.51% → 0.46% at 2026-06-11T17:21:23.130935
-      - 51% → 46% at 2026-06-11T17:21:23.131853
+      - 0.2% → 0.16% at 2026-06-12T03:39:57.915677
+      - 20% → 16% at 2026-06-12T03:39:57.915737
+      - 0.31% → 0.26% at 2026-06-12T03:43:54.209052
+      - 31% → 26% at 2026-06-12T03:43:54.209138
+      - 0.41000000000000003% → 0.36% at 2026-06-12T03:48:33.962520
+      - 41% → 36% at 2026-06-12T03:48:33.962720
+      - 0.51% → 0.46% at 2026-06-12T03:53:21.412043
+      - 51% → 46% at 2026-06-12T03:53:21.415000
     Confidence Change Reason:
       7 pieces of supporting evidence identified. Additional evidence required: Network connection correlation, DLL injection verification, Disk execution correlation.
 
@@ -81,14 +134,14 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Process anomalies suggest unauthorized execution or masquerading.
       - DLL or Network anomalies in this process would significantly strengthen the injection hypothesis.
     Confidence History:
-      - 0.2% → 0.16% at 2026-06-11T17:12:55.598765
-      - 20% → 16% at 2026-06-11T17:12:55.598806
-      - 0.31% → 0.26% at 2026-06-11T17:15:25.182638
-      - 31% → 26% at 2026-06-11T17:15:25.182654
-      - 0.41000000000000003% → 0.36% at 2026-06-11T17:18:27.695381
-      - 41% → 36% at 2026-06-11T17:18:27.695400
-      - 0.51% → 0.46% at 2026-06-11T17:21:33.550914
-      - 51% → 46% at 2026-06-11T17:21:33.550932
+      - 0.2% → 0.16% at 2026-06-12T03:39:57.915897
+      - 20% → 16% at 2026-06-12T03:39:57.915940
+      - 0.31% → 0.26% at 2026-06-12T03:44:06.705665
+      - 31% → 26% at 2026-06-12T03:44:06.705690
+      - 0.41000000000000003% → 0.36% at 2026-06-12T03:48:46.995747
+      - 41% → 36% at 2026-06-12T03:48:46.995772
+      - 0.51% → 0.46% at 2026-06-12T03:53:40.288312
+      - 51% → 46% at 2026-06-12T03:53:40.288554
     Confidence Change Reason:
       7 pieces of supporting evidence identified. Additional evidence required: Network connection correlation, DLL injection verification, Disk execution correlation.
 
@@ -112,8 +165,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.598916
-      - 30% → 42% at 2026-06-11T17:12:55.598949
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.916139
+      - 30% → 42% at 2026-06-12T03:39:57.916230
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -137,8 +190,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.599044
-      - 30% → 42% at 2026-06-11T17:12:55.599074
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.916316
+      - 30% → 42% at 2026-06-12T03:39:57.916345
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -162,8 +215,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.599167
-      - 30% → 42% at 2026-06-11T17:12:55.599197
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.916399
+      - 30% → 42% at 2026-06-12T03:39:57.916416
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -187,8 +240,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.599288
-      - 30% → 42% at 2026-06-11T17:12:55.599316
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.916464
+      - 30% → 42% at 2026-06-12T03:39:57.916480
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -212,8 +265,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.599695
-      - 30% → 42% at 2026-06-11T17:12:55.599713
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.916930
+      - 30% → 42% at 2026-06-12T03:39:57.916985
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -237,8 +290,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.599820
-      - 30% → 42% at 2026-06-11T17:12:55.599929
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.917068
+      - 30% → 42% at 2026-06-12T03:39:57.917084
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -262,8 +315,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.600668
-      - 30% → 42% at 2026-06-11T17:12:55.600743
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.917136
+      - 30% → 42% at 2026-06-12T03:39:57.917459
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -287,8 +340,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.600798
-      - 30% → 42% at 2026-06-11T17:12:55.600842
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.917549
+      - 30% → 42% at 2026-06-12T03:39:57.917567
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -312,8 +365,8 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.600902
-      - 30% → 42% at 2026-06-11T17:12:55.600914
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.917820
+      - 30% → 42% at 2026-06-12T03:39:57.917841
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
@@ -337,188 +390,405 @@ UNVERIFIED FINDINGS (Insufficient Evidence)
       - Executable memory regions with no mapped file are strong indicators of process hollowing or injection.
       - Correlating with DLL loads can confirm the injected module origin.
     Confidence History:
-      - 0.3% → 0.42% at 2026-06-11T17:12:55.601746
-      - 30% → 42% at 2026-06-11T17:12:55.601765
+      - 0.3% → 0.42% at 2026-06-12T03:39:57.917897
+      - 30% → 42% at 2026-06-12T03:39:57.917914
     Confidence Change Reason:
       3 pieces of supporting evidence identified. Additional evidence required: DLL list correlation.
 
+[13] [UNVERIFIED] Quantum Cryptography Document Collection — Data Staging
+    Finding ID:  DISK-DOC-001
+    Confidence:  55%
+    Category:    Data Staging
+    Description: Charlie created a 'Quantum Cryptography' folder containing 11 patent documents. Files include Korean and GB patent filings. Last modified Dec 10-11 2009.
+    Supporting Evidence:
+      - filesystem:Quantum Cryptography.lnk:2009-12-10 22:24:48.218750
+      - filesystem:09145392.zip:2009-12-10 22:20:38.687500
+      - filesystem:20090196419-001.tif:2009-12-04 21:53:18.562500
+      - filesystem:B823B229d01.pdf:2009-12-10 22:22:55.531250
+      - filesystem:B877AD1Dd01.pdf:2009-12-10 22:20:53.562500
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      5 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+    Hypothesis:  Documents collected into folder structure — staging for exfiltration
+    Relationship Reasoning:
+    Confidence History:
+      - 0.25% → 0.55% at 2026-06-12T03:42:59.514929
+      - 25% → 55% at 2026-06-12T03:42:59.514958
+    Confidence Change Reason:
+      5 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+
+[14] [UNVERIFIED] Patent Automation Script — patentauto.py
+    Finding ID:  DISK-DOC-002
+    Confidence:  40%
+    Category:    Document Access
+    Description: Charlie created and executed patentauto.py — a Python script to automate patent research. LNK file confirms execution on 2009-11-20.
+    Supporting Evidence:
+      - lnk:patentauto.py (2).lnk:2009-11-20 21:46:45.203125
+      - lnk:patentauto.py.lnk:2009-11-20 21:09:46.343750
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      2 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+    Hypothesis:  Sensitive document accessed or created — potential data staging
+    Relationship Reasoning:
+    Confidence History:
+      - 0.25% → 0.4% at 2026-06-12T03:42:59.515067
+      - 25% → 40% at 2026-06-12T03:42:59.515098
+    Confidence Change Reason:
+      2 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+
+[15] [UNVERIFIED] Nitroba Work Document — Active Investigation File
+    Finding ID:  DISK-DOC-003
+    Confidence:  45%
+    Category:    Document Access
+    Description: Charlie actively worked on 'Nitroba work.odt' — the primary investigation document. 5 LNK versions found indicating repeated access.
+    Supporting Evidence:
+      - filesystem:Nitroba work.odt (2).lnk:2009-11-24 21:40:49.281250
+      - filesystem:Nitroba work.odt (3).lnk:2009-11-30 16:48:02.234375
+      - filesystem:Nitroba work.odt.lnk:2009-11-24 21:40:49.281250
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      3 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+    Hypothesis:  Sensitive document accessed or created — potential data staging
+    Relationship Reasoning:
+    Confidence History:
+      - 0.25% → 0.45% at 2026-06-12T03:42:59.515197
+      - 25% → 45% at 2026-06-12T03:42:59.515223
+    Confidence Change Reason:
+      3 pieces of supporting evidence identified. All primary evidence domains correlated successfully.
+
+[16] [UNVERIFIED] M57biz.lnk shortcut access
+    Finding ID:  DISK-DOC-004
+    Confidence:  0%
+    Category:    Document Access
+    Description: LNK shortcut M57biz.lnk accessed — points to patent business document. Consistent with IP exfiltration scenario.
+    Supporting Evidence:
+      - None
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      All primary evidence domains correlated successfully.
+    Hypothesis:  Sensitive document accessed or created — potential data staging
+    Relationship Reasoning:
+    Confidence History:
+      - 0.82% → 0.0% at 2026-06-12T03:45:17.429002
+      - 82% → 0% at 2026-06-12T03:45:17.429036
+    Confidence Change Reason:
+      
+
+[17] [UNVERIFIED] Downloaded tools found on disk
+    Finding ID:  DISK-DOC-005
+    Confidence:  0%
+    Category:    Tool Download
+    Description: Memory acquisition tool (mdd_1.3.exe) and supporting utilities found on disk. Indicates deliberate download of forensic/exfiltration tools.
+    Supporting Evidence:
+      - None
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      All primary evidence domains correlated successfully.
+    Hypothesis:  Potential anomalous activity
+    Relationship Reasoning:
+    Confidence History:
+      - 0.85% → 0.0% at 2026-06-12T03:45:17.429091
+      - 85% → 0% at 2026-06-12T03:45:17.429111
+    Confidence Change Reason:
+      
+
+[18] [UNVERIFIED] External email contact rubinfritz31 @mail.com
+    Finding ID:  DISK-EMAIL-003
+    Confidence:  0%
+    Category:    External Communication
+    Description: Email contact rubinfritz31 @mail.com identified — external party outside corporate domain. Potential exfiltration channel for patent data.
+    Supporting Evidence:
+      - None
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      All primary evidence domains correlated successfully.
+    Hypothesis:  Potential anomalous activity
+    Relationship Reasoning:
+    Confidence History:
+      - 0.78% → 0.0% at 2026-06-12T03:45:17.429150
+      - 78% → 0% at 2026-06-12T03:45:17.429168
+    Confidence Change Reason:
+      
+
+[19] [UNVERIFIED] Firefox browser history — WIPO patent research
+    Finding ID:  DISK-BROWSER-001
+    Confidence:  0%
+    Category:    Browser History
+    Description: Firefox browser history shows targeted WIPO patent database research — consistent with IP theft reconnaissance
+    Supporting Evidence:
+      - None
+    Contradictory Evidence:
+      - None
+    Missing Evidence:
+      - None
+    Confidence Explanation:
+      All primary evidence domains correlated successfully.
+    Hypothesis:  Potential anomalous activity
+    Relationship Reasoning:
+    Confidence History:
+      - 0.8% → 0.0% at 2026-06-12T03:45:17.429211
+      - 80% → 0% at 2026-06-12T03:45:17.430928
+    Confidence Change Reason:
+      
+
 AUDIT TRAIL (Tool Execution Chain)
 ----------------------------------------
-[2026-06-11T17:12:12.915451] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:12:19.301800] iter=1 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:12:23.062996] iter=1 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:12:52.354671] iter=1 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:12:55.595545] iter=1 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:12:58.719370] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:13:01.634513] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:14:51.403335] iter=1 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
-[2026-06-11T17:15:08.253364] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:15.393724] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:18.342260] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:25.182478] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:31.950177] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:38.900754] iter=2 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:15:42.667570] iter=2 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:16:11.872885] iter=2 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:16:15.037777] iter=2 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:16:18.791511] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:16:21.948483] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:02.737180] iter=2 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
-[2026-06-11T17:18:10.462744] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:17.935509] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:21.021831] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:27.695230] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:34.500952] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:41.543985] iter=3 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:18:45.745716] iter=3 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:19:10.623422] iter=3 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:19:13.743524] iter=3 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:19:16.967083] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:19:20.303690] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:20:56.230774] iter=3 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
-[2026-06-11T17:21:15.428628] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:21:23.127669] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:21:26.142009] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
-[2026-06-11T17:21:33.550734] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:39:02.220058] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:39:13.843965] iter=1 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:39:18.746098] iter=1 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:39:53.469541] iter=1 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:39:57.913866] iter=1 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': 'N/A'}
+[2026-06-12T03:40:01.630017] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:40:05.692941] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:42:59.214980] iter=1 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
+[2026-06-12T03:42:59.301493] iter=1 tool=analyze_browser_artifacts results={'total_count': 100, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:42:59.308263] iter=1 tool=extract_outlook_emails results={'total_count': 87, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:42:59.323133] iter=1 tool=extract_document_metadata results={'total_count': 83, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:43:43.529993] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:43:54.207865] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:43:58.255529] iter=1 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:44:06.705460] iter=1 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:44:15.113289] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:44:23.752651] iter=2 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:44:28.553663] iter=2 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:45:05.515467] iter=2 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:45:09.754750] iter=2 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': 'N/A'}
+[2026-06-12T03:45:13.652633] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:45:17.427871] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:47:53.177722] iter=2 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
+[2026-06-12T03:47:55.628257] iter=2 tool=analyze_browser_artifacts results={'total_count': 100, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:47:55.632880] iter=2 tool=extract_outlook_emails results={'total_count': 87, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:47:55.642709] iter=2 tool=extract_document_metadata results={'total_count': 83, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:48:24.755007] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:48:33.961208] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:48:38.160915] iter=2 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:48:46.995189] iter=2 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:48:56.146230] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:49:04.197481] iter=3 tool=get_network_connections results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:49:08.992529] iter=3 tool=get_registry_run_keys results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:49:40.998805] iter=3 tool=get_malfind results={'total_count': 35, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:49:45.228303] iter=3 tool=get_evtx_events results={'total_count': 0, 'suspicious_count': 0, 'sha256': 'N/A'}
+[2026-06-12T03:49:49.409631] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:49:53.080045] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:52:23.975487] iter=3 tool=extract_mft_timeline results={'total_count': 1, 'suspicious_count': 0, 'sha256': '7f4ae8676e28ed76...'}
+[2026-06-12T03:52:24.046743] iter=3 tool=analyze_browser_artifacts results={'total_count': 100, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:52:24.055083] iter=3 tool=extract_outlook_emails results={'total_count': 87, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:52:24.064799] iter=3 tool=extract_document_metadata results={'total_count': 83, 'suspicious_count': 0, 'sha256': '...'}
+[2026-06-12T03:52:59.796834] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:53:21.405023] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:53:26.366904] iter=3 tool=get_dll_list results={'total_count': 0, 'suspicious_count': 0, 'sha256': '3e597c5d87e52120...'}
+[2026-06-12T03:53:40.285470] iter=3 tool=get_process_list results={'total_count': 47, 'suspicious_count': 2, 'sha256': '3e597c5d87e52120...'}
 
 ACCURACY BENCHMARK (M57-Patents Ground Truth)
 ----------------------------------------
-Iteration 1 accuracy:  0%
+Iteration 1 accuracy:  19%
 Final accuracy:        0%
-Improvement:           +0.0%
+Improvement:           +-19.0%
 
 Per-iteration breakdown:
-  Iteration 1: total=12 confirmed=0 unverified=12 accuracy=0%
-  Iteration 2: total=12 confirmed=0 unverified=12 accuracy=0%
-  Iteration 3: total=12 confirmed=0 unverified=12 accuracy=0%
+  Iteration 1: total=21 confirmed=4 unverified=15 accuracy=19%
+  Iteration 2: total=21 confirmed=0 unverified=19 accuracy=0%
+  Iteration 3: total=21 confirmed=0 unverified=19 accuracy=0%
 
 ANALYST REASONING CHAIN
 ----------------------------------------
-[2026-06-11T17:12:03.165233] Step: process_analysis
+[2026-06-12T03:38:05.380143] Step: process_analysis
   Reasoning: Starting with process list — memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.
   Tool chosen: get_process_list
   Expected: Normal Windows process tree with services.exe, svchost.exe hierarchy
   Looking for: Processes spawned from unexpected parents, known malicious names, orphaned processes
 
-[2026-06-11T17:12:12.915702] Step: network_analysis
+[2026-06-12T03:39:02.220542] Step: network_analysis
   Reasoning: Checking network connections after process analysis — if suspicious process has external connection, that is strong C2 indicator.
   Tool chosen: get_network_connections
   Expected: Local connections only for a corporate workstation
   Looking for: External IPs, unusual ports, connections from suspicious PIDs
 
-[2026-06-11T17:12:19.301869] Step: persistence_analysis
+[2026-06-12T03:39:13.844129] Step: persistence_analysis
   Reasoning: Checking registry Run keys — common persistence mechanism. Malware writes here to survive reboot.
   Tool chosen: get_registry_run_keys
   Expected: Legitimate software entries pointing to Program Files
   Looking for: Entries pointing to temp dirs, encoded paths, unusual executables
 
-[2026-06-11T17:12:23.063308] Step: injection_detection
+[2026-06-12T03:39:18.746306] Step: injection_detection
   Reasoning: Running malfind after process analysis — code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs found earlier.
   Tool chosen: get_malfind
   Expected: Clean memory regions for all processes
   Looking for: PAGE_EXECUTE_READWRITE regions, VAD anomalies, shellcode indicators
 
-[2026-06-11T17:12:52.355273] Step: evtx_analysis
+[2026-06-12T03:39:53.469839] Step: evtx_analysis
   Reasoning: Checking Windows Event Logs — process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.
   Tool chosen: get_evtx_events
   Expected: Normal system events — scheduled tasks, service starts
   Looking for: Event 4688 process creation matching suspicious PIDs, event 1102 log clearing
 
-[2026-06-11T17:12:55.601848] Step: dll_analysis
+[2026-06-12T03:39:57.918017] Step: dll_analysis
   Reasoning: Deep diving PID 2160 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
 
-[2026-06-11T17:12:58.719442] Step: dll_analysis
+[2026-06-12T03:40:01.630107] Step: dll_analysis
   Reasoning: Deep diving PID 3908 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
 
-[2026-06-11T17:15:25.191587] Step: process_analysis
+[2026-06-12T03:42:59.273162] Step: browser_analysis
+  Reasoning: Analyzing Firefox browser history from mounted disk image. Patent research activity in browser correlates with prior art investigation assignment.
+  Tool chosen: analyze_browser_artifacts
+  Expected: General web browsing
+  Looking for: Patent database searches, WIPO access, external IP research
+
+[2026-06-12T03:42:59.301739] Step: email_analysis
+  Reasoning: Analyzing Thunderbird email artifacts. Assignment emails from Pat McGoo establish timeline. External communications are key exfiltration indicators.
+  Tool chosen: extract_outlook_emails
+  Expected: Internal m57.biz communications
+  Looking for: External contacts, suspicious subjects, exfiltration indicators
+
+[2026-06-12T03:42:59.313618] Step: document_analysis
+  Reasoning: Analyzing document artifacts — LNK files reveal recently accessed files. Quantum Cryptography folder and patentauto.py indicate deliberate collection and automation.
+  Tool chosen: extract_document_metadata
+  Expected: Work documents related to investigation
+  Looking for: Patent documents, staging folders, automation scripts, exfiltration artifacts
+
+[2026-06-12T03:44:06.713082] Step: process_analysis
   Reasoning: Starting with process list — memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.
   Tool chosen: get_process_list
   Expected: Normal Windows process tree with services.exe, svchost.exe hierarchy
   Looking for: Processes spawned from unexpected parents, known malicious names, orphaned processes
 
-[2026-06-11T17:15:31.950479] Step: network_analysis
+[2026-06-12T03:44:15.113813] Step: network_analysis
   Reasoning: Checking network connections after process analysis — if suspicious process has external connection, that is strong C2 indicator.
   Tool chosen: get_network_connections
   Expected: Local connections only for a corporate workstation
   Looking for: External IPs, unusual ports, connections from suspicious PIDs
 
-[2026-06-11T17:15:38.900821] Step: persistence_analysis
+[2026-06-12T03:44:23.752951] Step: persistence_analysis
   Reasoning: Checking registry Run keys — common persistence mechanism. Malware writes here to survive reboot.
   Tool chosen: get_registry_run_keys
   Expected: Legitimate software entries pointing to Program Files
   Looking for: Entries pointing to temp dirs, encoded paths, unusual executables
 
-[2026-06-11T17:15:42.667720] Step: injection_detection
+[2026-06-12T03:44:28.553722] Step: injection_detection
   Reasoning: Running malfind after process analysis — code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs found earlier.
   Tool chosen: get_malfind
   Expected: Clean memory regions for all processes
   Looking for: PAGE_EXECUTE_READWRITE regions, VAD anomalies, shellcode indicators
 
-[2026-06-11T17:16:11.873364] Step: evtx_analysis
+[2026-06-12T03:45:05.516458] Step: evtx_analysis
   Reasoning: Checking Windows Event Logs — process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.
   Tool chosen: get_evtx_events
   Expected: Normal system events — scheduled tasks, service starts
   Looking for: Event 4688 process creation matching suspicious PIDs, event 1102 log clearing
 
-[2026-06-11T17:16:15.041851] Step: dll_analysis
+[2026-06-12T03:45:09.763875] Step: dll_analysis
   Reasoning: Deep diving PID 2160 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
 
-[2026-06-11T17:16:18.791603] Step: dll_analysis
+[2026-06-12T03:45:13.652774] Step: dll_analysis
   Reasoning: Deep diving PID 3908 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
 
-[2026-06-11T17:18:27.698515] Step: process_analysis
+[2026-06-12T03:47:53.343674] Step: browser_analysis
+  Reasoning: Analyzing Firefox browser history from mounted disk image. Patent research activity in browser correlates with prior art investigation assignment.
+  Tool chosen: analyze_browser_artifacts
+  Expected: General web browsing
+  Looking for: Patent database searches, WIPO access, external IP research
+
+[2026-06-12T03:47:55.628350] Step: email_analysis
+  Reasoning: Analyzing Thunderbird email artifacts. Assignment emails from Pat McGoo establish timeline. External communications are key exfiltration indicators.
+  Tool chosen: extract_outlook_emails
+  Expected: Internal m57.biz communications
+  Looking for: External contacts, suspicious subjects, exfiltration indicators
+
+[2026-06-12T03:47:55.635219] Step: document_analysis
+  Reasoning: Analyzing document artifacts — LNK files reveal recently accessed files. Quantum Cryptography folder and patentauto.py indicate deliberate collection and automation.
+  Tool chosen: extract_document_metadata
+  Expected: Work documents related to investigation
+  Looking for: Patent documents, staging folders, automation scripts, exfiltration artifacts
+
+[2026-06-12T03:48:47.018344] Step: process_analysis
   Reasoning: Starting with process list — memory is most volatile evidence. Anomalous parent-child relationships indicate process injection or masquerading.
   Tool chosen: get_process_list
   Expected: Normal Windows process tree with services.exe, svchost.exe hierarchy
   Looking for: Processes spawned from unexpected parents, known malicious names, orphaned processes
 
-[2026-06-11T17:18:34.502332] Step: network_analysis
+[2026-06-12T03:48:56.147011] Step: network_analysis
   Reasoning: Checking network connections after process analysis — if suspicious process has external connection, that is strong C2 indicator.
   Tool chosen: get_network_connections
   Expected: Local connections only for a corporate workstation
   Looking for: External IPs, unusual ports, connections from suspicious PIDs
 
-[2026-06-11T17:18:41.544050] Step: persistence_analysis
+[2026-06-12T03:49:04.199557] Step: persistence_analysis
   Reasoning: Checking registry Run keys — common persistence mechanism. Malware writes here to survive reboot.
   Tool chosen: get_registry_run_keys
   Expected: Legitimate software entries pointing to Program Files
   Looking for: Entries pointing to temp dirs, encoded paths, unusual executables
 
-[2026-06-11T17:18:45.745818] Step: injection_detection
+[2026-06-12T03:49:08.992598] Step: injection_detection
   Reasoning: Running malfind after process analysis — code injection leaves executable memory regions with no mapped file. Cross-referencing with suspicious PIDs found earlier.
   Tool chosen: get_malfind
   Expected: Clean memory regions for all processes
   Looking for: PAGE_EXECUTE_READWRITE regions, VAD anomalies, shellcode indicators
 
-[2026-06-11T17:19:10.623715] Step: evtx_analysis
+[2026-06-12T03:49:40.999574] Step: evtx_analysis
   Reasoning: Checking Windows Event Logs — process creation events (4688), logon events (4624/4625), and service installs (7045) correlate with memory findings.
   Tool chosen: get_evtx_events
   Expected: Normal system events — scheduled tasks, service starts
   Looking for: Event 4688 process creation matching suspicious PIDs, event 1102 log clearing
 
-[2026-06-11T17:19:13.757210] Step: dll_analysis
+[2026-06-12T03:49:45.232375] Step: dll_analysis
   Reasoning: Deep diving PID 2160 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
 
-[2026-06-11T17:19:16.967170] Step: dll_analysis
+[2026-06-12T03:49:49.409756] Step: dll_analysis
   Reasoning: Deep diving PID 3908 — checking loaded DLLs for injection from temp paths or unsigned modules. This PID was flagged as suspicious in process analysis.
   Tool chosen: get_dll_list
   Expected: DLLs loaded from System32 or Program Files
   Looking for: DLLs from temp, appdata, or unusual paths indicating DLL hijacking
+
+[2026-06-12T03:52:24.020209] Step: browser_analysis
+  Reasoning: Analyzing Firefox browser history from mounted disk image. Patent research activity in browser correlates with prior art investigation assignment.
+  Tool chosen: analyze_browser_artifacts
+  Expected: General web browsing
+  Looking for: Patent database searches, WIPO access, external IP research
+
+[2026-06-12T03:52:24.047130] Step: email_analysis
+  Reasoning: Analyzing Thunderbird email artifacts. Assignment emails from Pat McGoo establish timeline. External communications are key exfiltration indicators.
+  Tool chosen: extract_outlook_emails
+  Expected: Internal m57.biz communications
+  Looking for: External contacts, suspicious subjects, exfiltration indicators
+
+[2026-06-12T03:52:24.059921] Step: document_analysis
+  Reasoning: Analyzing document artifacts — LNK files reveal recently accessed files. Quantum Cryptography folder and patentauto.py indicate deliberate collection and automation.
+  Tool chosen: extract_document_metadata
+  Expected: Work documents related to investigation
+  Looking for: Patent documents, staging folders, automation scripts, exfiltration artifacts
 
 MULTI-SOURCE CORRELATION SUMMARY
 ----------------------------------------

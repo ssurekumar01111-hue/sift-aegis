@@ -77,6 +77,7 @@ def get_evidence_metadata(filepath: str) -> EvidenceMetadata:
         analysis_timestamp=datetime.utcnow().isoformat()
     )
 
+import os
 def run_volatility(plugin: str, image_path: str, extra_args: list = []) -> str:
     """Run Volatility3 plugin internally. Never exposed as a tool."""
     cmd = ["vol", "-f", image_path] + extra_args + [plugin]
