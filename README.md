@@ -131,17 +131,17 @@ Note: interactive sessions explore evidence freely and may overwrite the root `i
 
 | Metric | Result |
 |---|---|
-| Disk findings scored | 9 |
+| Disk findings scored | 5 |
 | Memory findings (supplementary) | 12 |
-| True Positives | 10 |
-| False Positives | 0 |
-| False Negatives | 0 |
-| Precision | 1.0 |
-| Recall | 1.0 |
-| F1 Score | 1.0 |
-| Hallucination Rate | 0.0 |
-| Inference Accuracy | 1.0 |
-| Self-Corrections | 6 |
+| True Positives | 4 |
+| False Positives | 1 |
+| False Negatives | 6 |
+| Precision | 0.8 |
+| Recall | 0.4 |
+| F1 Score | 0.533 |
+| Hallucination Rate | 0.2 |
+| Inference Accuracy | 0.4 |
+| Self-Corrections | 51 |
 | Total Tool Calls | 45 |
 | Iterations | 3 |
 
@@ -151,8 +151,8 @@ Full results: `submission_artifacts/benchmark_results_GOLDEN.json`, `submission_
 - **PID 924 (csrss.exe)** — Code injection via `malfind` at `0x850000`, executable VAD region with no mapped file
 - **PID 948 (winlogon.exe)** — Code injection detected via `malfind`
 - **DISK-EMAIL-001/002** — External email correspondence consistent with patent data exfiltration
-- **DISK-DOC-001 through 005** — M57biz.lnk shortcut access, document metadata, and downloaded tooling (mdd_1.3.exe) matched to ground truth
-- **DISK-BROWSER-001** — Firefox history shows WIPO patent database research (MITRE T1213)
+- **DISK-DOC-001 through 003** — Document metadata and collection staging folder (Quantum Cryptography) matched to ground truth
+- **DISK-BROWSER-001** — Firefox history shows targeted research activity
 - **PID 2160 (mdd_1.3.exe)** — Initially flagged, then self-corrected and dismissed as the investigator's own RAM acquisition tool (false positive caught and labeled)
 
 ---
@@ -237,7 +237,7 @@ Example traceable finding (`MAL-924-0x850000`):
 | File | Contents |
 |---|---|
 | `submission_artifacts/audit_trail_GOLDEN.jsonl` | Canonical timestamped event log (TOOL_CALL, ANALYST_REASONING, SELF_CORRECTION_DECISION, FINDING_CREATED, ITERATION_*, INVESTIGATION_COMPLETE) |
-| `submission_artifacts/investigation_results_GOLDEN.json` | Full structured findings, 21 total, 10 ground-truth matched |
+| `submission_artifacts/investigation_results_GOLDEN.json` | Full structured findings, 17 total, 4 ground-truth matched |
 | `submission_artifacts/dfir_report_GOLDEN.txt` | Narrative DFIR report — CONFIRMED/INFERRED/FALSE POSITIVE |
 | `submission_artifacts/benchmark_results_GOLDEN.json` | Precision/Recall/F1/Hallucination scores |
 
@@ -318,7 +318,7 @@ Built on Protocol SIFT, Volatility3, and OpenClaw as pre-existing foundations. T
 
 │  ┌────────────────────────────────────────────────────────────┐  │
 
-│  │  Outputs (submission_artifacts/ — read-only, F1=1.0)        │  │
+│  │  Outputs (submission_artifacts/ — read-only, F1=0.533)      │  │
 
 │  │  audit_trail_GOLDEN.jsonl | dfir_report_GOLDEN.txt          │  │
 
