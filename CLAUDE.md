@@ -13,7 +13,7 @@ SIFT-AEGIS adds a typed MCP layer that eliminates hallucinations and measures ac
 |---|---|---|
 | Tool execution | Raw shell → unstructured output | Typed MCP → Pydantic-validated results |
 | Hallucination control | Prompt-based guidance | Architectural — impossible to hallucinate structure |
-| Accuracy measurement | None | Ground truth benchmark — F1=1.0 |
+| Accuracy measurement | None | Ground truth benchmark — F1=0.533 |
 | Evidence integrity | SHA256 on mount | SHA256 on every tool call |
 | Audit trail | forensic_audit.log | JSONL — every finding traceable |
 | Self-correction | None | 3-iteration loop with confidence scoring |
