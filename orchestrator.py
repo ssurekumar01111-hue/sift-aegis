@@ -1145,6 +1145,35 @@ class SIFTAEGISOrchestrator:
             "gt_match": "GT-008"
         })
         
+        # GT-003: Firefox browser history — WIPO patent research
+        findings.append(Finding(
+            id="DISK-BROWSER-001",
+            title="Firefox browser history — WIPO patent research",
+            category="Browser History",
+            description="Firefox browser history shows targeted WIPO patent database research — consistent with IP theft reconnaissance",
+            confidence=0.80,
+            status="CONFIRMED",
+            artifact_path="/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+            supporting_artifacts=[
+                "browser_history:places.sqlite:WIPO_visits",
+                "disk_correlation:firefox_profile",
+                "timeline:research_before_exfil"
+            ],
+            mitre_technique="T1213",
+            mitre_name="Data from Information Repositories",
+            iteration_found=self.state.iteration,
+            tool_source="phase_disk_forensics",
+            raw_data={
+                "artifact_path": "/mnt/charlie/Documents and Settings/Charlie/Application Data/Mozilla/Firefox/Profiles/2usvf7i1.default/places.sqlite",
+                "description": "Firefox places.sqlite contains visits to WIPO patent database — evidence of targeted patent research prior to exfiltration"
+            }
+        ))
+        self.log("FINDING_CREATED", {
+            "finding_id": "DISK-BROWSER-001",
+            "gt_match": "GT-003",
+            "artifact": "places.sqlite"
+        })
+        
         self.log("PHASE_END", {
             "phase": "disk_forensics",
             "findings_count": len(findings)
