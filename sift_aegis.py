@@ -35,6 +35,10 @@ def main():
         for entry in results.get("audit_log", []):
             f.write(json.dumps(entry) + '\n')
 
+    # Apply quality upgrades
+    from quality_upgrades import apply_upgrades
+    apply_upgrades("/home/sansforensics/sift-aegis/investigation_results.json")
+
     from reports.report_generator import generate_report
     generate_report(
         "/home/sansforensics/sift-aegis/investigation_results.json",

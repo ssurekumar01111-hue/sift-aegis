@@ -28,92 +28,51 @@ def generate_report(results_path: str, output_path: str):
     lines.append(f"Evidence: charlie-2009-12-11 (M57-Patents Scenario)")
     lines.append(f"Framework: SIFT-AEGIS + OpenClaw + Gemini 3.1 Flash-Lite")
     lines.append("")
+
+    # PRIORITY 7 — JUDGE DASHBOARD
+    dashboard = results.get("judge_dashboard")
+    if dashboard:
+        lines.append("AUTONOMOUS INVESTIGATION METRICS")
+        lines.append("-" * 40)
+        for key, val in dashboard.items():
+            lines.append(f"{key:<25}: {val}")
+        lines.append("")
     
     # Case Verdict Block
     confirmed_count = sum(1 for f in findings if f.get("status") == "CONFIRMED")
+    confidence_analysis = results.get("case_confidence_analysis", {})
+    case_confidence = confidence_analysis.get("Final Confidence Label", "N/A")
+    case_score = confidence_analysis.get("Derived Confidence Score", "N/A")
     lines.append("CASE VERDICT")
     lines.append("-" * 40)
-    lines.append(f"Subject: Charlie | Scenario: M57-Patents (Dec 2009) | Activity: Suspected IP exfiltration | Key evidence: {confirmed_count} confirmed findings | Confidence: Medium-High")
+    lines.append(f"Key evidence: {confirmed_count} confirmed findings | Derived Case Confidence: {case_confidence} ({case_score}%)")
     lines.append("")
-    
-    # Relationship Graph
-    lines.append("CASE RELATIONSHIP GRAPH")
-    lines.append("-" * 40)
-    
-    # Extract entities
-    pat_mcgoo = False
-    external_parties = set()
-    documents = set()
-    staging_folders = set()
-    subjects = set()
-    
-    for f in findings:
-        if f.get("status") in ["CONFIRMED", "INFERRED"]:
-            text = str(f).lower()
-            if "pat mcgoo" in text or "pat@m57patents.com" in text:
-                pat_mcgoo = True
-            
-            # Extract emails
-            import re
-            emails = set(re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', str(f)))
-            for e in emails:
-                if "m57patents" not in e.lower() and e.lower() != "charlie@m57patents.com":
-                    external_parties.add(e.lower())
-                    
-            # Extract documents and folders from raw_data
-            raw = f.get("raw_data", {})
-            if "files" in raw:
-                for file in raw["files"]:
-                    if ".lnk" not in file.lower() and file != "Thumbs.db":
-                        documents.add(file)
-            
-            if "Quantum Cryptography" in str(f):
-                staging_folders.add("Quantum Cryptography")
-                
-            if "subjects" in raw:
-                for sub in raw["subjects"]:
-                    if "fw:" not in sub.lower() and "re:" not in sub.lower():
-                        subjects.add(sub)
-    
-    lines.append("           [ Pat McGoo (Manager) ]")
-    lines.append("                     |")
-    lines.append("            (assigned task via email)")
-    lines.append("                     v")
-    lines.append("             [ Charlie (Insider) ]")
-    
-    if documents or staging_folders:
-        lines.append("                     |")
-        lines.append("      +--------------+--------------+")
-        lines.append("      |                             |")
-        lines.append(" [ Accessed Docs ]           [ Staging Folders ]")
-        docs_list = list(documents)[:3]
-        folders_list = list(staging_folders)[:2]
-        
-        for i in range(max(len(docs_list), len(folders_list))):
-            d_str = f"  - {docs_list[i]}" if i < len(docs_list) else ""
-            f_str = f"  - {folders_list[i]}" if i < len(folders_list) else ""
-            lines.append(f"{d_str:<28} {f_str}")
-            
-        if len(documents) > 3:
-            lines.append("  - ...")
-            
-    if external_parties:
+
+    if confidence_analysis:
+        lines.append("CASE CONFIDENCE ANALYSIS")
+        lines.append("-" * 40)
+        lines.append(f"Total findings:           {confidence_analysis.get('Total Findings')}")
+        lines.append(f"Confirmed findings:       {confidence_analysis.get('Confirmed Findings')}")
+        lines.append(f"Corroborated findings:    {confidence_analysis.get('Corroborated Findings')}")
+        lines.append(f"Contradictions:           {confidence_analysis.get('Contradictions')}")
+        lines.append(f"Evidence coverage inputs: {confidence_analysis.get('Evidence Domains Used')} used / {confidence_analysis.get('Evidence Domains Available')} available")
+        lines.append(f"Formula: {confidence_analysis.get('Formula')}")
+        lines.append(f"Derived confidence score: {confidence_analysis.get('Derived Confidence Score')}%")
+        lines.append(f"Final confidence label:   {confidence_analysis.get('Final Confidence Label')}")
         lines.append("")
-        lines.append("             [ Charlie (Insider) ]")
-        lines.append("                     |")
-        lines.append("            (exfiltrated data to)")
-        lines.append("                     v")
-        lines.append("          [ External Co-Conspirators ]")
-        for ep in list(external_parties)[:3]:
-            lines.append(f"            * {ep}")
-            
-    if subjects:
+
+    evidence_chain = results.get("evidence_chain_graph", [])
+    if evidence_chain:
+        lines.append("EVIDENCE CHAIN GRAPH")
+        lines.append("-" * 40)
+        for i, node in enumerate(evidence_chain):
+            if i > 0:
+                lines.append("  ↓")
+            evidence = "; ".join(str(e) for e in node.get("Evidence", [])[:2]) or "supporting evidence listed in finding"
+            lines.append(f"{node.get('Stage')}: {node.get('Label')} [{node.get('Finding ID')}] ({node.get('Status')})")
+            lines.append(f"  Relationship: {node.get('Relationship')}")
+            lines.append(f"  Evidence: {evidence}")
         lines.append("")
-        lines.append("          [ Key Communication Subjects ]")
-        for sub in list(subjects)[:3]:
-            lines.append(f"            * '{sub}'")
-            
-    lines.append("\n")
 
     lines.append("EXECUTIVE SUMMARY")
     lines.append("-"*40)
@@ -126,6 +85,31 @@ def generate_report(results_path: str, output_path: str):
     lines.append(f"Tool Calls:         {summary['total_tool_calls']}")
     lines.append(f"Iterations Run:     {summary['iterations_run']}")
     lines.append("")
+
+    # PRIORITY 4 — HYPOTHESIS TRACKING
+    hypo_log = results.get("investigative_hypothesis_log")
+    if hypo_log:
+        lines.append("DEDUPLICATED HYPOTHESIS LOG")
+        lines.append("-" * 40)
+        lines.append(f"Unique hypotheses: {results.get('unique_hypothesis_count', len(hypo_log))}")
+        lines.append("")
+        for h in hypo_log:
+            lines.append(f"Hypothesis: {h['Hypothesis']}")
+            lines.append("Affected Findings:")
+            for fid in h.get("Affected Findings", []):
+                lines.append(f"  - {fid}")
+            lines.append(f"Status: {h['Status']}")
+            lines.append(f"Reason: {h.get('Reason', 'N/A')}")
+            lines.append(f"Outcome: {h.get('Outcome', 'N/A')}")
+            lines.append("")
+        lines.append("")
+
+    # PRIORITY 5 — CASE NARRATIVE
+    narrative = results.get("case_narrative")
+    if narrative:
+        lines.append(narrative)
+        lines.append("-" * 40)
+        lines.append("")
     
     if confirmed:
         lines.append("CONFIRMED FINDINGS")
@@ -133,7 +117,18 @@ def generate_report(results_path: str, output_path: str):
         for i, f in enumerate(confirmed, 1):
             lines.append(f"[{i}] [CONFIRMED] {f['title']}")
             lines.append(f"    Finding ID:  {f['finding_id']}")
-            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Confidence:  {f['confidence']}% ({f.get('confidence_label', 'N/A')})")
+            
+            # PRIORITY 3 — CONFIDENCE EXPLANATION ENGINE
+            if f.get("confidence_breakdown"):
+                for line in f["confidence_breakdown"].split("\n"):
+                    lines.append(f"    {line}")
+
+            # PRIORITY 2 — EVIDENCE CORRELATION SUMMARIES
+            if f.get("corroboration_summary"):
+                for line in f["corroboration_summary"].split("\n"):
+                    lines.append(f"    {line}")
+
             lines.append(f"    Category:    {f.get('category', 'N/A')}")
             lines.append(f"    Description: {f.get('description', 'N/A')}")
             lines.append(f"    Supporting Evidence:")
@@ -177,7 +172,7 @@ def generate_report(results_path: str, output_path: str):
         for i, f in enumerate(inferred, 1):
             lines.append(f"[{i}] [INFERRED] {f['title']}")
             lines.append(f"    Finding ID:  {f['finding_id']}")
-            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Confidence:  {f['confidence']}% ({f.get('confidence_label', 'N/A')})")
             lines.append(f"    Category:    {f.get('category', 'N/A')}")
             lines.append(f"    Description: {f.get('description', 'N/A')}")
             lines.append(f"    Supporting Evidence:")
@@ -221,7 +216,7 @@ def generate_report(results_path: str, output_path: str):
         for i, f in enumerate(unverified, 1):
             lines.append(f"[{i}] [UNVERIFIED] {f['title']}")
             lines.append(f"    Finding ID:  {f['finding_id']}")
-            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Confidence:  {f['confidence']}% ({f.get('confidence_label', 'N/A')})")
             lines.append(f"    Category:    {f.get('category', 'N/A')}")
             lines.append(f"    Description: {f.get('description', 'N/A')}")
             lines.append(f"    Supporting Evidence:")
@@ -265,7 +260,7 @@ def generate_report(results_path: str, output_path: str):
         for i, f in enumerate(rejected, 1):
             lines.append(f"[{i}] [REJECTED] {f['title']}")
             lines.append(f"    Finding ID:  {f['finding_id']}")
-            lines.append(f"    Confidence:  {f['confidence']}%")
+            lines.append(f"    Confidence:  {f['confidence']}% ({f.get('confidence_label', 'N/A')})")
             lines.append(f"    Category:    {f.get('category', 'N/A')}")
             lines.append(f"    Description: {f.get('description', 'N/A')}")
             lines.append(f"    Supporting Evidence:")
@@ -303,6 +298,27 @@ def generate_report(results_path: str, output_path: str):
             lines.append(f"      {f.get('confidence_change_reason', 'N/A')}")
             lines.append("")
     
+    unresolved_questions = results.get("unresolved_investigative_questions", [])
+    lines.append("UNRESOLVED INVESTIGATIVE QUESTIONS")
+    lines.append("-" * 40)
+    if unresolved_questions:
+        for q in unresolved_questions:
+            lines.append("Question:")
+            lines.append(f"  {q.get('Question')}")
+            lines.append(f"Status: {q.get('Status')}")
+            lines.append("Reason:")
+            lines.append(f"  {q.get('Reason')}")
+            lines.append("Missing Evidence:")
+            for ev in q.get("Missing Evidence", []):
+                lines.append(f"  - {ev}")
+            lines.append("Potential Impact:")
+            lines.append(f"  {q.get('Potential Impact')}")
+            lines.append("")
+    else:
+        lines.append("No unresolved findings met the High or Very High confidence bands after recalculation.")
+        lines.append("")
+    lines.append("")
+
     lines.append("AUDIT TRAIL (Tool Execution Chain)")
     lines.append("-"*40)
     for call in tool_calls:
@@ -346,27 +362,25 @@ def generate_report(results_path: str, output_path: str):
             lines.append("")
         lines.append("")
 
-    # Self-correction log section
-    self_corrections = [
-        e for e in results.get("audit_log", [])
-        if e.get("event") == "SELF_CORRECTION_DECISION"
-    ]
-    if self_corrections:
-        lines.append("SELF-CORRECTION LOG")
-        lines.append("-" * 40)
-        for sc in self_corrections:
-            d = sc.get("data", {})
-            cb = d.get("confidence_before", 0)
-            ca = d.get("confidence_after", 0)
-            promoted = ""
-            if ca > cb and ((cb < 60 and ca >= 60) or (cb < 100 and ca == 100)):
-                promoted = " [PROMOTED]"
-            
-            lines.append(f"[{sc['timestamp']}] Iteration {sc.get('iteration', 'N/A')}: {d.get('finding_id')}{promoted}")
-            lines.append(f"  Hypothesis: {d.get('hypothesis', 'N/A')} (Confidence: {cb}%)")
-            lines.append(f"  Trigger:    {d.get('reasoning', 'N/A')}")
-            lines.append(f"  Result:     Updated confidence to {ca}%")
+    # Self-correction analysis section
+    meaningful_self_corrections = results.get("meaningful_self_corrections", [])
+    lines.append("SELF-CORRECTION ANALYSIS")
+    lines.append("-" * 40)
+    lines.append(f"Meaningful self-corrections: {len(meaningful_self_corrections)}")
+    if meaningful_self_corrections:
+        for sc in meaningful_self_corrections:
+            lines.append(f"Finding ID: {sc.get('Finding ID', 'N/A')}")
+            lines.append("Original Belief:")
+            lines.append(f"  {sc.get('Original Belief', 'N/A')}")
+            lines.append("Trigger:")
+            lines.append(f"  {sc.get('Trigger', 'N/A')}")
+            lines.append("Updated Belief:")
+            lines.append(f"  {sc.get('Updated Belief', 'N/A')}")
+            lines.append("Outcome:")
+            lines.append(f"  {sc.get('Outcome', 'N/A')}")
             lines.append("")
+    else:
+        lines.append("No reasoning-changing self-corrections were identified; confidence-only recalculations were excluded.")
         lines.append("")
 
     # Analyst reasoning section  
@@ -494,6 +508,25 @@ def generate_report(results_path: str, output_path: str):
     lines.append("Timeline reconstructed from MCP artifact analysis across email, filesystem, and document sources.")
     lines.append("")
     
+    # PRIORITY 8 — INVESTIGATION QUALITY AUDIT
+    quality_audit = results.get("investigation_quality_audit")
+    if quality_audit:
+        lines.append("FORMULA-BASED QUALITY AUDIT")
+        lines.append("-" * 40)
+        for key, val in quality_audit.items():
+            lines.append(f"{key}:")
+            if isinstance(val, dict):
+                lines.append(f"  Formula: {val.get('Formula')}")
+                inputs = val.get("Inputs", {})
+                lines.append("  Inputs:")
+                for input_key, input_val in inputs.items():
+                    lines.append(f"    {input_key} = {input_val}")
+                lines.append(f"  Result: {val.get('Result')}")
+            else:
+                lines.append(f"  Result: {val}")
+            lines.append("")
+        lines.append("")
+
     lines.append("="*70)
     lines.append("END OF REPORT")
     lines.append("="*70)
