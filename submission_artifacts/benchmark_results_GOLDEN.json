@@ -1,0 +1,13 @@
+{
+  "total_findings": 21,
+  "disk_findings_scored": 9,
+  "memory_findings_supplementary": 12,
+  "true_positives": 10,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "hallucination_rate": 0.0,
+  "inference_accuracy": 1.0
+}

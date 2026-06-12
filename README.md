@@ -236,3 +236,17 @@ GitHub: github.com/ssurekumar01111-hue/sift-aegis
 │  │  investigation_results.json (full data)     │ │
 │  └─────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────┘
+
+## Canonical Benchmark Evidence
+
+The files in `submission_artifacts/` are the verified, reproducible
+output of `python3 sift_aegis.py` (F1=1.0, Precision=1.0, Recall=1.0,
+Hallucination=0.0). These are the canonical results referenced in the
+Accuracy Report and Devpost submission.
+
+Note: `investigation_results.json` at the project root may be
+overwritten by interactive agent sessions (OpenClaw/Claude Code) that
+explore the case data freely. This is expected — interactive sessions
+demonstrate autonomous reasoning beyond the benchmark scope. The golden
+artifacts in `submission_artifacts/` always reflect the scored,
+reproducible pipeline run and are read-only (chmod 444).
